@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "x4AVOa+oRHaVHsiVYsfqYuYcv3dZg+hlEZB3pj4OMk4=",
+  "Source": "HireSphereApi",
+  "BasePath": "_content/HireSphereApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,6 @@
+@HireSphereApi_HostAddress = http://localhost:5071
+
+GET {{HireSphereApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
