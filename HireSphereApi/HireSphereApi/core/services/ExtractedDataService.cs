@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using HireSphereApi.api.Models;
 using HireSphereApi.core.DTO;
+using HireSphereApi.core.DTOs;
 
 public class ExtractedDataService : IExtractedDataService
 {
@@ -38,7 +39,7 @@ public class ExtractedDataService : IExtractedDataService
         await _context.SaveChangesAsync();
         return _mapper.Map<ExtractedDataDto>(dataEntity);
     }
-
+    //לא צריך כי אין לקליינט אפשרות לעדבן 
     public async Task<bool> UpdateData(int id, ExtractedDataPostModel updatedData)
     {
         var existingData = await _context.ExtractedData.FindAsync(id);
@@ -61,12 +62,12 @@ public class ExtractedDataService : IExtractedDataService
         return true;
     }
 
-    public async Task<List<ExtractedDataDto>> IExtractedDataService.GetFilteredReports(AIResponse filterParams)
+    public async Task<List<ExtractedDataDto>> GetFilteredReports(ExtractedDataPostModel filterParams)
     {
         var query = _context.ExtractedData.AsQueryable();
 
         // ✅ Return all reports if no filter is provided
-        if (string.IsNullOrWhiteSpace(filterParams.Title) &&
+        if (
             string.IsNullOrWhiteSpace(filterParams.Description) &&
             !filterParams.Experience.HasValue &&
             string.IsNullOrWhiteSpace(filterParams.WorkPlace) &&
@@ -74,27 +75,29 @@ public class ExtractedDataService : IExtractedDataService
             !filterParams.RemoteWork.HasValue &&
             string.IsNullOrWhiteSpace(filterParams.EnglishLevel))
         {
-            return await query.ToListAsync();
+            return _mapper.Map<IEnumerable<ExtractedDataDto>>(query).ToList();
+
         }
 
         // Filtering logic
-        if (!string.IsNullOrWhiteSpace(filterParams.Title))
-            query = query.Where(r => r.Title.Contains(filterParams.Title));
 
         if (!string.IsNullOrWhiteSpace(filterParams.Description))
-            query = query.Where(r => r.Description.Contains(filterParams.Description));
+            query = query.Where(r => r.Response.Description.Contains(filterParams.Description));
+
+        if (!string.IsNullOrWhiteSpace(filterParams.Description))
+            query = query.Where(r => r.Response.Links.Contains(filterParams.Description));
 
         if (filterParams.Experience.HasValue)
-            query = query.Where(r => r.Experience == filterParams.Experience.Value);
+            query = query.Where(r => r.Response.Experience == filterParams.Experience.Value);
 
         if (!string.IsNullOrWhiteSpace(filterParams.WorkPlace))
-            query = query.Where(r => r.WorkPlace == filterParams.WorkPlace);
+            query = query.Where(r => r.Response.WorkPlace == filterParams.WorkPlace);
 
         if (!string.IsNullOrWhiteSpace(filterParams.EnglishLevel))
-            query = query.Where(r => r.EnglishLevel == filterParams.EnglishLevel);
+            query = query.Where(r => r.Response.EnglishLevel == filterParams.EnglishLevel);
 
         if (filterParams.RemoteWork.HasValue)
-            query = query.Where(r => r.RemoteWork == filterParams.RemoteWork.Value);
+            query = query.Where(r => r.Response.RemoteWork == filterParams.RemoteWork.Value);
 
         // ✅ Filtering for multiple languages
         if (!string.IsNullOrWhiteSpace(filterParams.Languages))
@@ -102,10 +105,9 @@ public class ExtractedDataService : IExtractedDataService
             var languagesArray = filterParams.Languages.Split(',')
                 .Select(l => l.Trim())
                 .ToList();
-            query = query.Where(r => languagesArray.Any(lang => r.Languages.Contains(lang)));
+            query = query.Where(r => languagesArray.Any(lang => r.Response.Languages.Contains(lang)));
         }
-
-        return await query.ToListAsync();
+        return _mapper.Map<IEnumerable<ExtractedDataDto>>(query).ToList();
     }
 }
 

@@ -20,6 +20,8 @@ namespace HireSphereApi.core
 
             CreateMap<FileEntity,FilesPostModel>().ReverseMap();
             CreateMap<FileEntity, FileDto>().ReverseMap();
+
+            CreateMap<ExtractedDataDto, ExtractedDataEntity>().ReverseMap();
         }
     }
 }

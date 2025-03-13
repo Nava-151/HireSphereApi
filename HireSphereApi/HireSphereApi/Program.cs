@@ -77,6 +77,12 @@ builder.Services.AddAuthentication(options =>
 
 
 var app = builder.Build();
+app.UseStaticFiles(new StaticFileOptions
+{
+    ServeUnknownFileTypes = true // מנסה לשרת קבצים גם אם סוגם לא מזוהה
+});
+
+
 
 app.UseCors(builder =>
 {
@@ -85,14 +91,16 @@ app.UseCors(builder =>
            .AllowAnyHeader();
 });
 
+
+
 // שימוש ב-Swagger במצב פיתוח בלבד
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
+
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "HireSphere API v1");
-        c.RoutePrefix = string.Empty; // הופך את ה-UI לדף הראשי
 
     });
 
@@ -101,12 +109,14 @@ if (app.Environment.IsDevelopment())
 
 
 // Add services to the container.
-builder.Services.AddOpenApi();
+//builder.Services.AddOpenApi();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
+app.UseDefaultFiles(); // Enables serving default files (index.html)
+app.UseStaticFiles();  // Enables serving static files (CSS, JS, etc.)
 
 
 

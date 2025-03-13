@@ -144,4 +144,6 @@ C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\obj\Debug\net9.0\HireSphereApi.sourcelink.json
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\HireSphereApi.staticwebassets.runtime.json
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

@@ -153,6 +153,28 @@
     ]
   },
   {
+    "ContainingType": "HireSphereApi.EndPoints.ExtractedDataEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapExtractedDataEndPoints\u003Eb__0_4",
+    "RelativePath": "data/filter",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filterParams",
+        "Type": "HireSphereApi.core.entities.AIResponse",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "HireSphereApi.EndPoints.FileEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapFileEndpoints\u003Eb__0_0",
     "RelativePath": "fiels/",

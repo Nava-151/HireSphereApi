@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HireSphereApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250311165947_firstMigration")]
-    partial class firstMigration
+    [Migration("20250313100004_updateExtractedData")]
+    partial class updateExtractedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,40 @@ namespace HireSphereApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+
+            modelBuilder.Entity("HireSphereApi.core.entities.AIResponse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("EnglishLevel")
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("Experience")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Languages")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Links")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool?>("RemoteWork")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("WorkPlace")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AIResponse");
+                });
 
             modelBuilder.Entity("HireSphereApi.core.entities.ExtractedDataEntity", b =>
                 {
@@ -39,27 +73,12 @@ namespace HireSphereApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Education")
+                    b.Property<string>("FileKey")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<decimal>("Experience")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<string>("Links")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("PreviousWorkplaces")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ProgrammingLanguages")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Technologies")
-                        .HasColumnType("longtext");
+                    b.Property<int>("IdResponse")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
@@ -67,6 +86,8 @@ namespace HireSphereApi.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CandidateId");
+
+                    b.HasIndex("IdResponse");
 
                     b.ToTable("ExtractedData");
                 });
@@ -160,6 +181,14 @@ namespace HireSphereApi.Migrations
                         .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("HireSphereApi.core.entities.AIResponse", "Response")
+                        .WithMany()
+                        .HasForeignKey("IdResponse")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Response");
 
                     b.Navigation("candidate");
                 });
