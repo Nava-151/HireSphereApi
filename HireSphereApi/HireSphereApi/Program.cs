@@ -11,12 +11,8 @@ using System.Text;
 using HireSphereApi.EndPoints;
 using Amazon.S3;
 using HireSphereApi.core.Services;
-//using Amazon.S3;
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Services.AddAWSService<IAmazonS3>();
-
-// Register FileService
 
 builder.Services.AddCors();
 builder.Services.AddScoped<IFileService, FileService>();
@@ -103,9 +99,6 @@ app.UseCors(builder =>
 
 
 
-// שימוש ב-Swagger במצב פיתוח בלבד
-if (app.Environment.IsDevelopment())
-{
     app.UseSwagger();
 
     app.UseSwaggerUI(c =>
@@ -114,7 +107,6 @@ if (app.Environment.IsDevelopment())
 
     });
 
-}
 
 
 
@@ -129,7 +121,7 @@ app.UseDefaultFiles(); // Enables serving default files (index.html)
 app.UseStaticFiles();  // Enables serving static files (CSS, JS, etc.)
 
 
-
+app.MapGet("/", () => "Hello World!");
 
 FileEndpoints.MapFileEndpoints(app);
 UserEndpoints.MapUserEndPoints(app);
