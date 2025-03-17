@@ -62,17 +62,14 @@ public class ExtractedDataService : IExtractedDataService
         return true;
     }
 
-    public async Task<List<ExtractedDataDto>> GetFilteredReports(ExtractedDataPostModel filterParams)
+    public async Task<List<ExtractedDataDto>> GetFilteredReports(AIResponse filterParams)
     {
         var query = _context.ExtractedData.AsQueryable();
 
         // ✅ Return all reports if no filter is provided
         if (
-            string.IsNullOrWhiteSpace(filterParams.Description) &&
             !filterParams.Experience.HasValue &&
-            string.IsNullOrWhiteSpace(filterParams.WorkPlace) &&
             string.IsNullOrWhiteSpace(filterParams.Languages) &&
-            !filterParams.RemoteWork.HasValue &&
             string.IsNullOrWhiteSpace(filterParams.EnglishLevel))
         {
             return _mapper.Map<IEnumerable<ExtractedDataDto>>(query).ToList();
@@ -81,25 +78,18 @@ public class ExtractedDataService : IExtractedDataService
 
         // Filtering logic
 
-        if (!string.IsNullOrWhiteSpace(filterParams.Description))
-            query = query.Where(r => r.Response.Description.Contains(filterParams.Description));
+        if (!string.IsNullOrWhiteSpace(filterParams.Education))
+            query = query.Where(r => r.Response.Education.Contains(filterParams.Education));
 
-        if (!string.IsNullOrWhiteSpace(filterParams.Description))
-            query = query.Where(r => r.Response.Links.Contains(filterParams.Description));
 
         if (filterParams.Experience.HasValue)
             query = query.Where(r => r.Response.Experience == filterParams.Experience.Value);
 
-        if (!string.IsNullOrWhiteSpace(filterParams.WorkPlace))
-            query = query.Where(r => r.Response.WorkPlace == filterParams.WorkPlace);
 
         if (!string.IsNullOrWhiteSpace(filterParams.EnglishLevel))
             query = query.Where(r => r.Response.EnglishLevel == filterParams.EnglishLevel);
 
-        if (filterParams.RemoteWork.HasValue)
-            query = query.Where(r => r.Response.RemoteWork == filterParams.RemoteWork.Value);
 
-        // ✅ Filtering for multiple languages
         if (!string.IsNullOrWhiteSpace(filterParams.Languages))
         {
             var languagesArray = filterParams.Languages.Split(',')
@@ -109,5 +99,7 @@ public class ExtractedDataService : IExtractedDataService
         }
         return _mapper.Map<IEnumerable<ExtractedDataDto>>(query).ToList();
     }
+
+ 
 }
 

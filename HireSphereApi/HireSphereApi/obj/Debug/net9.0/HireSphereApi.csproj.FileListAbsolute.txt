@@ -147,3 +147,6 @@ C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\obj\Debug\net9.0\HireSphereApi.sourcelink.json
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\HireSphereApi.staticwebassets.runtime.json
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\AWSSDK.Core.dll
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\AWSSDK.S3.dll
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\AWSSDK.Extensions.NETCore.Setup.dll

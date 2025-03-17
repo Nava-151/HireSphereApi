@@ -1,4 +1,8 @@
-﻿using HireSphereApi.entities;
+﻿using Amazon.S3;
+using Amazon.S3.Model;
+using HireSphereApi.core.entities;
+using HireSphereApi.Data;
+using HireSphereApi.entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HireSphereApi.EndPoints
@@ -8,7 +12,7 @@ namespace HireSphereApi.EndPoints
         public static void MapFileEndpoints(WebApplication app)
         {
 
-            var fileRoute = app.MapGroup("/fiels");
+            var fileRoute = app.MapGroup("/files");
 
 
             fileRoute.MapGet("", async (IFileService fileService) =>
@@ -27,21 +31,31 @@ namespace HireSphereApi.EndPoints
                 return Results.Ok(file);
             });
 
-            fileRoute.MapPost("", async ([FromBody] FilesPostModel file, IFileService fileService) =>
+
+
+            app.MapDelete("/{fileId}", async (int fileId,int ownerId, DataContext context, IFileService fileService) =>
             {
-                var uploadedFile = await fileService.UploadFile(file);
-                return Results.Created($"/api/files/{uploadedFile.Id}", uploadedFile);
+                bool deleted = await fileService.DeleteFile(fileId,ownerId);
+                return deleted ? Results.Ok("File marked as deleted") : Results.NotFound("File not found");
             });
 
-            fileRoute.MapDelete("/{id}", async (int id, IFileService fileService) =>
+
+            //for dowloading the file cjeck how i will have the fileKey
+            app.MapGet("/get-url", (string fileKey, IFileService fileService) =>
             {
-                var isDeleted = await fileService.DeleteFile(id);
-                if (!isDeleted)
-                {
-                    return Results.NotFound("File not found");
-                }
-                return Results.Ok("File deleted successfully");
+                var url = fileService.GetPresignedUrl(fileKey);
+                return Results.Ok(new { url });
             });
+
+
+            app.MapPost("/upload", async ([FromBody]FileEntity file, IFileService fileService) =>
+            {
+                var savedFile = await fileService.UploadFile(file);
+                return Results.Ok(savedFile);
+            });
+
+
+
         }
     }
 }

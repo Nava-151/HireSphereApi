@@ -50,6 +50,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AWSSDK.Extensions.NETCore.Setup": {
+              "target": "Package",
+              "version": "[4.0.0-preview.10, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[4.0.0-preview.10, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[14.0.0, )"

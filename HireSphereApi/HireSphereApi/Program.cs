@@ -9,10 +9,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using HireSphereApi.EndPoints;
-
+using Amazon.S3;
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAWSService<IAmazonS3>();
 
+// Register FileService
 
 builder.Services.AddCors();
 builder.Services.AddScoped<IFileService, FileService>();

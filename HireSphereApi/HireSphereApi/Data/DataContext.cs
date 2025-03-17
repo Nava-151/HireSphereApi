@@ -1,4 +1,5 @@
-﻿using HireSphereApi.core.entities;
+﻿using HireSphereApi.core.DTO;
+using HireSphereApi.core.entities;
 using HireSphereApi.entities;
 using Microsoft.EntityFrameworkCore;
 
