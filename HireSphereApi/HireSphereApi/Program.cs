@@ -52,16 +52,23 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-var connectionString = "Server=bzsuhfwgtlmuuks7ytww-mysql.services.clever-cloud.com;Port=3306;Database=bzsuhfwgtlmuuks7ytww;User=utcyh1t7uh9cxu6p;Password=0MUGD2nu8XUTwjPPiZDI;";
+//var connectionString = "Server=bzsuhfwgtlmuuks7ytww-mysql.services.clever-cloud.com;Port=3306;Database=bzsuhfwgtlmuuks7ytww;User=utcyh1t7uh9cxu6p;Password=0MUGD2nu8XUTwjPPiZDI;";
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthorization();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+//builder.Services.AddDbContext<DataContext>(options =>
+//    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+
 builder.Services.Configure<JsonOptions>(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
 });
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
