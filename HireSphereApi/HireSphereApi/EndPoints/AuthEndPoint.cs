@@ -1,32 +1,6 @@
 ﻿//using HireSphereApi.api;
 
-//namespace HireSphereApi.EndPoints
-//{
-//    public class AuthEndPoint
-//    {
-//        private readonly IConfiguration _configuration;
 
-//        public AuthEndPoint(IConfiguration configuration)
-//        {
-//            _configuration = configuration;
-//        }
-//        public void MapUserEndPoints(WebApplication app)
-//        {
-//            var authRoute = app.MapGroup("/users");
-
-//            authRoute.MapPost("/login", async (LoginUser loginUser, IUserService userService) =>
-//                     {
-
-//                         var user = await userService.GetUserByEmail(loginUser);
-//                         if (user == null)
-//                         {
-//                             return Results.NotFound("User not found");
-//                         }
-//                         return Results.Ok(user);
-//                     });
-//        }
-//    }
-//}
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Text.Json;
@@ -43,21 +17,22 @@ namespace HireSphereApi.EndPoints
         {
             var authRoute = app.MapGroup("/auth");
 
-            authRoute.MapPost("/login", async (LoginUser loginUser, IUserService userService, IConfiguration configuration) =>
+            authRoute.MapPost("/login", async ([FromBody]LoginUser loginUser, IUserService userService, IConfiguration configuration) =>
             {
+
                 var user = await userService.GetUserByEmail(loginUser);
                 if (user == null)
                 {
                     return Results.NotFound("User not found");
                 }
-
                 var tokenString = GenerateJwtToken(configuration);
 
-                return Results.Ok(new { Token = tokenString });
+                return Results.Ok(new { Token = tokenString ,Id=user.Id});
             });
             authRoute.MapPost("/register", async ([FromBody] UserPostModel user, IUserService userService) =>
             {
                 Console.WriteLine($"Received JSON: {JsonSerializer.Serialize(user)}");
+               user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
                 var createdUser = await userService.CreateUser(user);
                 return Results.Created($"/api/users/{createdUser.Id}", createdUser);
             });

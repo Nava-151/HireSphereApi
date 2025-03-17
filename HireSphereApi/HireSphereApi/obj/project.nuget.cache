@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fopFJWo4SiE=",
+  "dgSpecHash": "ed4xJ5KjSe4=",
   "success": true,
   "projectFilePath": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\HireSphereApi.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.net.compilers.toolset\\4.13.0\\microsoft.net.compilers.toolset.4.13.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.201\\microsoft.net.sdk.compilers.toolset.9.0.201.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.openapi\\1.6.22\\microsoft.openapi.1.6.22.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\mysqlconnector\\2.4.0\\mysqlconnector.2.4.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\openai\\2.2.0-beta.2\\openai.2.2.0-beta.2.nupkg.sha512",

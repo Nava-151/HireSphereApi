@@ -384,10 +384,6 @@
             "type": "string",
             "nullable": true
           },
-          "candidateId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "technologies": {
             "type": "string",
             "nullable": true
@@ -407,6 +403,18 @@
           "programmingLanguages": {
             "type": "string",
             "nullable": true
+          },
+          "candidateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fileKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "idResponse": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

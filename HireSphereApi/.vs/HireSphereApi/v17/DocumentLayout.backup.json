@@ -3,60 +3,96 @@
   "WorkspaceRootPath": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\service\\iservice\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\service\\iservice\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\authendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\endpoints\\authendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\fileendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\endpoints\\fileendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\extracteddataendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\endpoints\\extracteddataendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\service\\iservice\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\service\\iservice\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\extracteddataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\extracteddataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\extracteddataentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\extracteddataentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Migrations\\20250316155006_k.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HireSphereApi\\Migrations\\20250316155006_k.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\fileentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\fileentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\projectanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\projectanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\dtos\\extracteddatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\dtos\\extracteddatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\service\\iservice\\iextracteddataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\service\\iservice\\iextracteddataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\extracteddataentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\extracteddataentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\extracteddataendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\endpoints\\extracteddataendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\fileentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\fileentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\aiendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\endpoints\\aiendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\airesponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\airesponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\projectanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\projectanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\endpoints\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\api\\models\\extracteddatapostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\api\\models\\extracteddatapostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\service\\iservice\\iextracteddataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\service\\iservice\\iextracteddataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\service\\iservice\\iaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\service\\iservice\\iaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\extracteddataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\extracteddataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\dtos\\airesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,36 +107,8 @@
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\dtos\\filedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\authendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\endpoints\\authendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\service\\iservice\\iaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\service\\iservice\\iaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\endpoints\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\api\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\api\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\api\\models\\extracteddatapostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\api\\models\\extracteddatapostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\api\\models\\userpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -131,14 +139,6 @@
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -152,6 +152,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\hiresphereapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\hiresphereapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\migrations\\20250316155006_k.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\migrations\\20250316155006_k.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -161,101 +165,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FileEndpoints.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\FileEndpoints.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\FileEndpoints.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\FileEndpoints.cs*",
-              "RelativeToolTip": "HireSphereApi\\EndPoints\\FileEndpoints.cs*",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCsAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:54:12.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ExtractedDataEntity.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\ExtractedDataEntity.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\core\\entities\\ExtractedDataEntity.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\ExtractedDataEntity.cs",
-              "RelativeToolTip": "HireSphereApi\\core\\entities\\ExtractedDataEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T21:36:02.199Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ExtractedDataService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\ExtractedDataService.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\ExtractedDataService.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\ExtractedDataService.cs",
-              "RelativeToolTip": "HireSphereApi\\core\\services\\ExtractedDataService.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAQwEAAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T21:58:24.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ExtractedDataEndpoints.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\ExtractedDataEndpoints.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\ExtractedDataEndpoints.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\ExtractedDataEndpoints.cs",
-              "RelativeToolTip": "HireSphereApi\\EndPoints\\ExtractedDataEndpoints.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwC8AAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:55:12.251Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "IFileService.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IFileService.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\Service\\Iservice\\IFileService.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IFileService.cs*",
-              "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IFileService.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAxAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IFileService.cs",
+              "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IFileService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T09:32:08.228Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "FileService.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\FileService.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\FileService.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\FileService.cs*",
-              "RelativeToolTip": "HireSphereApi\\core\\services\\FileService.cs*",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwEYAAAA9AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\FileService.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\services\\FileService.cs",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAswHwAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T21:57:49.253Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "20250316155006_k.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Migrations\\20250316155006_k.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\Migrations\\20250316155006_k.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Migrations\\20250316155006_k.cs",
-              "RelativeToolTip": "HireSphereApi\\Migrations\\20250316155006_k.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T15:50:06.492Z",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\appsettings.json",
+              "RelativeDocumentMoniker": "HireSphereApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\appsettings.json",
+              "RelativeToolTip": "HireSphereApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-11T16:14:40.818Z",
               "EditorCaption": ""
             },
             {
@@ -268,92 +216,276 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FileEndpoints.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\FileEndpoints.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\FileEndpoints.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\FileEndpoints.cs",
+              "RelativeToolTip": "HireSphereApi\\EndPoints\\FileEndpoints.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAYwDUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:54:12.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthEndPoint.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\AuthEndPoint.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\AuthEndPoint.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\AuthEndPoint.cs",
+              "RelativeToolTip": "HireSphereApi\\EndPoints\\AuthEndPoint.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwBMAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T20:01:38.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IUserService.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\Service\\Iservice\\IUserService.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IUserService.cs",
+              "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T09:31:53.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\UserService.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\UserService.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\UserService.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\services\\UserService.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowEoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T21:57:14.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "AIService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\AIService.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\AIService.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\AIService.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\services\\AIService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T12:56:40.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Program.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\Program.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Program.cs",
+              "RelativeToolTip": "HireSphereApi\\Program.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAABIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T21:28:24.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ExtractedDataDto.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\ExtractedDataDto.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\core\\DTOs\\ExtractedDataDto.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\ExtractedDataDto.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\DTOs\\ExtractedDataDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T19:35:39.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ExtractedDataEntity.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\ExtractedDataEntity.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\core\\entities\\ExtractedDataEntity.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\ExtractedDataEntity.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\entities\\ExtractedDataEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T21:36:02.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ExtractedDataEndpoints.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\ExtractedDataEndpoints.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\ExtractedDataEndpoints.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\ExtractedDataEndpoints.cs",
+              "RelativeToolTip": "HireSphereApi\\EndPoints\\ExtractedDataEndpoints.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBwAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:55:12.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Data\\DataContext.cs",
+              "RelativeToolTip": "HireSphereApi\\Data\\DataContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T09:49:16.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "FileEntity.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\FileEntity.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\entities\\FileEntity.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\FileEntity.cs",
               "RelativeToolTip": "HireSphereApi\\core\\entities\\FileEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T14:38:09.415Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DataContext.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Data\\DataContext.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\Data\\DataContext.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Data\\DataContext.cs",
-              "RelativeToolTip": "HireSphereApi\\Data\\DataContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T09:49:16.438Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProjectAnalysisResult.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\ProjectAnalysisResult.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\core\\entities\\ProjectAnalysisResult.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\ProjectAnalysisResult.cs",
-              "RelativeToolTip": "HireSphereApi\\core\\entities\\ProjectAnalysisResult.cs",
+              "DocumentIndex": 14,
+              "Title": "AiEndPoint.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\AiEndPoint.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\AiEndPoint.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\AiEndPoint.cs",
+              "RelativeToolTip": "HireSphereApi\\EndPoints\\AiEndPoint.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T12:57:21.737Z"
+              "WhenOpened": "2025-03-17T14:47:14.498Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserEntity.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\UserEntity.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\core\\entities\\UserEntity.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\UserEntity.cs",
-              "RelativeToolTip": "HireSphereApi\\core\\entities\\UserEntity.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA7wBsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "ExtractedDataPostModel.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\api\\Models\\ExtractedDataPostModel.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\api\\Models\\ExtractedDataPostModel.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\api\\Models\\ExtractedDataPostModel.cs",
+              "RelativeToolTip": "HireSphereApi\\api\\Models\\ExtractedDataPostModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T21:33:50.121Z"
+              "WhenOpened": "2025-03-11T14:49:02.492Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ExtractedDataDto.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\ExtractedDataDto.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\core\\DTOs\\ExtractedDataDto.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\ExtractedDataDto.cs",
-              "RelativeToolTip": "HireSphereApi\\core\\DTOs\\ExtractedDataDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T19:35:39.737Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IExtractedDataService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
-              "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T09:32:27.656Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "AIResponse.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\AIResponse.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\entities\\AIResponse.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\AIResponse.cs",
               "RelativeToolTip": "HireSphereApi\\core\\entities\\AIResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T12:58:09.515Z"
+              "WhenOpened": "2025-03-10T12:58:09.515Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
+              "Title": "ProjectAnalysisResult.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\ProjectAnalysisResult.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\core\\entities\\ProjectAnalysisResult.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\ProjectAnalysisResult.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\entities\\ProjectAnalysisResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T12:57:21.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserEndpoints.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\UserEndpoints.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\UserEndpoints.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\UserEndpoints.cs",
+              "RelativeToolTip": "HireSphereApi\\EndPoints\\UserEndpoints.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:54:49.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IExtractedDataService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
+              "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T09:32:27.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IAIService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IAIService.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\Service\\Iservice\\IAIService.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IAIService.cs",
+              "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IAIService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T12:55:43.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ExtractedDataService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\ExtractedDataService.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\ExtractedDataService.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\ExtractedDataService.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\services\\ExtractedDataService.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAQwEAAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T21:58:24.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "20250316155006_k.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Migrations\\20250316155006_k.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\Migrations\\20250316155006_k.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Migrations\\20250316155006_k.cs",
+              "RelativeToolTip": "HireSphereApi\\Migrations\\20250316155006_k.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T15:50:06.492Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserEntity.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\UserEntity.cs",
+              "RelativeDocumentMoniker": "HireSphereApi\\core\\entities\\UserEntity.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\entities\\UserEntity.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\entities\\UserEntity.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAkwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T21:33:50.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "AiResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\AiResponseDto.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\DTOs\\AiResponseDto.cs",
@@ -365,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "FielsPostModel.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\api\\Models\\FielsPostModel.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\api\\Models\\FielsPostModel.cs",
@@ -377,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "FileDto.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\FileDto.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\DTOs\\FileDto.cs",
@@ -389,79 +521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AIService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\AIService.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\AIService.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\AIService.cs",
-              "RelativeToolTip": "HireSphereApi\\core\\services\\AIService.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwBwAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T12:56:40.246Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AuthEndPoint.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\AuthEndPoint.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\AuthEndPoint.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\AuthEndPoint.cs",
-              "RelativeToolTip": "HireSphereApi\\EndPoints\\AuthEndPoint.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAA8wDoAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T20:01:38.696Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\UserService.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\UserService.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\UserService.cs",
-              "RelativeToolTip": "HireSphereApi\\core\\services\\UserService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwCIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T21:57:14.81Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IAIService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IAIService.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\Service\\Iservice\\IAIService.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IAIService.cs",
-              "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IAIService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T12:55:43.883Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Program.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\Program.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Program.cs",
-              "RelativeToolTip": "HireSphereApi\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T21:28:24.257Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "UserEndpoints.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\UserEndpoints.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\UserEndpoints.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\UserEndpoints.cs",
-              "RelativeToolTip": "HireSphereApi\\EndPoints\\UserEndpoints.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:54:49.012Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "LoginUser.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\api\\LoginUser.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\api\\LoginUser.cs",
@@ -473,19 +533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ExtractedDataPostModel.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\api\\Models\\ExtractedDataPostModel.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\api\\Models\\ExtractedDataPostModel.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\api\\Models\\ExtractedDataPostModel.cs",
-              "RelativeToolTip": "HireSphereApi\\api\\Models\\ExtractedDataPostModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T14:49:02.492Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "UserPostModel.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\api\\Models\\UserPostModel.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\api\\Models\\UserPostModel.cs",
@@ -497,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "20250313095239_updateExtractedData.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Migrations\\20250313095239_updateExtractedData.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\Migrations\\20250313095239_updateExtractedData.cs",
@@ -508,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "20250313100004_updateExtractedData.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Migrations\\20250313100004_updateExtractedData.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\Migrations\\20250313100004_updateExtractedData.cs",
@@ -520,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "DataContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Migrations\\DataContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\Migrations\\DataContextModelSnapshot.cs",
@@ -532,19 +580,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "MappingProfile.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\MappingProfile.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\MappingProfile.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\MappingProfile.cs",
               "RelativeToolTip": "HireSphereApi\\core\\MappingProfile.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAIBJwBcAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBZwBcAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T14:46:48.222Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "FilteredCandidtes.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\FilteredCandidtes.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\DTOs\\FilteredCandidtes.cs",
@@ -556,27 +604,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "UserDto.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\UserDto.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\DTOs\\UserDto.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\DTOs\\UserDto.cs",
               "RelativeToolTip": "HireSphereApi\\core\\DTOs\\UserDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAIBJwAYAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBZwAYAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T19:36:51.015Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\appsettings.json",
-              "RelativeDocumentMoniker": "HireSphereApi\\appsettings.json",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\appsettings.json",
-              "RelativeToolTip": "HireSphereApi\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-11T16:14:40.818Z"
             },
             {
               "$type": "Document",
@@ -589,18 +625,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-11T19:02:46.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IUserService.cs",
-              "RelativeDocumentMoniker": "HireSphereApi\\Service\\Iservice\\IUserService.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Service\\Iservice\\IUserService.cs",
-              "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T09:31:53.838Z"
             },
             {
               "$type": "Document",

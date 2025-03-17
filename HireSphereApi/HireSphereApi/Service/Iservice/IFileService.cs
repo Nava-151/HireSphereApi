@@ -6,9 +6,9 @@ public interface IFileService
 {
     Task<IEnumerable<FileDto>> GetAllFiles();
     Task<FileDto?> GetFileById(int id);
-    Task<FileDto> UploadFile(FileEntity file);
+    Task<FileEntity> UploadFileAsync(Stream fileStream, string fileName, long fileSize, int candidateId);
     Task<bool> DeleteFile(int fileId, int ownerId);
-    Task<string> GetPresignedUrl(string fileKey);
+    Task<string> GeneratePresignedUrl(string fileKey);
 
 
 }

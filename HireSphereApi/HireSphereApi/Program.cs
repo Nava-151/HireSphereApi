@@ -10,9 +10,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using HireSphereApi.EndPoints;
 using Amazon.S3;
+using HireSphereApi.core.Services;
+//using Amazon.S3;
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAWSService<IAmazonS3>();
+//builder.Services.AddAWSService<IAmazonS3>();
 
 // Register FileService
 
@@ -20,7 +22,13 @@ builder.Services.AddCors();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IExtractedDataService, ExtractedDataService>();
-//builder.Services.AddScoped<IAIService,AIService>();
+
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<AIService,AIService>();
+
+// ?? רישום Amazon S3 Client
+builder.Services.AddSingleton<IAmazonS3, AmazonS3Client>();
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
 builder.Services.AddSwaggerGen(options =>
 {

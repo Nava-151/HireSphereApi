@@ -14,7 +14,7 @@ namespace HireSphereApi.EndPoints
             {
                 var data = await extractedDataService.GetAllData();
                 return Results.Ok(data);
-            });
+            }).RequireAuthorization(); 
 
             extractedDataRoute.MapGet("/{id}", async (int id, IExtractedDataService extractedDataService) =>
             {
@@ -24,14 +24,14 @@ namespace HireSphereApi.EndPoints
                     return Results.NotFound("Data not found");
                 }
                 return Results.Ok(data);
-            });
+            }).RequireAuthorization();
 
             //i am not sure that we need this in the site
             extractedDataRoute.MapPost("", async ([FromBody] ExtractedDataPostModel extractedData, IExtractedDataService extractedDataService) =>
             {
                 var createdData = await extractedDataService.CreateData(extractedData);
                 return Results.Created($"/api/extractedData/{createdData.Id}", createdData);
-            });
+            }).RequireAuthorization(); 
 
             extractedDataRoute.MapDelete("/{id}", async (int id, IExtractedDataService extractedDataService) =>
             {
@@ -41,15 +41,15 @@ namespace HireSphereApi.EndPoints
                     return Results.NotFound("Data not found");
                 }
                 return Results.Ok("Data deleted successfully");
-            });
+            }).RequireAuthorization();
 
             extractedDataRoute.MapGet("/filter", async ([FromBody] AIResponse filterParams, IExtractedDataService extractedDataService) =>
             {
                 var filteredReports = await extractedDataService.GetFilteredReports(filterParams);
                 return Results.Ok(filteredReports);
-            });
+            }).RequireAuthorization();
 
-            
+
 
         }
     }

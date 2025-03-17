@@ -68,7 +68,7 @@ public class UserService : IUserService
     public async Task<UserDto?> GetUserByEmail(LoginUser loginU)
     {
         var user=await _context.Users.FirstOrDefaultAsync(u=>u.Email==loginU.Email);
-        if (user == null||user.PasswordHash!= loginU.PasswordHash) return null;
+        if (user == null|| !BCrypt.Net.BCrypt.Verify(loginU.PasswordHash, user.PasswordHash)) return null;
        return _mapper.Map<UserDto>(user);
     }
 }

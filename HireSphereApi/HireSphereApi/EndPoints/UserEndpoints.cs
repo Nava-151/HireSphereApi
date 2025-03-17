@@ -14,7 +14,7 @@ namespace HireSphereApi.EndPoints
             {
                 var users = await userService.GetAllUsers();
                 return Results.Ok(users);
-            });
+            }).RequireAuthorization(); ;
           
             usersRoute.MapGet("/{id}", async (int id, IUserService userService) =>
             {
@@ -25,14 +25,8 @@ namespace HireSphereApi.EndPoints
                     return Results.NotFound("User not found");
                 }
                 return Results.Ok(user);
-            });
-            //regidter
-            //usersRoute.MapPost("/register", async ([FromBody] UserPostModel user, IUserService userService) =>
-            //{
-            //    Console.WriteLine($"Received JSON: {JsonSerializer.Serialize(user)}");
-            //    var createdUser = await userService.CreateUser(user);
-            //    return Results.Created($"/api/users/{createdUser.Id}", createdUser);
-            //});
+            }).RequireAuthorization();
+         
 
             usersRoute.MapDelete("/{id}", async (int id, IUserService userService) =>
             {
@@ -42,7 +36,7 @@ namespace HireSphereApi.EndPoints
                     return Results.NotFound("User not found");
                 }
                 return Results.Ok("User deleted successfully");
-            });
+            }).RequireAuthorization();
 
             app.MapPut("/{id}", async (int id, [FromBody] UserPostModel user, IUserService userService) =>
             {
@@ -52,7 +46,7 @@ namespace HireSphereApi.EndPoints
                     return Results.NotFound("User not found");
                 }
                 return Results.Ok("User updated successfully");
-            });
+            }).RequireAuthorization();
         }
     }
 }

@@ -43,15 +43,15 @@ namespace HireSphereApi.EndPoints
             //for dowloading the file cjeck how i will have the fileKey
             app.MapGet("/get-url", (string fileKey, IFileService fileService) =>
             {
-                var url = fileService.GetPresignedUrl(fileKey);
-                return Results.Ok(new { url });
+                //var url = fileService.GetPresignedUrl(fileKey);
+                //return Results.Ok(new { url });
             });
 
 
             app.MapPost("/upload", async ([FromBody]FileEntity file, IFileService fileService) =>
             {
-                var savedFile = await fileService.UploadFile(file);
-                return Results.Ok(savedFile);
+                //var savedFile = await fileService.UploadFile(file);
+                //return Results.Ok(savedFile);
             });
 
 

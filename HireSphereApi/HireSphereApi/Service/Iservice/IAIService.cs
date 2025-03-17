@@ -4,6 +4,7 @@ namespace HireSphereApi.Service.Iservice
 {
     public interface IAIService
     {
-        Task<ProjectAnalysisResult> ParseProjectDescription(string description);
+        Task<ExtractedDataEntity?> AnalyzeAndStoreDataAsync(int candidateId, string fileKey);
+
     }
 }

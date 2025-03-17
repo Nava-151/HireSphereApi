@@ -100,6 +100,10 @@
               "target": "Package",
               "version": "[9.0.201, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )"
+            },
             "OpenAI": {
               "target": "Package",
               "version": "[2.2.0-beta.2, )"
