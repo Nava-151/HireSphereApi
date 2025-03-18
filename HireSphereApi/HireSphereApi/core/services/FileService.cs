@@ -67,6 +67,8 @@ using System.Net.Http.Json;
 using HireSphereApi.Data;
 using HireSphereApi.core.DTO;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+
 
 public class FileService : IFileService
 {
@@ -95,7 +97,8 @@ public class FileService : IFileService
         var uploadRequest = new TransferUtilityUploadRequest
         {
             InputStream = fileStream,
-            BucketName = _configuration["AWS:BucketName"], // Ensure this is correctly set in appsettings.json
+            BucketName = _configuration["AWS:BucketName"], 
+            // Ensure this is correctly set in appsettings.json
             Key = s3Key
         };
         var fileTransferUtility = new TransferUtility(_s3Client);
@@ -154,15 +157,20 @@ public class FileService : IFileService
     }
 
 
-    public async Task<string> GeneratePresignedUrl(string s3Key)
+    public async Task<string> GeneratePresignedUrl([FromBody] S3UploadRequest res)
     {
         try
         {
             var request = new GetPreSignedUrlRequest
             {
-                BucketName = _configuration["AWS:BucketName"],
-                Key = s3Key,
-                Expires = DateTime.UtcNow.AddMinutes(30),// Expiration time
+                //BucketName = _configuration["AWS:BucketName"],
+                //Key = s3Key,
+                //Expires = DateTime.UtcNow.AddMinutes(30),// Expiration time
+                //Verb = HttpVerb.PUT
+                BucketName = "hiresphere",
+                Key = res.FileName,
+                Expires = DateTime.UtcNow.AddMinutes(10),
+                ContentType = res.FileType,
                 Verb = HttpVerb.PUT
             };
 

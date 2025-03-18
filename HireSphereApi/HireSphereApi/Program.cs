@@ -15,6 +15,9 @@ using HireSphereApi.core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var awsAccessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
+var awsSecretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
+var region = Amazon.RegionEndpoint.GetBySystemName(Environment.GetEnvironmentVariable("AWS_REGION"));
 
 builder.Services.AddCors();
 builder.Services.AddScoped<IFileService, FileService>();
