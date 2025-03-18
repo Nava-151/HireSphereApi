@@ -77,7 +77,7 @@ public class FileService : IFileService
     private readonly IMapper _mapper;
 
 
-
+    //check if there is need to send access
     public FileService(DataContext context, IAmazonS3 s3Client, IConfiguration configuration, HttpClient httpClient, IMapper mapper)
     {
         _mapper = mapper;
@@ -122,10 +122,11 @@ public class FileService : IFileService
         return fileEntity;
     }
 
+
     private async Task AnalyzeAndStoreDataAsync(int candidateId, string fileKey)
     {
         // 4️⃣ Generate a pre-signed S3 URL for AI processing
-        string signedUrl = GeneratePresignedUrl(fileKey);
+        string signedUrl = await GeneratePresignedUrl(fileKey);
         if (string.IsNullOrEmpty(signedUrl))
             return;
 
@@ -152,7 +153,8 @@ public class FileService : IFileService
         await _context.SaveChangesAsync();
     }
 
-    private string GeneratePresignedUrl(string s3Key)
+
+    public async Task<string> GeneratePresignedUrl(string s3Key)
     {
         try
         {
@@ -160,7 +162,8 @@ public class FileService : IFileService
             {
                 BucketName = _configuration["AWS:BucketName"],
                 Key = s3Key,
-                Expires = DateTime.UtcNow.AddMinutes(30) // Expiration time
+                Expires = DateTime.UtcNow.AddMinutes(30),// Expiration time
+                Verb = HttpVerb.PUT
             };
 
             return _s3Client.GetPreSignedURL(request);
@@ -181,6 +184,8 @@ public class FileService : IFileService
 
         return await response.Content.ReadFromJsonAsync<AIResponse>();
     }
+
+
     public async Task<bool> DeleteFile(int fileId, int ownerId)
     {
         var file = await _context.Files
@@ -195,7 +200,6 @@ public class FileService : IFileService
         return true;
     }
 
-
     public async Task<IEnumerable<FileDto>> GetAllFiles()
     {
         var files = await _context.Files.ToListAsync();
@@ -208,13 +212,5 @@ public class FileService : IFileService
         return file != null ? _mapper.Map<FileDto>(file) : null;
     }
 
-    public Task<FileDto> UploadFileAsync(FileEntity file)
-    {
-        throw new NotImplementedException();
-    }
 
-    Task<string> IFileService.GeneratePresignedUrl(string fileKey)
-    {
-        throw new NotImplementedException();
-    }
 }
