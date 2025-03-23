@@ -5,6 +5,25 @@
     "version": "1.0"
   },
   "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/files": {
       "get": {
         "tags": [
@@ -40,7 +59,7 @@
         }
       }
     },
-    "/{fileId}": {
+    "/files/{fileId}": {
       "delete": {
         "tags": [
           "HireSphereApi"
@@ -72,14 +91,14 @@
         }
       }
     },
-    "/get-url": {
+    "/files/download": {
       "get": {
         "tags": [
           "HireSphereApi"
         ],
         "parameters": [
           {
-            "name": "fileKey",
+            "name": "fileName",
             "in": "query",
             "required": true,
             "schema": {
@@ -94,7 +113,36 @@
         }
       }
     },
-    "/upload": {
+    "/files/upload": {
+      "get": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/files/resume/analyze": {
       "post": {
         "tags": [
           "HireSphereApi"
@@ -103,40 +151,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FileEntity"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/{id}": {
-      "put": {
-        "tags": [
-          "HireSphereApi"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserPostModel"
+                "$ref": "#/components/schemas/ResumeAnalyzeRequest"
               }
             }
           },
@@ -198,6 +213,37 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPostModel"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -380,78 +426,13 @@
       "ExtractedDataPostModel": {
         "type": "object",
         "properties": {
-          "links": {
-            "type": "string",
-            "nullable": true
-          },
-          "technologies": {
-            "type": "string",
-            "nullable": true
-          },
-          "experience": {
-            "type": "number",
-            "format": "double"
-          },
-          "education": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousWorkplaces": {
-            "type": "string",
-            "nullable": true
-          },
-          "programmingLanguages": {
-            "type": "string",
-            "nullable": true
-          },
-          "candidateId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fileKey": {
-            "type": "string",
-            "nullable": true
-          },
-          "idResponse": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FileEntity": {
-        "required": [
-          "s3Key",
-          "size"
-        ],
-        "type": "object",
-        "properties": {
           "id": {
             "type": "integer",
             "format": "int32"
           },
-          "fileName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fileType": {
-            "type": "string",
-            "nullable": true
-          },
-          "size": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "s3Key": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "ownerId": {
+          "candidateId": {
             "type": "integer",
             "format": "int32"
-          },
-          "owner": {
-            "$ref": "#/components/schemas/UserEntity"
           },
           "createdAt": {
             "type": "string",
@@ -461,8 +442,13 @@
             "type": "string",
             "format": "date-time"
           },
-          "isDeleted": {
-            "type": "boolean"
+          "fileKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "idResponse": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -477,53 +463,23 @@
           "passwordHash": {
             "type": "string",
             "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
           }
         },
         "additionalProperties": false
       },
-      "UserEntity": {
-        "required": [
-          "createdAt",
-          "email",
-          "fullName",
-          "passwordHash",
-          "role",
-          "updatedAt"
-        ],
+      "ResumeAnalyzeRequest": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fullName": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string"
-          },
-          "email": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "phone": {
+          "s3Key": {
             "type": "string",
             "nullable": true
           },
-          "passwordHash": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string"
-          },
-          "role": {
-            "$ref": "#/components/schemas/UserRole"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time"
+          "userId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

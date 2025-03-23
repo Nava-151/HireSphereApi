@@ -17,7 +17,7 @@ namespace HireSphereApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("ProductVersion", "9.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -44,7 +44,7 @@ namespace HireSphereApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AIResponse");
+                    b.ToTable("AIResponses");
                 });
 
             modelBuilder.Entity("HireSphereApi.core.entities.ExtractedDataEntity", b =>

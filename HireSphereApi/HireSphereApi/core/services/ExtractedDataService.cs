@@ -83,7 +83,7 @@ public class ExtractedDataService : IExtractedDataService
 
 
         if (filterParams.Experience.HasValue)
-            query = query.Where(r => r.Response.Experience == filterParams.Experience.Value);
+            query = query.Where(r => r.Response.Experience  <= filterParams.Experience.Value);
 
 
         if (!string.IsNullOrWhiteSpace(filterParams.EnglishLevel))

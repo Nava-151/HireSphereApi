@@ -20,8 +20,9 @@ namespace HireSphereApi.EndPoints
             authRoute.MapPost("/login", async ([FromBody]LoginUser loginUser, IUserService userService, IConfiguration configuration) =>
             {
 
-                var user = await userService.GetUserByEmail(loginUser);
-                if (user == null)
+                var user = await userService.GetUserByEmail(loginUser.Email,loginUser.PasswordHash);
+                
+                if (user == null|| user.Role!=loginUser.Role)
                 {
                     return Results.NotFound("User not found");
                 }
@@ -29,13 +30,33 @@ namespace HireSphereApi.EndPoints
 
                 return Results.Ok(new { Token = tokenString ,Id=user.Id});
             });
-            authRoute.MapPost("/register", async ([FromBody] UserPostModel user, IUserService userService) =>
+
+
+           
+            authRoute.MapPost("/register",  async ([FromBody] UserPostModel user, IUserService userService,IConfiguration configuration) =>
             {
                 Console.WriteLine($"Received JSON: {JsonSerializer.Serialize(user)}");
-               user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
+
+                var u = await userService.GetUserByEmail(user.Email, user.PasswordHash);
+                if(u!=null&&u.Role==user.Role)
+                    return Results.BadRequest("user already exist");
+                    user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
+
+                // יצירת המשתמש
                 var createdUser = await userService.CreateUser(user);
-                return Results.Created($"/api/users/{createdUser.Id}", createdUser);
+
+                // יצירת ה-Token
+                var token = GenerateJwtToken(configuration);
+
+                // החזרת המשתמש + ה-Token
+                return Results.Created($"/api/users/{createdUser.Id}", new
+                {
+                    id= createdUser.Id,
+                    user = createdUser,
+                    token = token
+                });
             });
+
         }
 
         private static string GenerateJwtToken(IConfiguration configuration)

@@ -3,6 +3,8 @@ namespace HireSphereApi.core.entities
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("ExtractedData")]
     public class ExtractedDataEntity
     {
         [Key]
@@ -10,7 +12,7 @@ namespace HireSphereApi.core.entities
 
         public int CandidateId { get; set; }
         [ForeignKey(nameof(CandidateId))]
-        public UserEntity candidate { get; set; }
+        public UserEntity? candidate { get; set; }
 
         
         public DateTime CreatedAt { get; set; } // תאריך העלאה
@@ -20,7 +22,7 @@ namespace HireSphereApi.core.entities
 
         public int IdResponse { get; set; }
         [ForeignKey(nameof(IdResponse))]
-        public AIResponse Response { get; set; }
+        public AIResponse? Response { get; set; }
 
     }
 }

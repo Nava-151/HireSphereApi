@@ -89,111 +89,42 @@ public class FileService : IFileService
         _httpClient = httpClient;
     }
 
-    public async Task<FileEntity?> UploadFileAsync(Stream fileStream, string fileName, long fileSize, int candidateId)
+    public async Task<string> GeneratePresignedUrlToUpload([FromQuery] string fileName)
     {
-        string s3Key = $"uploads/{candidateId}/{Guid.NewGuid()}_{fileName}";
-
-        // 1️⃣ Upload file to S3
-        var uploadRequest = new TransferUtilityUploadRequest
+        var request = new GetPreSignedUrlRequest
         {
-            InputStream = fileStream,
-            BucketName = _configuration["AWS:BucketName"], 
-            // Ensure this is correctly set in appsettings.json
-            Key = s3Key
+            BucketName = "hiresphere",
+            Key = fileName,
+            Verb = HttpVerb.PUT,
+            Expires = DateTime.UtcNow.AddMinutes(5),
+            //ContentType = "application/pdf" // או סוג הקובץ המתאים
         };
-        var fileTransferUtility = new TransferUtility(_s3Client);
-        await fileTransferUtility.UploadAsync(uploadRequest);
-
-        // 2️⃣ Save file details in `FileEntity`
-        var fileEntity = new FileEntity
-        {
-            FileName = fileName,
-            FileType = Path.GetExtension(fileName),
-            Size = fileSize,
-            S3Key = s3Key,
-            OwnerId = candidateId,
-            CreatedAt = DateTime.UtcNow,
-            UpdatedAt = DateTime.UtcNow
-        };
-
-        _context.Files.Add(fileEntity);
-        await _context.SaveChangesAsync();
-
-        // 3️⃣ Call AI and store extracted data
-        await AnalyzeAndStoreDataAsync(candidateId, s3Key);
-
-        return fileEntity;
+        string url = _s3Client.GetPreSignedURL(request);
+        return url ;
     }
 
-
-    private async Task AnalyzeAndStoreDataAsync(int candidateId, string fileKey)
-    {
-        // 4️⃣ Generate a pre-signed S3 URL for AI processing
-        string signedUrl = await GeneratePresignedUrl(fileKey);
-        if (string.IsNullOrEmpty(signedUrl))
-            return;
-
-        // 5️⃣ Send the file to AI for analysis
-        var aiResponse = await SendS3UrlToAI(signedUrl);
-        if (aiResponse == null)
-            return;
-
-        // 6️⃣ Save AI response in `AIResponse`
-        _context.AIResponses.Add(aiResponse);
-        await _context.SaveChangesAsync();
-
-        // 7️⃣ Link extracted data with candidate and file
-        var extractedData = new ExtractedDataEntity
-        {
-            CandidateId = candidateId,
-            FileKey = fileKey,
-            IdResponse = aiResponse.Id, // Foreign key to AI response
-            CreatedAt = DateTime.UtcNow,
-            UpdatedAt = DateTime.UtcNow
-        };
-
-        _context.ExtractedData.Add(extractedData);
-        await _context.SaveChangesAsync();
-    }
-
-
-    public async Task<string> GeneratePresignedUrl([FromBody] S3UploadRequest res)
+    public async Task<Stream> DownloadFileAsync(string s3Key)
     {
         try
         {
-            var request = new GetPreSignedUrlRequest
+            var request = new GetObjectRequest
             {
-                //BucketName = _configuration["AWS:BucketName"],
-                //Key = s3Key,
-                //Expires = DateTime.UtcNow.AddMinutes(30),// Expiration time
-                //Verb = HttpVerb.PUT
                 BucketName = "hiresphere",
-                Key = res.FileName,
-                Expires = DateTime.UtcNow.AddMinutes(10),
-                ContentType = res.FileType,
-                Verb = HttpVerb.PUT
+                Key = s3Key
             };
 
-            return _s3Client.GetPreSignedURL(request);
+            using var response = await _s3Client.GetObjectAsync(request);
+            Console.WriteLine(response);
+            var memoryStream = new MemoryStream();
+            await response.ResponseStream.CopyToAsync(memoryStream);
+            memoryStream.Position = 0;
+            return memoryStream;
         }
-        catch (Exception)
+        catch
         {
-            return string.Empty;
+            return null;
         }
     }
-
-    private async Task<AIResponse?> SendS3UrlToAI(string fileUrl)
-    {
-        var requestBody = new { fileUrl = fileUrl }; // Modify if your AI API requires different input
-        var response = await _httpClient.PostAsJsonAsync("https://your-ai-api.com/analyze", requestBody);
-
-        if (!response.IsSuccessStatusCode)
-            return null;
-
-        return await response.Content.ReadFromJsonAsync<AIResponse>();
-    }
-
-
     public async Task<bool> DeleteFile(int fileId, int ownerId)
     {
         var file = await _context.Files
@@ -220,5 +151,5 @@ public class FileService : IFileService
         return file != null ? _mapper.Map<FileDto>(file) : null;
     }
 
-
+    
 }

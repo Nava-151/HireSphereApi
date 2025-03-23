@@ -14,7 +14,7 @@ namespace HireSphereApi.EndPoints
             {
                 var users = await userService.GetAllUsers();
                 return Results.Ok(users);
-            }).RequireAuthorization(); ;
+            });
           
             usersRoute.MapGet("/{id}", async (int id, IUserService userService) =>
             {
@@ -38,7 +38,7 @@ namespace HireSphereApi.EndPoints
                 return Results.Ok("User deleted successfully");
             }).RequireAuthorization();
 
-            app.MapPut("/{id}", async (int id, [FromBody] UserPostModel user, IUserService userService) =>
+            usersRoute.MapPut("/{id}", async (int id, [FromBody] UserPostModel user, IUserService userService) =>
             {
                 var isUpdated = await userService.UpdateUser(id, user);
                 if (!isUpdated)

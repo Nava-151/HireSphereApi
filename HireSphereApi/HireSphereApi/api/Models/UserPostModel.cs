@@ -13,7 +13,7 @@
 
         public string PasswordHash { get; set; }
 
-        public UserRole Role { get; set; }
+        public UserRole? Role { get; set; }
     }
 
     

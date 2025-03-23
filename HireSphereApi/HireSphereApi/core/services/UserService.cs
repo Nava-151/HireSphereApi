@@ -37,6 +37,7 @@ public class UserService : IUserService
     public async Task<UserDto> CreateUser(UserPostModel userModel)
     {
         var userEntity = _mapper.Map<UserEntity>(userModel);
+        Console.WriteLine("role "+userEntity.Role);
         _context.Users.Add(userEntity);
         Console.WriteLine($"Received JSON: {JsonSerializer.Serialize(userModel)}");
         await _context.SaveChangesAsync();
@@ -46,7 +47,10 @@ public class UserService : IUserService
     public async Task<bool> UpdateUser(int id, UserPostModel userModel)
     {
         var existingUser = await _context.Users.FindAsync(id);
+
         if (existingUser == null) return false;
+        existingUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(userModel.PasswordHash);
+
 
         _mapper.Map(userModel, existingUser);
         existingUser.UpdatedAt = DateTime.UtcNow;
@@ -64,11 +68,11 @@ public class UserService : IUserService
         await _context.SaveChangesAsync();
         return true;
     }
-
-    public async Task<UserDto?> GetUserByEmail(LoginUser loginU)
+   
+    public async Task<UserDto?> GetUserByEmail(string email,string password)
     {
-        var user=await _context.Users.FirstOrDefaultAsync(u=>u.Email==loginU.Email);
-        if (user == null|| !BCrypt.Net.BCrypt.Verify(loginU.PasswordHash, user.PasswordHash)) return null;
+        var user=await _context.Users.FirstOrDefaultAsync(u=>u.Email==email);
+        if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash)) return null;
        return _mapper.Map<UserDto>(user);
     }
 }
