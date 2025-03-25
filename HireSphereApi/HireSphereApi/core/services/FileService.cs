@@ -89,19 +89,19 @@ public class FileService : IFileService
         _httpClient = httpClient;
     }
 
-    public async Task<string> GeneratePresignedUrlToUpload([FromQuery] string fileName)
-    {
-        var request = new GetPreSignedUrlRequest
-        {
-            BucketName = "hiresphere",
-            Key = fileName,
-            Verb = HttpVerb.PUT,
-            Expires = DateTime.UtcNow.AddMinutes(5),
-            //ContentType = "application/pdf" // או סוג הקובץ המתאים
-        };
-        string url = _s3Client.GetPreSignedURL(request);
-        return url ;
-    }
+    //public async Task<string> GeneratePresignedUrlToUpload([FromQuery] string fileName)
+    //{
+    //    var request = new GetPreSignedUrlRequest
+    //    {
+    //        BucketName = "hiresphere",
+    //        Key = fileName,
+    //        Verb = HttpVerb.PUT,
+    //        Expires = DateTime.UtcNow.AddMinutes(5),
+    //        //ContentType = "application/pdf" // או סוג הקובץ המתאים
+    //    };
+    //    string url = _s3Client.GetPreSignedURL(request);
+    //    return url ;
+    //}
 
     public async Task<Stream> DownloadFileAsync(string s3Key)
     {
@@ -151,5 +151,8 @@ public class FileService : IFileService
         return file != null ? _mapper.Map<FileDto>(file) : null;
     }
 
-    
+    public Task<string> GeneratePresignedUrlToUpload(string fileName)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using HireSphereApi.core.services;
 using DotNetEnv;
 using HireSphereApi.Service.Iservice;
+using OpenAI;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,6 +41,20 @@ builder.Services.AddScoped<AIService>();
 // ?? רישום Amazon S3 Client
 builder.Services.AddSingleton<IAmazonS3, AmazonS3Client>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
+builder.Services.AddSingleton<OpenAIClient>(sp =>
+{
+    var apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+    if (string.IsNullOrEmpty(apiKey))
+    {
+        throw new InvalidOperationException("OPENAI_API_KEY environment variable is not set.");
+    }
+
+    return new OpenAIClient(apiKey);
+});
+
+builder.Services.AddScoped<AIService>(); // Register your AIService
+
 
 
 builder.Services.AddScoped<TextExtractionService>();
@@ -109,13 +124,11 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
-
 var app = builder.Build();
 app.UseStaticFiles(new StaticFileOptions
 {
     ServeUnknownFileTypes = true // מנסה לשרת קבצים גם אם סוגם לא מזוהה
 });
-
 
 
 app.UseCors(builder =>
@@ -125,8 +138,6 @@ app.UseCors(builder =>
            .AllowAnyHeader();
 });
 
-
-
 app.UseSwagger();
 
 app.UseSwaggerUI(c =>
@@ -135,12 +146,7 @@ app.UseSwaggerUI(c =>
 
 });
 
-
-
-
-
 app.UseAuthentication();
-
 app.UseAuthorization();
 
 app.UseDefaultFiles(); // Enables serving default files (index.html)

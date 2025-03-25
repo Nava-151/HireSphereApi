@@ -28,7 +28,7 @@ namespace HireSphereApi.EndPoints
                 }
                 var tokenString = GenerateJwtToken(configuration);
 
-                return Results.Ok(new { Token = tokenString ,Id=user.Id});
+                return Results.Ok(new { token = tokenString ,id=user.Id});
             });
 
 

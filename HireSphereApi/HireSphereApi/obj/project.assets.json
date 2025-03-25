@@ -1289,7 +1289,7 @@
           }
         }
       },
-      "OpenAI/2.2.0-beta.2": {
+      "OpenAI/2.2.0-beta.4": {
         "type": "package",
         "dependencies": {
           "System.ClientModel": "1.2.1",
@@ -6142,10 +6142,10 @@
         "packageIcon.png"
       ]
     },
-    "OpenAI/2.2.0-beta.2": {
-      "sha512": "qHibR3rYEHRMX/vdaL+CPVViIPx+TZfsjtWBn4nVx/f0FNwUJ6dPA4YKY/5OyQaDjtAC7n32IBNEbj+MeYAbvQ==",
+    "OpenAI/2.2.0-beta.4": {
+      "sha512": "JZ4/mlVXLaXDIZuC4Ddu0KCAA23z4Ax1AQTS26mpJRuSShjXik7DU8a3basY3ddD51W04F7jeX5eAXamKA6rHw==",
       "type": "package",
-      "path": "openai/2.2.0-beta.2",
+      "path": "openai/2.2.0-beta.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6158,7 +6158,7 @@
         "lib/net8.0/OpenAI.xml",
         "lib/netstandard2.0/OpenAI.dll",
         "lib/netstandard2.0/OpenAI.xml",
-        "openai.2.2.0-beta.2.nupkg.sha512",
+        "openai.2.2.0-beta.4.nupkg.sha512",
         "openai.nuspec"
       ]
     },
@@ -10677,7 +10677,7 @@
       "Microsoft.Net.Compilers.Toolset >= 4.13.0",
       "Microsoft.Net.Sdk.Compilers.Toolset >= 9.0.201",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.21.0",
-      "OpenAI >= 2.2.0-beta.2",
+      "OpenAI >= 2.2.0-beta.4",
       "Pomelo.EntityFrameworkCore.MySql >= 9.0.0-preview.3.efcore.9.0.0",
       "Swashbuckle.AspNetCore >= 7.3.1",
       "Swashbuckle.AspNetCore.SwaggerUI >= 7.3.1",
@@ -10804,7 +10804,7 @@
           },
           "OpenAI": {
             "target": "Package",
-            "version": "[2.2.0-beta.2, )"
+            "version": "[2.2.0-beta.4, )"
           },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",

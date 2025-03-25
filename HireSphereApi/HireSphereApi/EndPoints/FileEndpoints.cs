@@ -6,6 +6,7 @@ using HireSphereApi.core.services;
 using HireSphereApi.Data;
 using HireSphereApi.entities;
 using HireSphereApi.Service.Iservice;
+using iText.Commons.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HireSphereApi.EndPoints
@@ -42,12 +43,42 @@ namespace HireSphereApi.EndPoints
                 return deleted ? Results.Ok("File marked as deleted") : Results.NotFound("File not found");
             });
 
+
             fileRoute.MapGet("/download", async ([FromQuery] string fileName, IS3Service fileService) =>
             {
                 var url = await fileService.GeneratePresignedUrlToDownload(fileName);
-                return Results.Ok(new { url });
+                using var httpClient = new HttpClient();
+                var response = await httpClient.GetAsync(url);
 
-            }).RequireAuthorization();
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Results.Problem("Failed to fetch the file.");
+                }
+
+                var fileBytes = await response.Content.ReadAsByteArrayAsync();
+                var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
+
+                return Results.File(fileBytes, contentType, fileName);
+            });
+
+            //*****remove the // to angular no need of it
+            //fileRoute.MapGet("/download/{fileName}", async (string fileName, IS3Service yourService) =>
+            //{
+            //    var fileUrl = await yourService.GeneratePresignedUrlToDownload(fileName);
+
+            //    using var httpClient = new HttpClient();
+            //    var response = await httpClient.GetAsync(fileUrl);
+
+            //    if (!response.IsSuccessStatusCode)
+            //    {
+            //        return Results.Problem("Failed to fetch the file.");
+            //    }
+
+            //    // יצירת Stream מהתגובה
+            //    var fileStream = await response.Content.ReadAsStreamAsync();
+            //    return fileStream;
+
+            //});
 
 
             fileRoute.MapGet("/upload", async ([FromQuery] string fileName, IS3Service fileService) =>
@@ -58,45 +89,137 @@ namespace HireSphereApi.EndPoints
             }).RequireAuthorization();
 
 
+            //fileRoute.MapPost("/resume/analyze", async ([FromBody] ResumeAnalyzeRequest request, IS3Service s3Service, AIService aiService, TextExtractionService textService, DataContext db) =>
+            //{
+            //    if (string.IsNullOrEmpty(request.S3Key))
+            //        return Results.BadRequest("Invalid S3 key.");
+            //    //להעביר לפונקציה אחת משותפת
+            //    //הורדת הקובץ מ - S3
+            //    var fileUrl = await s3Service.GeneratePresignedUrlToDownload(request.S3Key);
+            //    if (fileUrl == null)
+            //        return Results.BadRequest("File not found in S3.");
+            //    using var httpClient = new HttpClient();
+            //    var response = await httpClient.GetAsync(fileUrl);
+
+            //    if (!response.IsSuccessStatusCode)
+            //    {
+            //        return Results.Problem("Failed to fetch the file.");
+            //    }
+
+            //    // יצירת Stream מהתגובה
+            //    var fileStream = await response.Content.ReadAsStreamAsync();
+            //    Console.WriteLine(fileStream.ToString());
+            //    // חילוץ טקסט מהקובץ
+            //    string extractedText = textService.ExtractTextFromFile(fileStream, request.S3Key);
+            //    Console.WriteLine(extractedText);
+            //    if (string.IsNullOrWhiteSpace(extractedText))
+            //    return Results.BadRequest("Failed to extract text from file.");
+
+
+            //    // ניתוח באמצעות GPT
+            //    var aiResponse = await aiService.AnalyzeResumeAsync(extractedText);
+
+            //    if (aiResponse == null)
+            //        return Results.StatusCode(500);
+
+            //    // שמירת תוצאות במסד הנתונים
+            //    db.AIResponses.Add(aiResponse);
+            //    await db.SaveChangesAsync();
+
+            //    var extractedData = new ExtractedDataEntity
+            //    {
+            //        CandidateId = request.UserId,
+            //        FileKey = request.S3Key,
+            //        CreatedAt = DateTime.UtcNow,
+            //        UpdatedAt = DateTime.UtcNow,
+            //        IdResponse = aiResponse.Id
+            //    };
+
+            //    db.ExtractedData.Add(extractedData);
+            //    await db.SaveChangesAsync();
+
+            //    return Results.Ok(new { extractedData.Id });
+            //}).RequireAuthorization();
             fileRoute.MapPost("/resume/analyze", async ([FromBody] ResumeAnalyzeRequest request, IS3Service s3Service, AIService aiService, TextExtractionService textService, DataContext db) =>
             {
-                if (string.IsNullOrEmpty(request.S3Key))
-                    return Results.BadRequest("Invalid S3 key.");
-
-                // הורדת הקובץ מ-S3
-                var fileStream = await s3Service.DownloadFileAsync(request.S3Key);
-                if (fileStream == null)
-                    return Results.BadRequest("File not found in S3.");
-
-                // חילוץ טקסט מהקובץ
-                string extractedText = textService.ExtractTextFromFile(fileStream, request.S3Key);
-                Console.WriteLine(extractedText);
-                if (string.IsNullOrWhiteSpace(extractedText))
-                    return Results.BadRequest("Failed to extract text from file.");
-
-                // ניתוח באמצעות GPT
-                var aiResponse = await aiService.AnalyzeResumeAsync(extractedText);
-                if (aiResponse == null)
-                    return Results.StatusCode(500);
-
-                // שמירת תוצאות במסד הנתונים
-                db.AIResponses.Add(aiResponse);
-                await db.SaveChangesAsync();
-
-                var extractedData = new ExtractedDataEntity
+                try
                 {
-                    CandidateId = request.UserId,
-                    FileKey = request.S3Key,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow,
-                    IdResponse = aiResponse.Id
-                };
+                    if (string.IsNullOrEmpty(request.S3Key))
+                        return Results.BadRequest("Invalid S3 key.");
 
-                db.ExtractedData.Add(extractedData);
-                await db.SaveChangesAsync();
+                    // הורדת הקובץ מ - S3
+                    var fileUrl = await s3Service.GeneratePresignedUrlToDownload(request.S3Key);
+                    Console.WriteLine($"Generated S3 URL: {fileUrl}");
+                    if (fileUrl == null)
+                        return Results.BadRequest("File not found in S3.");
 
-                return Results.Ok(new { extractedData.Id });
+                    using var httpClient = new HttpClient();
+                    var response = await httpClient.GetAsync(fileUrl);
+                    Console.WriteLine($"HTTP Response Status: {response.StatusCode}");
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        var errorMessage = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"Error fetching file: {errorMessage}");
+                        return Results.Problem($"Failed to fetch the file. Status Code: {response.StatusCode}, Error: {errorMessage}");
+                    }
+
+
+                    // יצירת Stream מהתגובה
+                    using var fileStream = await response.Content.ReadAsStreamAsync();
+
+                    // העתקת הזרם ל-MemoryStream כדי למנוע בעיות קריאה חוזרת
+                    using var memoryStream = new MemoryStream();
+                    await fileStream.CopyToAsync(memoryStream);
+                    memoryStream.Position = 0;
+
+                    Console.WriteLine($"File stream length: {memoryStream.Length}");
+
+                    // חילוץ טקסט מהקובץ
+                    string extractedText = textService.ExtractTextFromFile(memoryStream, request.S3Key);
+                    Console.WriteLine($"Extracted text: {extractedText}");
+                    if (string.IsNullOrWhiteSpace(extractedText))
+                        return Results.BadRequest("Failed to extract text from file.");
+
+                    // ניתוח באמצעות GPT
+                    var aiResponse = await aiService.AnalyzeResumeAsync(extractedText);
+                    if (aiResponse == null)
+                        return Results.StatusCode(500);
+
+                    Console.WriteLine("before saving  "+aiResponse.Languages);
+                    // שמירת תוצאות במסד הנתונים
+                    try
+                    {
+                        db.AIResponses.Add(aiResponse);
+                        await db.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error saving to database: " + ex.Message);
+                    }
+
+
+                    var extractedData = new ExtractedDataEntity
+                    {
+                        CandidateId = request.UserId,
+                        FileKey = request.S3Key,
+                        CreatedAt = DateTime.UtcNow,
+                        UpdatedAt = DateTime.UtcNow,
+                        IdResponse = aiResponse.Id
+                    };
+
+                    db.ExtractedData.Add(extractedData);
+                    await db.SaveChangesAsync();
+
+                    return Results.Ok(new { extractedData.Id });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    return Results.Problem($"Unexpected error: {ex.Message}");
+                }
             }).RequireAuthorization();
+
 
 
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OWflvLDozzc=",
+  "dgSpecHash": "ry1jcPODbuo=",
   "success": true,
   "projectFilePath": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\HireSphereApi.csproj",
   "expectedPackageFiles": [
@@ -66,7 +66,7 @@
     "C:\\Users\\user1\\.nuget\\packages\\mysqlconnector\\2.4.0\\mysqlconnector.2.4.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\user1\\.nuget\\packages\\openai\\2.2.0-beta.2\\openai.2.2.0-beta.2.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\openai\\2.2.0-beta.4\\openai.2.2.0-beta.4.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\9.0.0-preview.3.efcore.9.0.0\\pomelo.entityframeworkcore.mysql.9.0.0-preview.3.efcore.9.0.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
