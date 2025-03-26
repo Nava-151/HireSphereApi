@@ -5,10 +5,11 @@ namespace HireSphereApi.entities
 {
     public class FilesPostModel
     {
-        //public int Id { get; set; } 
         public string FileName { get; set; } 
         public string FileType { get; set; }
-        public int OwnerId { get; set; } // בעל הקובץ
+        public int OwnerId { get; set; } 
+        public long Size { get; set; } = 0;
+
 
     }
 }

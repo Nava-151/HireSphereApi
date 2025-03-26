@@ -15,9 +15,5 @@ namespace HireSphereApi.core.entities
         public string? Education { get; set; }
         public string? Languages { get; set; }
         public string? EnglishLevel { get; set; }
-        //    public string? ClientSideTechnologies { get; set; } // React, Angular, etc.
-        //    public string? ServerSideTechnologies { get; set; } // Node.js, C#, etc.
-        //    public string? DatabaseTechnologies { get; set; } // MySQL, PostgreSQL, etc.
-        //    public string? OtherTechnologies { get; set; } //
     }
 }

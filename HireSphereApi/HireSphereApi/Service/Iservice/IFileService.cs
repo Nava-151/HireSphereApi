@@ -5,8 +5,11 @@ using HireSphereApi.entities;
 public interface IFileService
 {
     Task<IEnumerable<FileDto>> GetAllFiles();
-    Task<FileDto?> GetFileById(int id);
-    Task<string> GeneratePresignedUrlToUpload(string fileName);
-    Task<bool> DeleteFile(int fileId, int ownerId);
+    Task<FileDto?> GetFileByOwnnerId(int  ownerId);
+    Task<IResult> AnalyzeResumeAsync(ResumeAnalyzeRequest request);
+
+    Task<bool> DeleteFile( int ownerId);
+    Task<FileDto?> AddFile(FilesPostModel file);
+
 
 }

@@ -5,8 +5,11 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HireSphereApi.core.entities;
+using HireSphereApi.Service.Iservice;
+using Newtonsoft.Json;
 using OpenAI;
-public class AIService
+using Sprache;
+public class AIService:IAIService
 {
     private readonly HttpClient _httpClient;
     private readonly string _openAiApiKey;
@@ -19,75 +22,6 @@ public class AIService
         Console.WriteLine("api key: " + _openAiApiKey);
     }
 
-
-    //public async Task<AIResponse> AnalyzeResumeAsync(string resumeText)
-    //{
-    //    var request = new
-    //    {
-    //        model = "gpt-4o-mini",
-    //        messages = new[]
-    //        {
-    //            new { role = "system", content = "You are an AI that extracts resume data." },
-    //            new { role = "user", content = $"Extract the following information: Experience, Education, Programming Languages, English Level.\n\n{resumeText}" }
-    //        },
-    //        temperature = 0.5
-    //    };
-
-    //    var requestBody = JsonSerializer.Serialize(request);
-    //    var content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-
-    //    _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {_openAiApiKey}");
-    //    //_httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
-
-    //    var response = await _httpClient.PostAsync("https://api.openai.com/v1/chat/completions", content);
-    //    var responseBody = await response.Content.ReadAsStringAsync();
-
-    //    Console.WriteLine($"HTTP Status Code: {response.StatusCode}");
-    //    Console.WriteLine($"Response Body: {responseBody}");
-    //    if (!response.IsSuccessStatusCode)
-    //        throw new Exception("AI request failed.");
-
-
-    //    //var responseBody = await response.Content.ReadAsStringAsync();
-    //    //return JsonSerializer.Deserialize<AIResponse>(responseBody.choices[0].masssege.content)!;
-    //    return JsonSerializer.Deserialize<AIResponse>(responseBody)!;
-
-    //}
-    //public async Task<AIResponse> AnalyzeResumeAsync(string resumeText)
-    //{
-    //    var request = new
-    //    {
-    //        model = "gpt-4o",
-    //        messages = new[]
-    //        {
-    //        new { role = "system", content = "You are an AI that extracts resume data and outputs JSON." },
-    //        new { role = "user", content = $"Extract the following information in JSON format: Experience, Education, Programming Languages, English Level.\n\n{resumeText}" }
-    //    },
-    //        response_format = new { type = "json_object" }, // ✔ תיקון כאן!
-    //        temperature = 0.5
-    //    };
-
-    //    var requestBody = JsonSerializer.Serialize(request);
-    //    var content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-
-    //    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _openAiApiKey);
-
-    //    var response = await _httpClient.PostAsync("https://api.openai.com/v1/chat/completions", content);
-    //    var responseBody = await response.Content.ReadAsStringAsync();
-
-    //    Console.WriteLine($"Response Body: {responseBody}");
-
-    //    if (!response.IsSuccessStatusCode)
-    //        throw new Exception("AI request failed.");
-
-    //    // פענוח JSON ישירות כי פורמט "json_object" מחזיר JSON נקי
-    //    var aiResponse = JsonSerializer.Deserialize<AIResponse>(responseBody);
-
-    //    if (aiResponse == null)
-    //        throw new Exception("Failed to deserialize AI response.");
-
-    //    return aiResponse;
-    //}
     public async Task<AIResponse> AnalyzeResumeAsync(string resumeText)
     {
         var request = new
@@ -100,7 +34,7 @@ public class AIService
             temperature = 0.5
         };
 
-        var requestBody = JsonSerializer.Serialize(request);
+        var requestBody = System.Text.Json.JsonSerializer.Serialize(request);
         var content = new StringContent(requestBody, Encoding.UTF8, "application/json");
 
         _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {_openAiApiKey}");
@@ -122,46 +56,69 @@ public class AIService
         if (string.IsNullOrEmpty(messageContent))
             throw new Exception("AI response is empty.");
 
-        Console.WriteLine("**************");
-        Console.WriteLine( messageContent);
+        Console.WriteLine("************** json");
+        Console.WriteLine(messageContent);
         Console.WriteLine("***************");
+        AIResponse devForFields = ParseAIResponse(messageContent);
 
-        // Clean up content to fit your fields
-        var aiResponse = new AIResponse();
+        Console.WriteLine($"Experience: {devForFields.Experience}");
+        Console.WriteLine();
+        Console.WriteLine($"Education: {devForFields.Education}");
+        Console.WriteLine();
+        Console.WriteLine($"Languages: {devForFields.Languages}");
+        Console.WriteLine();
+        Console.WriteLine($"English Level: {devForFields.EnglishLevel}");
 
-        // Extracting experience, education, languages, and English level from the AI's response
-        var experienceMatch = Regex.Match(messageContent, @"Experience[\s\S]*?(\[.*\])", RegexOptions.IgnoreCase);
-        if (experienceMatch.Success)
-        {
-            aiResponse.Experience = experienceMatch.Groups[1].Value.Length; // Example: storing length of experience JSON
-            Console.WriteLine("-*-*-*-*-*--*-*-*-**-*- experience");
-            Console.WriteLine(aiResponse.Experience);
-        }
 
-        var educationMatch = Regex.Match(messageContent, @"Education[\s\S]*?(\[.*\])", RegexOptions.IgnoreCase);
-        if (educationMatch.Success)
-        {
-            Console.WriteLine("-*-*-*-*-*--*-*-*-**-*- educatuin");
-            Console.WriteLine(aiResponse.Education);
-
-            //aiResponse.Education = educationMatch.Groups[1].Value; // Store education details
-        }
-
-        var languagesMatch = Regex.Match(messageContent, @"Programming_Languages[\s\S]*?(\[.*\])", RegexOptions.IgnoreCase);
-        if (languagesMatch.Success)
-        {
-            aiResponse.Languages = languagesMatch.Groups[1].Value; // Store languages as a string
-        }
-
-        var englishLevelMatch = Regex.Match(messageContent, @"English_Level[\s\S]*?(\w+)", RegexOptions.IgnoreCase);
-        if (englishLevelMatch.Success)
-        {
-            aiResponse.EnglishLevel = englishLevelMatch.Groups[1].Value; // Store English level
-        }
-
-        return aiResponse;
+        return devForFields;
     }
 
 
+    static AIResponse ParseAIResponse(string input)
+    {
+        AIResponse response = new AIResponse();
+
+        response.Experience = ExtractExperienceYears(input);
+        response.Education = ExtractField(input, "**Education:**");
+        response.Languages = ExtractField(input, "**Programming Languages:**");
+        response.EnglishLevel = ExtractField(input, "**English Level:**");
+
+        return response;
+    }
+
+    static string ExtractField(string input, string fieldName)
+    {
+        string pattern = Regex.Escape(fieldName) + @"\s*(.*?)\s*(?=\*\*|\Z)";
+        Match match = Regex.Match(input, pattern, RegexOptions.Singleline);
+        return match.Success ? match.Groups[1].Value.Trim() : null;
+    }
+    static int ExtractExperienceYears(string input)
+    {
+        string pattern = @"\((\d{4})-(\d{4})\)|\((\d{4})\)"; // תופס טווח שנים (YYYY-YYYY) או שנה בודדת (YYYY)
+        MatchCollection matches = Regex.Matches(input, pattern);
+        int totalYears = 0;
+
+        foreach (Match match in matches)
+        {
+            if (match.Groups[1].Success && match.Groups[2].Success)
+            {
+                // טווח שנים, מחשבים את ההפרש
+                int startYear = int.Parse(match.Groups[1].Value);
+                int endYear = int.Parse(match.Groups[2].Value);
+                totalYears += (endYear - startYear);
+            }
+            else if (match.Groups[3].Success)
+            {
+                // שנה בודדת (ניסיון של שנה אחת)
+                totalYears += 1;
+            }
+        }
+
+        return totalYears;
+    }
 }
 
+   
+
+
+    

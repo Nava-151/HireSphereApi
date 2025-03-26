@@ -10,23 +10,23 @@ namespace HireSphereApi.EndPoints
         public static void MapUserEndPoints(WebApplication app)
         {
             var usersRoute = app.MapGroup("/users");
+
             usersRoute.MapGet("", async (IUserService userService) =>
             {
                 var users = await userService.GetAllUsers();
                 return Results.Ok(users);
-            });
-          
+            }).RequireAuthorization();
+
             usersRoute.MapGet("/{id}", async (int id, IUserService userService) =>
             {
-
                 var user = await userService.GetUserById(id);
                 if (user == null)
                 {
-                    return Results.NotFound("User not found");
+                    return Results.NotFound(new { message = "User not found", userId = id });
                 }
                 return Results.Ok(user);
             }).RequireAuthorization();
-         
+
 
             usersRoute.MapDelete("/{id}", async (int id, IUserService userService) =>
             {
@@ -37,6 +37,7 @@ namespace HireSphereApi.EndPoints
                 }
                 return Results.Ok("User deleted successfully");
             }).RequireAuthorization();
+
 
             usersRoute.MapPut("/{id}", async (int id, [FromBody] UserPostModel user, IUserService userService) =>
             {

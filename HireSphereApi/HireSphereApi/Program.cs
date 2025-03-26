@@ -10,8 +10,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using HireSphereApi.EndPoints;
 using Amazon.S3;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.DependencyInjection;
 using HireSphereApi.core.services;
 using DotNetEnv;
 using HireSphereApi.Service.Iservice;
@@ -23,7 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
 Env.Load("keys.env");
 
 // מקבל את הערכים
-string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
+string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID") ?? throw new InvalidOperationException("AWS_ACCESS_KEY_ID is missing."); ;
 string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
 string region = Environment.GetEnvironmentVariable("AWS_REGION");
 
@@ -36,9 +34,8 @@ builder.Services.AddScoped<IS3Service,S3Service>();
 builder.Services.AddScoped<IExtractedDataService, ExtractedDataService>();
 
 builder.Services.AddHttpClient();
-builder.Services.AddScoped<AIService>();
+builder.Services.AddScoped<IAIService,AIService>();
 
-// ?? רישום Amazon S3 Client
 builder.Services.AddSingleton<IAmazonS3, AmazonS3Client>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
@@ -85,7 +82,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-var connectionString = "Server=bzsuhfwgtlmuuks7ytww-mysql.services.clever-cloud.com;Port=3306;Database=bzsuhfwgtlmuuks7ytww;User=utcyh1t7uh9cxu6p;Password=0MUGD2nu8XUTwjPPiZDI;";
+var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthorization();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
@@ -94,16 +91,14 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-
-}
-);
-
+});
 
 
 builder.Services.Configure<JsonOptions>(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
 });
+
 
 builder.Services.AddAuthentication(options =>
 {
@@ -124,10 +119,11 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+
 var app = builder.Build();
 app.UseStaticFiles(new StaticFileOptions
 {
-    ServeUnknownFileTypes = true // מנסה לשרת קבצים גם אם סוגם לא מזוהה
+    ServeUnknownFileTypes = true 
 });
 
 

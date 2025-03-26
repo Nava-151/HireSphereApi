@@ -34,6 +34,33 @@
             "description": "OK"
           }
         }
+      },
+      "post": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilesPostModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileDto"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/files/{id}": {
@@ -43,8 +70,8 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
+            "name": "OwnerId",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "integer",
@@ -59,24 +86,15 @@
         }
       }
     },
-    "/files/{fileId}": {
+    "/files/{ownerId}": {
       "delete": {
         "tags": [
           "HireSphereApi"
         ],
         "parameters": [
           {
-            "name": "fileId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
             "name": "ownerId",
-            "in": "query",
+            "in": "path",
             "required": true,
             "schema": {
               "type": "integer",
@@ -261,26 +279,6 @@
             "description": "OK"
           }
         }
-      },
-      "post": {
-        "tags": [
-          "HireSphereApi"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ExtractedDataPostModel"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       }
     },
     "/data/{id}": {
@@ -423,32 +421,54 @@
         },
         "additionalProperties": false
       },
-      "ExtractedDataPostModel": {
+      "FileDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "candidateId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "fileKey": {
+          "fileName": {
             "type": "string",
             "nullable": true
           },
-          "idResponse": {
+          "fileType": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "s3Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileContent": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownerId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilesPostModel": {
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "additionalProperties": false

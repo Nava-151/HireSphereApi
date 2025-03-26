@@ -25,14 +25,14 @@
             {
                 var request = new GetObjectRequest
                 {
-                    BucketName = _bucketName, // שם הדלי
-                    Key = s3Key // שם הקובץ ב-S3 (s3Key)
+                    BucketName = _bucketName,
+                    Key = s3Key 
                 };
 
                 using var response = await _s3Client.GetObjectAsync(request);
                 var memoryStream = new MemoryStream();
                 await response.ResponseStream.CopyToAsync(memoryStream);
-                memoryStream.Position = 0; // מחזירים את המיקום להתחלה
+                memoryStream.Position = 0; 
                 return memoryStream;
             }
             catch (Exception ex)

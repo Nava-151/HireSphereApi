@@ -4,7 +4,8 @@ namespace HireSphereApi.Service.Iservice
 {
     public interface IAIService
     {
-        Task<ExtractedDataEntity?> AnalyzeAndStoreDataAsync(int candidateId, string fileKey);
+       Task<AIResponse> AnalyzeResumeAsync(string extractedText);
+
 
     }
 }
