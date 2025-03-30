@@ -44,8 +44,9 @@ namespace HireSphereApi.EndPoints
                 if (file == null)
                     return Results.BadRequest("no file uploaded");
                 var url = await s3Service.GeneratePresignedUrlToDownload(file.FileName);
-                return url;
-            }).RequireAuthorization();
+                return Results.Ok(url);
+
+            });
 
 
             fileRoute.MapGet("/download", async ([FromQuery] string fileName, IS3Service fileService) =>

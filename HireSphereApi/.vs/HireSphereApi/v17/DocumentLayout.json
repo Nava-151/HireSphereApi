@@ -154,8 +154,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 10,
@@ -178,8 +182,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\services\\S3Service.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwCsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:24:19.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T17:24:19.33Z"
             },
             {
               "$type": "Document",
@@ -201,10 +204,22 @@
               "RelativeDocumentMoniker": "HireSphereApi\\EndPoints\\FileEndpoints.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\EndPoints\\FileEndpoints.cs",
               "RelativeToolTip": "HireSphereApi\\EndPoints\\FileEndpoints.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAqwEgAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAowC4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T14:19:23.825Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ca8cc5c7-0231-406a-95cd-aa5ed6ac0190}"
             },
             {
               "$type": "Document",
@@ -216,8 +231,7 @@
               "RelativeToolTip": "HireSphereApi\\EndPoints\\AuthEndPoint.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:27:16.181Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T17:27:16.181Z"
             },
             {
               "$type": "Document",
@@ -229,8 +243,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\services\\FileService.cs",
               "ViewState": "AgIAALkAAAAAAAAAAAAiwNwAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T20:59:35.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T20:59:35.168Z"
             },
             {
               "$type": "Document",
@@ -242,8 +255,7 @@
               "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IFileService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:32:31.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T17:32:31.888Z"
             },
             {
               "$type": "Document",
@@ -255,8 +267,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\DTOs\\FileDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:35:13.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T13:35:13.111Z"
             },
             {
               "$type": "Document",
@@ -281,22 +292,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T21:43:48.76Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{ca8cc5c7-0231-406a-95cd-aa5ed6ac0190}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Document",
