@@ -21,7 +21,7 @@ namespace HireSphereApi.EndPoints
                 return Results.Ok(files);
             }).RequireAuthorization();
 
-            //if i add a marks so change thr owner id to file name and date
+
             fileRoute.MapGet("{id}", async (int OwnerId, IFileService fileService) =>
             {
                 var file = await fileService.GetFileByOwnnerId(OwnerId);
@@ -38,12 +38,14 @@ namespace HireSphereApi.EndPoints
                 return deleted ? Results.Ok("File marked as deleted") : Results.NotFound("File not found");
             }).RequireAuthorization();
 
+
             fileRoute.MapGet("/view", async ([FromQuery] int ownerId, IS3Service s3Service, IFileService fileService) =>
             {
                 var file = await fileService.GetFileByOwnnerId(ownerId);
                 if (file == null)
                     return Results.BadRequest("no file uploaded");
                 var url = await s3Service.GeneratePresignedUrlToDownload(file.FileName);
+
                 return Results.Ok(url);
 
             });
