@@ -10,6 +10,8 @@
         public string Email { get; set; }
 
         public string Phone { get; set; }
+        public string S3Key { get; set; } 
+
 
         public string PasswordHash { get; set; }
 

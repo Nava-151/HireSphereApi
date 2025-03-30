@@ -182,6 +182,29 @@
         }
       }
     },
+    "/files/download/{fileId}": {
+      "get": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "parameters": [
+          {
+            "name": "fileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/users": {
       "get": {
         "tags": [
@@ -516,6 +539,10 @@
             "nullable": true
           },
           "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "s3Key": {
             "type": "string",
             "nullable": true
           },

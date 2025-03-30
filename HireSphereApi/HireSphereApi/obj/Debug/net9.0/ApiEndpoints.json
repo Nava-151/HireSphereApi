@@ -251,6 +251,28 @@
   },
   {
     "ContainingType": "HireSphereApi.EndPoints.FileEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapFileEndpoints\u003Eb__0_7",
+    "RelativePath": "files/download/{fileId}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HireSphereApi.EndPoints.FileEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapFileEndpoints\u003Eb__0_6",
     "RelativePath": "files/resume/analyze",
     "HttpMethod": "POST",

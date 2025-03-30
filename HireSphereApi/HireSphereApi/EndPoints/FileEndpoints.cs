@@ -3,6 +3,7 @@ using HireSphereApi.Data;
 using HireSphereApi.entities;
 using HireSphereApi.Service.Iservice;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HireSphereApi.EndPoints
 {
@@ -33,27 +34,36 @@ namespace HireSphereApi.EndPoints
 
             fileRoute.MapDelete("/{ownerId}", async (int ownerId, DataContext context, IFileService fileService) =>
             {
-                bool deleted = await fileService.DeleteFile( ownerId);
+                bool deleted = await fileService.DeleteFile(ownerId);
                 return deleted ? Results.Ok("File marked as deleted") : Results.NotFound("File not found");
+            }).RequireAuthorization();
+
+            fileRoute.MapGet("/view", async ([FromQuery] int ownerId, IS3Service s3Service, IFileService fileService) =>
+            {
+                var file = await fileService.GetFileByOwnnerId(ownerId);
+                if (file == null)
+                    return Results.BadRequest("no file uploaded");
+                var url = await s3Service.GeneratePresignedUrlToDownload(file.FileName);
+                return url;
             }).RequireAuthorization();
 
 
             fileRoute.MapGet("/download", async ([FromQuery] string fileName, IS3Service fileService) =>
+        {
+            var url = await fileService.GeneratePresignedUrlToDownload(fileName);
+            using var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode)
             {
-                var url = await fileService.GeneratePresignedUrlToDownload(fileName);
-                using var httpClient = new HttpClient();
-                var response = await httpClient.GetAsync(url);
+                return Results.Problem("Failed to fetch the file.");
+            }
 
-                if (!response.IsSuccessStatusCode)
-                {
-                    return Results.Problem("Failed to fetch the file.");
-                }
+            var fileBytes = await response.Content.ReadAsByteArrayAsync();
+            var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
 
-                var fileBytes = await response.Content.ReadAsByteArrayAsync();
-                var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
-
-                return Results.File(fileBytes, contentType, fileName);
-            }).RequireAuthorization();
+            return Results.File(fileBytes, contentType, fileName);
+        }).RequireAuthorization();
 
 
 
@@ -74,6 +84,30 @@ namespace HireSphereApi.EndPoints
             {
                 return await fileService.AnalyzeResumeAsync(request);
             }).RequireAuthorization();
+
+            //fileRoute.MapGet("/download/{fileId}", async (int fileId, DataContext context) =>
+            //{
+            //    var fileEntity = await context.Files.FindAsync(fileId);
+            //    if (fileEntity == null)
+            //    {
+            //        return Results.NotFound();
+            //    }
+
+            //    // הניתוב ב-S3
+            //    string filePath = fileEntity.S3Key;
+
+            //    // יצירת URL להורדה ישירה
+            //    var fileUrl = GenerateS3DownloadUrl(filePath);
+
+            //    return Results.Ok(new { downloadUrl = fileUrl });
+            //});
+
+            //// פונקציה ליצירת URL להורדה ישירה
+            //string GenerateS3DownloadUrl(string filePath)
+            //{
+            //    string yourBucketName = "hiresphere"; 
+            //    return $"https://s3.amazonaws.com/{yourBucketName}/{filePath}";
+            //}
 
         }
     }
