@@ -17,11 +17,7 @@ namespace HireSphereApi.Data
         public DbSet<ExtractedDataEntity> ExtractedData { get; set; }
         public DbSet<AIResponse> AIResponses { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<FileEntity>()
-                .HasQueryFilter(f => !f.IsDeleted); // מתעלם מקבצים שנמחקו רך
-        }
+       
 
     }
 }

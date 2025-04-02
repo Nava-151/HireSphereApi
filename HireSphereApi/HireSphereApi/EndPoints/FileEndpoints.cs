@@ -34,9 +34,21 @@ namespace HireSphereApi.EndPoints
 
             fileRoute.MapDelete("/{ownerId}", async (int ownerId, DataContext context, IFileService fileService) =>
             {
-                bool deleted = await fileService.DeleteFile(ownerId);
-                return deleted ? Results.Ok("File marked as deleted") : Results.NotFound("File not found");
-            }).RequireAuthorization();
+                try
+                {
+                    bool deleted = await fileService.DeleteFile(ownerId);
+                    return deleted ? Results.Ok("File deleted successfully.") : Results.Problem("File deletion failed.");
+                }
+                catch (FileNotFoundException ex)
+                {
+                    return Results.NotFound(ex.Message);
+                }
+                catch (ArgumentException ex)
+                {
+                    return Results.BadRequest(ex.Message);
+                }
+                
+            });
 
 
             fileRoute.MapGet("/view", async ([FromQuery] int ownerId, IS3Service s3Service, IFileService fileService) =>
@@ -66,7 +78,8 @@ namespace HireSphereApi.EndPoints
             var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
 
             return Results.File(fileBytes, contentType, fileName);
-        }).RequireAuthorization();
+        });
+            //.RequireAuthorization();
 
 
 

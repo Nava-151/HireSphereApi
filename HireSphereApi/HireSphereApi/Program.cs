@@ -25,16 +25,16 @@ string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID") ?? th
 string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
 string region = Environment.GetEnvironmentVariable("AWS_REGION");
 
-Console.WriteLine("accessKey "+accessKey+" secretKey "+secretKey+" region "+region);
+Console.WriteLine("accessKey " + accessKey + " secretKey " + secretKey + " region " + region);
 builder.Services.AddCors();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IS3Service,S3Service>();
+builder.Services.AddScoped<IS3Service, S3Service>();
 
 builder.Services.AddScoped<IExtractedDataService, ExtractedDataService>();
 
 builder.Services.AddHttpClient();
-builder.Services.AddScoped<IAIService,AIService>();
+builder.Services.AddScoped<IAIService, AIService>();
 
 builder.Services.AddSingleton<IAmazonS3, AmazonS3Client>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
@@ -123,7 +123,7 @@ builder.Services.AddAuthentication(options =>
 var app = builder.Build();
 app.UseStaticFiles(new StaticFileOptions
 {
-    ServeUnknownFileTypes = true 
+    ServeUnknownFileTypes = true
 });
 
 
@@ -139,7 +139,7 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "HireSphere API v1");
-    c.RoutePrefix = string.Empty; 
+    c.RoutePrefix = string.Empty;
 
 });
 
@@ -153,6 +153,7 @@ app.UseStaticFiles();  // Enables serving static files (CSS, JS, etc.)
 app.MapGet("/", () => "Hello World!");
 
 FileEndpoints.MapFileEndpoints(app);
+AiResponseEndPoint.MapAiEndPoints(app);
 UserEndpoints.MapUserEndPoints(app);
 ExtractedDataEndpoints.MapExtractedDataEndPoints(app);
 AuthEndPoint.MapAuthEndPoints(app);

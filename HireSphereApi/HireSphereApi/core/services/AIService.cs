@@ -5,23 +5,28 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HireSphereApi.core.entities;
+using HireSphereApi.Data;
 using HireSphereApi.Service.Iservice;
 using Newtonsoft.Json;
 using OpenAI;
 using Sprache;
-public class AIService:IAIService
+public class AIService : IAIService
 {
     private readonly HttpClient _httpClient;
     private readonly string _openAiApiKey;
+    private readonly DataContext _context;
 
-    public AIService(IConfiguration config, OpenAIClient openAI)
+    public AIService(IConfiguration config, OpenAIClient openAI, DataContext context)
     {
         _httpClient = new HttpClient();
         _openAiApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
-
-        Console.WriteLine("api key: " + _openAiApiKey);
+        _context = context;
     }
-
+    public async Task<AIResponse> GetAIResponse(int aiId)
+    {
+        var response = await _context.AIResponses.FindAsync(aiId);
+        return response != null ? response : null;
+    }
     public async Task<AIResponse> AnalyzeResumeAsync(string resumeText)
     {
         var request = new
@@ -116,9 +121,10 @@ public class AIService:IAIService
 
         return totalYears;
     }
+
+
 }
 
-   
 
 
-    
+

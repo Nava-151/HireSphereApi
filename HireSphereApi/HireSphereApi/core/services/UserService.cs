@@ -31,6 +31,7 @@ public class UserService : IUserService
     public async Task<UserDto?> GetUserById(int id)
     {
         var user = await _context.Users.FindAsync(id);
+        Console.WriteLine("user found: "+user);
         return user != null ? _mapper.Map<UserDto>(user) : null;
     }
 

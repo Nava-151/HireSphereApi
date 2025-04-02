@@ -14,7 +14,9 @@ namespace HireSphereApi.EndPoints
             {
                 var data = await extractedDataService.GetAllData();
                 return Results.Ok(data);
-            }).RequireAuthorization();
+            });
+
+
 
 
             extractedDataRoute.MapGet("/{id}", async (int id, IExtractedDataService extractedDataService) =>

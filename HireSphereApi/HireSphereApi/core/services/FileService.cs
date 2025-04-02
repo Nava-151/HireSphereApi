@@ -201,7 +201,7 @@ public class FileService : IFileService
     public async Task<bool> DeleteFile( int ownerId)
     {
         var file = await _context.Files
-        .FirstOrDefaultAsync(f => f.OwnerId == ownerId );
+        .FirstOrDefaultAsync(f => f.OwnerId == ownerId&& f.IsDeleted==true );
 
         if (file == null) return false; // קובץ לא נמצא או שייך למשתמש אחר
 
@@ -220,13 +220,14 @@ public class FileService : IFileService
 
     public async Task<FileDto?> GetFileByOwnnerId(int ownerId)
     {
-        var file = await _context.Files.FirstOrDefaultAsync(u => u.OwnerId == ownerId); 
+        var file = await _context.Files.FirstOrDefaultAsync(u => u.OwnerId == ownerId&&u.IsDeleted==true); 
             return file != null ? _mapper.Map<FileDto>(file) : null;
     }
 
 
     public async Task<FileDto?> AddFile(FilesPostModel file)
     {
+
         var fileEntity = _mapper.Map<FileEntity>(file);
         _context.Files.Add(fileEntity);
         await _context.SaveChangesAsync();

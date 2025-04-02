@@ -6,6 +6,7 @@ namespace HireSphereApi.Service.Iservice
     {
        Task<AIResponse> AnalyzeResumeAsync(string extractedText);
 
+        Task<AIResponse> GetAIResponse(int aiId);
 
     }
 }

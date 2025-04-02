@@ -109,6 +109,29 @@
         }
       }
     },
+    "/files/view": {
+      "get": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "parameters": [
+          {
+            "name": "ownerId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/files/download": {
       "get": {
         "tags": [
@@ -182,14 +205,14 @@
         }
       }
     },
-    "/files/download/{fileId}": {
+    "/aiResponse/{id}": {
       "get": {
         "tags": [
           "HireSphereApi"
         ],
         "parameters": [
           {
-            "name": "fileId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
