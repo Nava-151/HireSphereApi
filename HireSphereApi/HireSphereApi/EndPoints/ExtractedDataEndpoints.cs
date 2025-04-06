@@ -49,7 +49,7 @@ namespace HireSphereApi.EndPoints
             }).RequireAuthorization();
 
 
-            extractedDataRoute.MapGet("/filter", async (AIResponse filterParams, IExtractedDataService extractedDataService) =>
+            extractedDataRoute.MapGet("/filter", async ([FromBody] AIResponse filterParams, IExtractedDataService extractedDataService) =>
             {
                 var filteredReports = await extractedDataService.GetFilteredReports(filterParams);
                 return Results.Ok(filteredReports);
