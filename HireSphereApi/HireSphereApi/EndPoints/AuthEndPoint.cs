@@ -22,10 +22,12 @@ namespace HireSphereApi.EndPoints
 
                 var user = await userService.GetUserByEmail(loginUser.Email,loginUser.PasswordHash);
                 
-                if (user == null|| user.Role!=loginUser.Role)
+                if (user == null)
+                //|| user.Role!=loginUser.Role)
                 {
                     return Results.NotFound("User not found");
                 }
+
                 var tokenString = GenerateJwtToken(configuration);
 
                 return Results.Ok(new { token = tokenString ,id=user.Id});
@@ -63,10 +65,12 @@ namespace HireSphereApi.EndPoints
         {
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var expirationTime = DateTime.UtcNow.AddMinutes(60);
+
             var tokenOptions = new JwtSecurityToken(
                 issuer: configuration["JWT:Issuer"],
                 audience: configuration["JWT:Audience"],
-                expires: DateTime.UtcNow.AddMinutes(60),
+                expires: expirationTime,
                 signingCredentials: signinCredentials
             );
 

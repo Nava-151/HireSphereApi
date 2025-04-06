@@ -47,7 +47,7 @@ namespace HireSphereApi.EndPoints
                 {
                     return Results.BadRequest(ex.Message);
                 }
-                
+
             });
 
 
@@ -64,21 +64,32 @@ namespace HireSphereApi.EndPoints
 
 
             fileRoute.MapGet("/download", async ([FromQuery] string fileName, IS3Service fileService) =>
-        {
-            var url = await fileService.GeneratePresignedUrlToDownload(fileName);
-            using var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(url);
-
-            if (!response.IsSuccessStatusCode)
             {
-                return Results.Problem("Failed to fetch the file.");
-            }
+                var url = await fileService.GeneratePresignedUrlToDownload(fileName);
+                using var httpClient = new HttpClient();
+                var response = await httpClient.GetAsync(url);
 
-            var fileBytes = await response.Content.ReadAsByteArrayAsync();
-            var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Results.Problem("Failed to fetch the file.");
+                }
 
-            return Results.File(fileBytes, contentType, fileName);
-        });
+                var fileBytes = await response.Content.ReadAsByteArrayAsync();
+                string contentType = response.Content.Headers.ContentType?.ToString();
+                if (string.IsNullOrEmpty(contentType) || contentType == "application/octet-stream")
+                {
+                    var extension = Path.GetExtension(fileName).ToLowerInvariant();
+                    contentType = extension switch
+                    {
+                        ".pdf" => "application/pdf",
+                        ".docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        _ => "application/octet-stream"
+                    };
+                }
+
+
+                return Results.File(fileBytes, contentType, fileName);
+            });
             //.RequireAuthorization();
 
 

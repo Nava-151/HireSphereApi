@@ -90,7 +90,9 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString),
+    mySqlOptions => mySqlOptions.EnableRetryOnFailure());
+
 });
 
 
