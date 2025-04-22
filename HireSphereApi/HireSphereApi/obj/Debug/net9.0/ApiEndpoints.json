@@ -147,13 +147,13 @@
     "ContainingType": "HireSphereApi.EndPoints.ExtractedDataEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapExtractedDataEndPoints\u003Eb__0_3",
     "RelativePath": "data/filter",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
         "Name": "filterParams",
-        "Type": "HireSphereApi.core.entities.AIResponse",
+        "Type": "HireSphereApi.core.DTOs.AiResponseDto",
         "IsRequired": true
       }
     ],

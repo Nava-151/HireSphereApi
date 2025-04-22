@@ -62,7 +62,7 @@ public class ExtractedDataService : IExtractedDataService
         return true;
     }
 
-    public async Task<List<ExtractedDataDto>> GetFilteredReports(AIResponse filterParams)
+    public async Task<IEnumerable<ExtractedDataDto>> GetFilteredReports(AiResponseDto filterParams)
     {
         var query = _context.ExtractedData.AsQueryable();
 
@@ -79,19 +79,31 @@ public class ExtractedDataService : IExtractedDataService
         // Filtering logic
 
         if (!string.IsNullOrWhiteSpace(filterParams.Education))
+        {
+            Console.WriteLine("education is not empty");
             query = query.Where(r => r.Response.Education.Contains(filterParams.Education));
+        }
 
 
         if (filterParams.Experience.HasValue)
-            query = query.Where(r => r.Response.Experience  <= filterParams.Experience.Value);
+        {
+            Console.WriteLine("experience is not empty");
+            query = query.Where(r => r.Response.Experience >= filterParams.Experience.Value);
+        }
 
 
         if (!string.IsNullOrWhiteSpace(filterParams.EnglishLevel))
+        {
+            Console.WriteLine("englishLevel is not empty");
             query = query.Where(r => r.Response.EnglishLevel == filterParams.EnglishLevel);
+        }
 
 
         if (!string.IsNullOrWhiteSpace(filterParams.Languages))
         {
+            Console.WriteLine("languages is not empty");
+
+
             var languagesArray = filterParams.Languages.Split(',')
                 .Select(l => l.Trim())
                 .ToList();

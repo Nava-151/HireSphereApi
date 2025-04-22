@@ -1,5 +1,6 @@
 ﻿using HireSphereApi.api.Models;
 using HireSphereApi.core.DTO;
+using HireSphereApi.core.DTOs;
 using HireSphereApi.core.entities;
 public interface IExtractedDataService
 {
@@ -8,5 +9,5 @@ public interface IExtractedDataService
     Task<ExtractedDataDto> CreateData(ExtractedDataPostModel dataModel);
     Task<bool> UpdateData(int id, ExtractedDataPostModel updatedData);
     Task<bool> DeleteData(int id);
-    Task<List<ExtractedDataDto>> GetFilteredReports(AIResponse filterParams);
+    Task<IEnumerable<ExtractedDataDto>> GetFilteredReports(AiResponseDto filterParams);
 }

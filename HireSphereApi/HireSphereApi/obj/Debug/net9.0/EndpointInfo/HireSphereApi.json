@@ -372,7 +372,7 @@
       }
     },
     "/data/filter": {
-      "get": {
+      "post": {
         "tags": [
           "HireSphereApi"
         ],
@@ -380,7 +380,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AIResponse"
+                "$ref": "#/components/schemas/AiResponseDto"
               }
             }
           },
@@ -440,13 +440,9 @@
   },
   "components": {
     "schemas": {
-      "AIResponse": {
+      "AiResponseDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "experience": {
             "type": "integer",
             "format": "int32",

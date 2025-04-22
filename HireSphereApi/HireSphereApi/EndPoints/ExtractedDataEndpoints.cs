@@ -1,4 +1,5 @@
 ﻿using HireSphereApi.api.Models;
+using HireSphereApi.core.DTOs;
 using HireSphereApi.core.entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -49,11 +50,20 @@ namespace HireSphereApi.EndPoints
             }).RequireAuthorization();
 
 
-            extractedDataRoute.MapGet("/filter", async ([FromBody] AIResponse filterParams, IExtractedDataService extractedDataService) =>
+            //extractedDataRoute.MapGet("/filter", async ([FromBody] AiResponseDto filterParams, IExtractedDataService extractedDataService) =>
+            //{
+            //    Console.WriteLine("in filter function ....");
+            //    var filteredReports = await extractedDataService.GetFilteredReports(filterParams);
+            //    return Results.Ok(filteredReports);
+            //}).RequireAuthorization();
+            extractedDataRoute.MapPost("/filter", async ([FromBody] AiResponseDto filterParams,
+    IExtractedDataService extractedDataService) =>
             {
+                Console.WriteLine("in filter function ....");
                 var filteredReports = await extractedDataService.GetFilteredReports(filterParams);
                 return Results.Ok(filteredReports);
             }).RequireAuthorization();
+
 
         }
     }

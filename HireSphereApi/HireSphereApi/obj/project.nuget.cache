@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ry1jcPODbuo=",
+  "dgSpecHash": "QRDonFN/JhA=",
   "success": true,
   "projectFilePath": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\HireSphereApi.csproj",
   "expectedPackageFiles": [
@@ -182,7 +182,7 @@
     "C:\\Users\\user1\\.nuget\\packages\\xceed.drawing.net\\1.0.25103.5784\\xceed.drawing.net.1.0.25103.5784.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\xceed.pdf\\4.0.25103.5784\\xceed.pdf.4.0.25103.5784.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\xceed.words.net\\4.0.25103.5784\\xceed.words.net.4.0.25103.5784.nupkg.sha512",
-    "C:\\Users\\user1\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.201\\microsoft.net.sdk.compilers.toolset.9.0.201.nupkg.sha512"
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.203\\microsoft.net.sdk.compilers.toolset.9.0.203.nupkg.sha512"
   ],
   "logs": []
 }

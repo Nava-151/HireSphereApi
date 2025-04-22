@@ -34,7 +34,11 @@ public class AIService : IAIService
             model = "gpt-4o-mini",
             messages = new[] {
             new { role = "system", content = "You are an AI that extracts resume data." },
-            new { role = "user", content = $"Extract the following information: Experience, Education, Programming Languages, English Level.\n\n{resumeText}" }
+            new { role = "user", content = $"Extract the following information: Experience calculate from the text and return me a" +
+            $" number of years - an intger," +
+            $" Education return me one of the following option College , University, or Another ," +
+            $" Programming Languages return an array of languages he or she has ever been experienced , " +
+            $"English Level- return the english level in one of the words as it sounds from the file Beginner, Intermediate, Advanced, Fluent.\n\n{resumeText}" }
         },
             temperature = 0.5
         };
@@ -82,8 +86,9 @@ public class AIService : IAIService
     static AIResponse ParseAIResponse(string input)
     {
         AIResponse response = new AIResponse();
-
-        response.Experience = ExtractExperienceYears(input);
+        //cjeck if there is need of it or return it to the old one
+        response.Experience = int.Parse(ExtractField(input, "**Experience**")); 
+        ExtractField(input,"**Experience**");
         response.Education = ExtractField(input, "**Education:**");
         response.Languages = ExtractField(input, "**Programming Languages:**");
         response.EnglishLevel = ExtractField(input, "**English Level:**");
