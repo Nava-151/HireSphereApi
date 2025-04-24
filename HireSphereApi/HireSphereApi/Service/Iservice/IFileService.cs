@@ -1,5 +1,5 @@
 ﻿using HireSphereApi.core.DTO;
-using HireSphereApi.core.entities;
+using HireSphereApi.core.DTOs;
 using HireSphereApi.entities;
 
 public interface IFileService

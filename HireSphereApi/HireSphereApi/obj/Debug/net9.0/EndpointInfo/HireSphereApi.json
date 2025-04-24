@@ -371,6 +371,38 @@
         }
       }
     },
+    "/data/mark": {
+      "post": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "parameters": [
+          {
+            "name": "mark",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/data/filter": {
       "post": {
         "tags": [

@@ -31,7 +31,18 @@ public class ExtractedDataService : IExtractedDataService
         var data = await _context.ExtractedData.FindAsync(id);
         return data != null ? _mapper.Map<ExtractedDataDto>(data) : null;
     }
-
+    public async Task<ExtractedDataDto> AddMark(decimal mark,int userId)
+    {
+        var extractedData=await _context.ExtractedData.FindAsync(userId);
+        Console.WriteLine(extractedData);
+        if(extractedData == null)
+        {
+            return null;
+        }
+        extractedData.Mark = mark;
+        return _mapper.Map<ExtractedDataDto>(_context.ExtractedData);
+        
+    }
     public async Task<ExtractedDataDto> CreateData(ExtractedDataPostModel dataModel)
     {
         var dataEntity = _mapper.Map<ExtractedDataEntity>(dataModel);

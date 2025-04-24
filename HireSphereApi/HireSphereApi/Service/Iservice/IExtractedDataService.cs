@@ -10,4 +10,6 @@ public interface IExtractedDataService
     Task<bool> UpdateData(int id, ExtractedDataPostModel updatedData);
     Task<bool> DeleteData(int id);
     Task<IEnumerable<ExtractedDataDto>> GetFilteredReports(AiResponseDto filterParams);
+    Task<ExtractedDataDto> AddMark(decimal mark, int userId);
+
 }

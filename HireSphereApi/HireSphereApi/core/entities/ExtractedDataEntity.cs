@@ -19,6 +19,7 @@ namespace HireSphereApi.core.entities
         public DateTime UpdatedAt { get; set; } // תאריך ע
 
         public string FileKey { get; set; } // מפתח הקובץ ב-S3
+        public decimal ? Mark { get; set; }
 
         public int IdResponse { get; set; }
         [ForeignKey(nameof(IdResponse))]

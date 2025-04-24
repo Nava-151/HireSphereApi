@@ -15,5 +15,7 @@ namespace HireSphereApi.core.entities
         public string? Education { get; set; }
         public string? Languages { get; set; }
         public string? EnglishLevel { get; set; }
+
+
     }
 }

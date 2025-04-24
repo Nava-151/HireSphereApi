@@ -72,6 +72,7 @@ using HireSphereApi.core.services;
 using HireSphereApi.Service.Iservice;
 using HireSphereApi.entities;
 using iText.StyledXmlParser.Jsoup.Nodes;
+using HireSphereApi.core.DTOs;
 
 
 public class FileService : IFileService

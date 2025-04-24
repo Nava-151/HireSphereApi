@@ -31,12 +31,11 @@ namespace HireSphereApi.EndPoints
             }).RequireAuthorization();
 
 
-            ////i am not sure that we need this in the site
-            //extractedDataRoute.MapPost("", async ([FromBody] ExtractedDataPostModel extractedData, IExtractedDataService extractedDataService) =>
-            //{
-            //    var createdData = await extractedDataService.CreateData(extractedData);
-            //    return Results.Created($"/api/extractedData/{createdData.Id}", createdData);
-            //}).RequireAuthorization(); 
+            extractedDataRoute.MapPost("/mark", async ([FromQuery] decimal mark,[FromQuery] int id, IExtractedDataService extractedDataService) =>
+            {
+                var createdData = await extractedDataService.AddMark(mark,id);
+                return Results.Ok(createdData);
+            }).RequireAuthorization();
 
             //no need but i make it
             extractedDataRoute.MapDelete("/{id}", async (int id, IExtractedDataService extractedDataService) =>
@@ -52,7 +51,6 @@ namespace HireSphereApi.EndPoints
             extractedDataRoute.MapPost("/filter", async ([FromBody] AiResponseDto filterParams,
     IExtractedDataService extractedDataService) =>
             {
-                Console.WriteLine("in filter function ....");
                 var filteredReports = await extractedDataService.GetFilteredReports(filterParams);
                 return Results.Ok(filteredReports);
             }).RequireAuthorization();

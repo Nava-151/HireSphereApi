@@ -123,7 +123,7 @@
   },
   {
     "ContainingType": "HireSphereApi.EndPoints.ExtractedDataEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapExtractedDataEndPoints\u003Eb__0_2",
+    "Method": "\u003CMapExtractedDataEndPoints\u003Eb__0_3",
     "RelativePath": "data/{id}",
     "HttpMethod": "DELETE",
     "IsController": false,
@@ -145,7 +145,7 @@
   },
   {
     "ContainingType": "HireSphereApi.EndPoints.ExtractedDataEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapExtractedDataEndPoints\u003Eb__0_3",
+    "Method": "\u003CMapExtractedDataEndPoints\u003Eb__0_4",
     "RelativePath": "data/filter",
     "HttpMethod": "POST",
     "IsController": false,
@@ -154,6 +154,33 @@
       {
         "Name": "filterParams",
         "Type": "HireSphereApi.core.DTOs.AiResponseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HireSphereApi.EndPoints.ExtractedDataEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapExtractedDataEndPoints\u003Eb__0_2",
+    "RelativePath": "data/mark",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mark",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -281,7 +308,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "HireSphereApi.core.entities.ResumeAnalyzeRequest",
+        "Type": "HireSphereApi.core.DTOs.ResumeAnalyzeRequest",
         "IsRequired": true
       }
     ],

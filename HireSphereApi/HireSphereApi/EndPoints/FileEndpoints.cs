@@ -1,4 +1,4 @@
-﻿using HireSphereApi.core.entities;
+﻿using HireSphereApi.core.DTOs;
 using HireSphereApi.Data;
 using HireSphereApi.entities;
 using HireSphereApi.Service.Iservice;
@@ -22,7 +22,7 @@ namespace HireSphereApi.EndPoints
             }).RequireAuthorization();
 
 
-            fileRoute.MapGet("{id}", async (int OwnerId, IFileService fileService) =>
+            fileRoute.MapGet("/{id}", async (int OwnerId, IFileService fileService) =>
             {
                 var file = await fileService.GetFileByOwnnerId(OwnerId);
                 if (file == null)
@@ -90,7 +90,7 @@ namespace HireSphereApi.EndPoints
 
                 return Results.File(fileBytes, contentType, fileName);
             });
-            //.RequireAuthorization();
+    //.RequireAuthorization();
 
 
 
