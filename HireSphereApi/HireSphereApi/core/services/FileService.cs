@@ -142,13 +142,14 @@ public class FileService : IFileService
             var aiResponse = await _aiService.AnalyzeResumeAsync(extractedText);
             if (aiResponse == null)
             {
+                Console.WriteLine("in analayze");
                 return Results.BadRequest("Error: Could not analyze resume.");
             }
-
+            Console.WriteLine("in file service in analyze ");
             // Save AI response
             _context.AIResponses.Add(aiResponse);
             await _context.SaveChangesAsync();
-
+            Console.WriteLine(request.UserId+" "+request.S3Key+" id "+aiResponse.Id);
             var extractedData = new ExtractedDataEntity
             {
                 CandidateId = request.UserId,
@@ -157,10 +158,10 @@ public class FileService : IFileService
                 UpdatedAt = DateTime.UtcNow,
                 IdResponse = aiResponse.Id
             };
-
+            Console.WriteLine("before adding");
             _context.ExtractedData.Add(extractedData);
             await _context.SaveChangesAsync();
-
+            Console.WriteLine("after adding");
             return Results.Ok(new { extractedData.Id });
         }
         catch (Exception ex)

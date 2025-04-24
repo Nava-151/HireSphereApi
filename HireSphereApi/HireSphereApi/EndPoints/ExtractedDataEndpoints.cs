@@ -49,13 +49,6 @@ namespace HireSphereApi.EndPoints
                 return Results.Ok("Data deleted successfully");
             }).RequireAuthorization();
 
-
-            //extractedDataRoute.MapGet("/filter", async ([FromBody] AiResponseDto filterParams, IExtractedDataService extractedDataService) =>
-            //{
-            //    Console.WriteLine("in filter function ....");
-            //    var filteredReports = await extractedDataService.GetFilteredReports(filterParams);
-            //    return Results.Ok(filteredReports);
-            //}).RequireAuthorization();
             extractedDataRoute.MapPost("/filter", async ([FromBody] AiResponseDto filterParams,
     IExtractedDataService extractedDataService) =>
             {

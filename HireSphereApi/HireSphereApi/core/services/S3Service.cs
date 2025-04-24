@@ -65,6 +65,7 @@
                 //ContentType = "application/pdf" // או סוג הקובץ המתאים
             };
             string url = _s3Client.GetPreSignedURL(request);
+            Console.WriteLine("url********************** "+url);
             return url;
         }
 

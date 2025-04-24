@@ -1,11 +1,10 @@
 ﻿namespace HireSphereApi.core.services
 {
     using System.IO;
-    using Tesseract;
-    using Xceed.Words.NET;
     using iText.Kernel.Pdf;
     using iText.Kernel.Pdf.Canvas.Parser;
-    using System.Reflection.PortableExecutable;
+    using DocumentFormat.OpenXml.Packaging;
+    using DocumentFormat.OpenXml.Wordprocessing;
 
     public class TextExtractionService
     {
@@ -34,10 +33,16 @@
             return text;
         }
 
+
         private string ExtractTextFromDocx(Stream fileStream)
         {
-            using var doc = DocX.Load(fileStream);
-            return doc.Text;
+            using var memoryStream = new MemoryStream();
+            fileStream.CopyTo(memoryStream);
+            memoryStream.Position = 0;
+
+            using var wordDoc = WordprocessingDocument.Open(memoryStream, false);
+            var body = wordDoc.MainDocumentPart.Document.Body;
+            return body.InnerText;
         }
     }
 

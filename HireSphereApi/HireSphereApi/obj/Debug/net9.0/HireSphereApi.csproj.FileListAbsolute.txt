@@ -208,3 +208,5 @@ C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\DotNetEnv.dll
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\Sprache.dll
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\DocumentFormat.OpenXml.dll
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\DocumentFormat.OpenXml.Framework.dll

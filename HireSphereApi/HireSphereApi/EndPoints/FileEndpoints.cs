@@ -112,29 +112,6 @@ namespace HireSphereApi.EndPoints
                 return await fileService.AnalyzeResumeAsync(request);
             }).RequireAuthorization();
 
-            //fileRoute.MapGet("/download/{fileId}", async (int fileId, DataContext context) =>
-            //{
-            //    var fileEntity = await context.Files.FindAsync(fileId);
-            //    if (fileEntity == null)
-            //    {
-            //        return Results.NotFound();
-            //    }
-
-            //    // הניתוב ב-S3
-            //    string filePath = fileEntity.S3Key;
-
-            //    // יצירת URL להורדה ישירה
-            //    var fileUrl = GenerateS3DownloadUrl(filePath);
-
-            //    return Results.Ok(new { downloadUrl = fileUrl });
-            //});
-
-            //// פונקציה ליצירת URL להורדה ישירה
-            //string GenerateS3DownloadUrl(string filePath)
-            //{
-            //    string yourBucketName = "hiresphere"; 
-            //    return $"https://s3.amazonaws.com/{yourBucketName}/{filePath}";
-            //}
 
         }
     }

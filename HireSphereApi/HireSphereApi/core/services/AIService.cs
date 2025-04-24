@@ -8,8 +8,11 @@ using HireSphereApi.core.entities;
 using HireSphereApi.Data;
 using HireSphereApi.Service.Iservice;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using OpenAI;
 using Sprache;
+using JsonException = System.Text.Json.JsonException;
+
 public class AIService : IAIService
 {
     private readonly HttpClient _httpClient;
@@ -35,7 +38,7 @@ public class AIService : IAIService
             messages = new[] {
             new { role = "system", content = "You are an AI that extracts resume data." },
             new { role = "user", content = $"Extract the following information: Experience calculate from the text and return me a" +
-            $" number of years - an intger," +
+            $" number of years - an intger dont give me word only a number of years" +
             $" Education return me one of the following option College , University, or Another ," +
             $" Programming Languages return an array of languages he or she has ever been experienced , " +
             $"English Level- return the english level in one of the words as it sounds from the file Beginner, Intermediate, Advanced, Fluent.\n\n{resumeText}" }
@@ -78,54 +81,115 @@ public class AIService : IAIService
         Console.WriteLine();
         Console.WriteLine($"English Level: {devForFields.EnglishLevel}");
 
-
         return devForFields;
     }
 
 
+    //static AIResponse ParseAIResponse(string input)
+    //{
+    //    AIResponse response = new AIResponse();
+    //    Console.WriteLine("in function begin");
+
+    //    //cjeck if there is need of it or return it to the old one
+    //    response.Experience = int.Parse(ExtractField(input, "Experience"));
+    //    Console.WriteLine("exp "+response.Experience);
+    //    response.Education = ExtractField(input, "Education");
+    //    Console.WriteLine("re "+ response.Education);
+    //    response.Languages = ExtractField(input, "Programming Languages");
+    //    Console.WriteLine("lang "+response.Languages);
+    //    response.EnglishLevel = ExtractField(input, "English Level");
+    //    Console.WriteLine("englidh "+response.EnglishLevel);
+    //    Console.WriteLine("in function end");
+    //    return response;
+    //}
+
+    //static string ExtractField(string input, string fieldName)
+    //{
+    //    input = input.Trim().Trim('\'');
+
+    //    // Adjust the regex pattern for extracting the field
+    //    string pattern = Regex.Escape(fieldName) + @"\s*[:\-]?\s*(.*?)(?=\n|\Z)"; // Matching until end of line or string end
+    //    Match match = Regex.Match(input, pattern, RegexOptions.Singleline);
+    //    return match.Success ? match.Groups[1].Value.Trim() : null;
+    //{
+    //}
+    //static AIResponse ParseAIResponse(string input)
+    //{
+    //    Console.WriteLine("in function begin");
+
+    //    // אם יש גרשיים בודדים או סימני ``` JSON מיותרים – ננקה אותם
+    //    input = input.Trim().Trim('`');
+
+    //    // Deserialize ישיר ל-AIResponse
+    //    var response = JsonConvert.DeserializeObject<AIResponse>(input);
+    //    Console.WriteLine("exp " + response.Experience);
+    //    //    response.Education = ExtractField(input, "Education");
+    //        Console.WriteLine("re "+ response.Education);
+    //    //    response.Languages = ExtractField(input, "Programming Languages");
+    //    Console.WriteLine("lang "+response.Languages);
+    //    //    response.EnglishLevel = ExtractField(input, "English Level");
+    //        Console.WriteLine("englidh "+response.EnglishLevel);
+    //    Console.WriteLine("in function end");
+    //    return response;
+    //}
     static AIResponse ParseAIResponse(string input)
     {
-        AIResponse response = new AIResponse();
-        //cjeck if there is need of it or return it to the old one
-        response.Experience = int.Parse(ExtractField(input, "**Experience**")); 
-        ExtractField(input,"**Experience**");
-        response.Education = ExtractField(input, "**Education:**");
-        response.Languages = ExtractField(input, "**Programming Languages:**");
-        response.EnglishLevel = ExtractField(input, "**English Level:**");
+        Console.WriteLine("in function begin");
 
-        return response;
-    }
+        // מסיר את כל ה-JSON המיותר (אם יש תוויים מיותרים לפני/אחר התשובה)
+        input = CleanInput(input);
 
-    static string ExtractField(string input, string fieldName)
-    {
-        string pattern = Regex.Escape(fieldName) + @"\s*(.*?)\s*(?=\*\*|\Z)";
-        Match match = Regex.Match(input, pattern, RegexOptions.Singleline);
-        return match.Success ? match.Groups[1].Value.Trim() : null;
-    }
-    static int ExtractExperienceYears(string input)
-    {
-        string pattern = @"\((\d{4})-(\d{4})\)|\((\d{4})\)"; // תופס טווח שנים (YYYY-YYYY) או שנה בודדת (YYYY)
-        MatchCollection matches = Regex.Matches(input, pattern);
-        int totalYears = 0;
-
-        foreach (Match match in matches)
+        try
         {
-            if (match.Groups[1].Success && match.Groups[2].Success)
+            // אם כל התוויים המיותרים הוסרו, אפשר לנסות לפרסר את JSON
+            var jObj = JObject.Parse(input);
+
+            var response = new AIResponse
             {
-                // טווח שנים, מחשבים את ההפרש
-                int startYear = int.Parse(match.Groups[1].Value);
-                int endYear = int.Parse(match.Groups[2].Value);
-                totalYears += (endYear - startYear);
-            }
-            else if (match.Groups[3].Success)
-            {
-                // שנה בודדת (ניסיון של שנה אחת)
-                totalYears += 1;
-            }
+                Experience = jObj["Experience"]?.ToObject<int>(),
+                Education = jObj["Education"]?.ToString(),
+                Languages = jObj["Programming Languages"] != null
+                    ? string.Join(", ", jObj["Programming Languages"].ToObject<List<string>>())
+                    : null,
+                EnglishLevel = jObj["English Level"]?.ToString()
+            };
+
+            // הוספת הדפסות כדי לבדוק את כל השדות
+            Console.WriteLine("Experience: " + response.Experience);
+            Console.WriteLine("Education: " + response.Education);
+            Console.WriteLine("Languages: " + response.Languages);
+            Console.WriteLine("English Level: " + response.EnglishLevel);
+
+            Console.WriteLine("in function end");
+            return response;
+        }
+        catch (JsonException ex)
+        {
+            Console.WriteLine($"Error parsing JSON: {ex.Message}");
+            throw;
+        }
+    }
+
+
+    static string CleanInput(string input)
+    {
+        input = input.Trim();
+
+        // מוצא את המיקום של התו הראשון שהוא '{'
+        int jsonStart = input.IndexOf('{');
+        if (jsonStart >= 0)
+        {
+            input = input.Substring(jsonStart); // שומר רק מהנקודה הזאת והלאה
         }
 
-        return totalYears;
+        input = input.Replace("```", ""); // אם יש גבולות קוד מהעתקה
+        input = input.Trim('"'); // מסיר גרשיים חיצוניים מיותרים אם קיימים
+
+        return input;
     }
+
+
+
 
 
 }
