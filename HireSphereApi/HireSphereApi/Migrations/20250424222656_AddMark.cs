@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HireSphereApi.Migrations
 {
     /// <inheritdoc />
-    public partial class addExtracredData : Migration
+    public partial class AddMark : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,6 +70,7 @@ namespace HireSphereApi.Migrations
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     FileKey = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Mark = table.Column<decimal>(type: "decimal(65,30)", nullable: true),
                     IdResponse = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -101,12 +102,11 @@ namespace HireSphereApi.Migrations
                     FileType = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Size = table.Column<long>(type: "bigint", nullable: false),
-                    S3Key = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     OwnerId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    an = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -58,7 +58,7 @@
         {
             var request = new GetPreSignedUrlRequest
             {
-                BucketName = "hiresphere",
+                BucketName = _bucketName,
                 Key = fileName,
                 Verb = HttpVerb.PUT,
                 Expires = DateTime.UtcNow.AddMinutes(5),

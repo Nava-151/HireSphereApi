@@ -39,8 +39,8 @@ public class ExtractedDataService : IExtractedDataService
         {
             return null;
         }
-        extractedData.Mark = mark;
-        return _mapper.Map<ExtractedDataDto>(_context.ExtractedData);
+        //extractedData.Mark = mark;
+        return _mapper.Map<ExtractedDataDto>(extractedData);
         
     }
     public async Task<ExtractedDataDto> CreateData(ExtractedDataPostModel dataModel)

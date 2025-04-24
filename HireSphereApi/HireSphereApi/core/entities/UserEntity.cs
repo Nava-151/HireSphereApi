@@ -14,8 +14,6 @@
         [Required]
         public string Email { get; set; }
         public string Phone { get; set; }
-        //add here a mark
-        //public double Mark{ get; set; } = 0;  
 
         [Required, MaxLength(255)]
         public string PasswordHash { get; set; }

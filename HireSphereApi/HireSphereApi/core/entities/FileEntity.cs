@@ -12,7 +12,7 @@ namespace HireSphereApi.core.entities
         [Required]
         public long Size { get; set; } = 0;// גודל הקובץ בבתים
         [Required]
-        public string S3Key { get; set; } = "Undefined";// מזהה הקובץ ב-S3 (לדוגמה: 'uploads/user1/file.jpg')
+        //public string S3Key { get; set; } = "Undefined";// מזהה הקובץ ב-S3 (לדוגמה: 'uploads/user1/file.jpg')
         public int OwnerId { get; set; }
         [ForeignKey(nameof(OwnerId))]
         public UserEntity owner { get; set; }
@@ -21,5 +21,6 @@ namespace HireSphereApi.core.entities
         public DateTime UpdatedAt { get; set; } // תאריך עדכון אחרון
 
         public bool IsDeleted { get; set; } // דגל למחיקה רכה
+        public int an { get; set; }
     }
 }

@@ -68,6 +68,9 @@ namespace HireSphereApi.Migrations
                     b.Property<int>("IdResponse")
                         .HasColumnType("int");
 
+                    b.Property<decimal?>("Mark")
+                        .HasColumnType("decimal(65,30)");
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
@@ -105,15 +108,14 @@ namespace HireSphereApi.Migrations
                     b.Property<int>("OwnerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("S3Key")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<long>("Size")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<int>("an")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
