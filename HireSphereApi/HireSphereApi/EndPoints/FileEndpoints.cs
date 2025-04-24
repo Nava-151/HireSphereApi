@@ -54,7 +54,6 @@ namespace HireSphereApi.EndPoints
             fileRoute.MapGet("/view", async ([FromQuery] int ownerId, IS3Service s3Service, IFileService fileService) =>
             {
                 var file = await fileService.GetFileByOwnnerId(ownerId);
-                Console.WriteLine("it is file? "+file.FileName);
                 if (file == null)
                     return Results.BadRequest("no file uploaded");
                 var url = await s3Service.GeneratePresignedUrlToDownload(file.FileName);

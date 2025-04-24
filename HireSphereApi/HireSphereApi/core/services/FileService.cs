@@ -220,8 +220,7 @@ public class FileService : IFileService
 
     public async Task<FileDto?> GetFileByOwnnerId(int ownerId)
     {
-        var file = await _context.Files.FirstOrDefaultAsync(u => u.OwnerId == ownerId&&u.IsDeleted==
-        ); 
+        var file = await _context.Files.FirstOrDefaultAsync(u => u.OwnerId == ownerId); 
             return file != null ? _mapper.Map<FileDto>(file) : null;
     }
 
