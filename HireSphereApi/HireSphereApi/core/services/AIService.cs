@@ -38,7 +38,7 @@ public class AIService : IAIService
             messages = new[] {
             new { role = "system", content = "You are an AI that extracts resume data." },
             new { role = "user", content = $"Extract the following information: Experience calculate from the text and return me a" +
-            $" number of years - an intger dont give me word only a number of years" +
+            $" number of years - an intger don't give me word only a number of years" +
             $" Education return me one of the following option College , University, or Another ," +
             $" Programming Languages return an array of languages he or she has ever been experienced , " +
             $"English Level- return the english level in one of the words as it sounds from the file Beginner, Intermediate, Advanced, Fluent.\n\n{resumeText}" }
@@ -53,9 +53,11 @@ public class AIService : IAIService
 
         var response = await _httpClient.PostAsync("https://api.openai.com/v1/chat/completions", content);
         var responseBody = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(response.StatusCode+" *** content:*** "+ await response.Content.ReadAsStringAsync());
 
         if (!response.IsSuccessStatusCode)
             throw new Exception("AI request failed.");
+
 
         // Parse response to extract JSON content
         using var document = JsonDocument.Parse(responseBody);

@@ -22,7 +22,7 @@ public class ExtractedDataService : IExtractedDataService
 
     public async Task<IEnumerable<ExtractedDataDto>> GetAllData()
     {
-        var dataList = await _context.ExtractedData.ToListAsync();
+        var dataList = await _context.ExtractedData.AsNoTracking().ToListAsync();
         return _mapper.Map<IEnumerable<ExtractedDataDto>>(dataList);
     }
 
@@ -120,6 +120,13 @@ public class ExtractedDataService : IExtractedDataService
                 .ToList();
             query = query.Where(r => languagesArray.Any(lang => r.Response.Languages.Contains(lang)));
         }
+        if(filterParams.Mark.HasValue)
+        {
+            Console.WriteLine("mark is not empty");
+            query = query.Where(r => r.Mark >= filterParams.Mark.Value);
+        }
+
+
         return _mapper.Map<IEnumerable<ExtractedDataDto>>(query).ToList();
     }
 
