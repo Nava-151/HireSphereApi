@@ -491,6 +491,11 @@
           "englishLevel": {
             "type": "string",
             "nullable": true
+          },
+          "mark": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false

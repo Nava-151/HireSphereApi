@@ -7,14 +7,10 @@ namespace HireSphereApi.api.Models
     public class ExtractedDataPostModel
     {
 
-        //אני לא בטוחה שצריך את המודל הזה
-        public int Id { get; set; }
-
         public int CandidateId { get; set; }
 
-
-        public DateTime CreatedAt { get; set; } // תאריך העלאה
-        public DateTime UpdatedAt { get; set; } // תאריך ע
+        //public DateTime CreatedAt { get; set; } // תאריך העלאה
+        //public DateTime UpdatedAt { get; set; } // תאריך ע
 
         public string FileKey { get; set; } // מפתח הקובץ ב-S3
 
