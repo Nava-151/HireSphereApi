@@ -2,6 +2,7 @@
 using HireSphereApi.Data;
 using HireSphereApi.entities;
 using HireSphereApi.Service.Iservice;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -99,7 +100,7 @@ namespace HireSphereApi.EndPoints
                 var url = await fileService.GeneratePresignedUrlToUpload(fileName);
                 return url;
 
-            }).RequireAuthorization();
+            }).RequireAuthorization(new AuthorizeAttribute { Roles = "Candidate" });
 
             fileRoute.MapPost("", async ([FromBody] FilesPostModel request, IFileService fileService) =>
             {
@@ -110,7 +111,7 @@ namespace HireSphereApi.EndPoints
             fileRoute.MapPost("/resume/analyze", async ([FromBody] ResumeAnalyzeRequest request, IFileService fileService) =>
             {
                 return await fileService.AnalyzeResumeAsync(request);
-            }).RequireAuthorization();
+            }).RequireAuthorization(new AuthorizeAttribute { Roles = "Candidate" });
 
 
         }

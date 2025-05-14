@@ -1,0 +1,20 @@
+{
+  "Version": 1,
+  "Hash": "d++kphwfA/jbWBisgXs8fGRB5SDZvZ9IgvKTYNnQR7c=",
+  "Source": "HireSphereApi",
+  "BasePath": "_content/HireSphereApi",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "HireSphereApi\\wwwroot",
+      "Source": "HireSphereApi",
+      "ContentRoot": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\wwwroot\\",
+      "BasePath": "_content/HireSphereApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
+}

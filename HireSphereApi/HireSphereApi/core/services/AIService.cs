@@ -28,7 +28,7 @@ public class AIService : IAIService
     public async Task<AIResponse> GetAIResponse(int aiId)
     {
         var response = await _context.AIResponses.FindAsync(aiId);
-        return response != null ? response : null;
+        return response != null? response : null;
     }
     public async Task<AIResponse> AnalyzeResumeAsync(string resumeText)
     {
@@ -58,8 +58,6 @@ public class AIService : IAIService
         if (!response.IsSuccessStatusCode)
             throw new Exception("AI request failed.");
 
-
-        // Parse response to extract JSON content
         using var document = JsonDocument.Parse(responseBody);
         var messageContent = document.RootElement
             .GetProperty("choices")[0]
@@ -70,80 +68,17 @@ public class AIService : IAIService
         if (string.IsNullOrEmpty(messageContent))
             throw new Exception("AI response is empty.");
 
-        Console.WriteLine("************** json");
-        Console.WriteLine(messageContent);
-        Console.WriteLine("***************");
         AIResponse devForFields = ParseAIResponse(messageContent);
-
-        Console.WriteLine($"Experience: {devForFields.Experience}");
-        Console.WriteLine();
-        Console.WriteLine($"Education: {devForFields.Education}");
-        Console.WriteLine();
-        Console.WriteLine($"Languages: {devForFields.Languages}");
-        Console.WriteLine();
-        Console.WriteLine($"English Level: {devForFields.EnglishLevel}");
 
         return devForFields;
     }
 
-
-    //static AIResponse ParseAIResponse(string input)
-    //{
-    //    AIResponse response = new AIResponse();
-    //    Console.WriteLine("in function begin");
-
-    //    //cjeck if there is need of it or return it to the old one
-    //    response.Experience = int.Parse(ExtractField(input, "Experience"));
-    //    Console.WriteLine("exp "+response.Experience);
-    //    response.Education = ExtractField(input, "Education");
-    //    Console.WriteLine("re "+ response.Education);
-    //    response.Languages = ExtractField(input, "Programming Languages");
-    //    Console.WriteLine("lang "+response.Languages);
-    //    response.EnglishLevel = ExtractField(input, "English Level");
-    //    Console.WriteLine("englidh "+response.EnglishLevel);
-    //    Console.WriteLine("in function end");
-    //    return response;
-    //}
-
-    //static string ExtractField(string input, string fieldName)
-    //{
-    //    input = input.Trim().Trim('\'');
-
-    //    // Adjust the regex pattern for extracting the field
-    //    string pattern = Regex.Escape(fieldName) + @"\s*[:\-]?\s*(.*?)(?=\n|\Z)"; // Matching until end of line or string end
-    //    Match match = Regex.Match(input, pattern, RegexOptions.Singleline);
-    //    return match.Success ? match.Groups[1].Value.Trim() : null;
-    //{
-    //}
-    //static AIResponse ParseAIResponse(string input)
-    //{
-    //    Console.WriteLine("in function begin");
-
-    //    // אם יש גרשיים בודדים או סימני ``` JSON מיותרים – ננקה אותם
-    //    input = input.Trim().Trim('`');
-
-    //    // Deserialize ישיר ל-AIResponse
-    //    var response = JsonConvert.DeserializeObject<AIResponse>(input);
-    //    Console.WriteLine("exp " + response.Experience);
-    //    //    response.Education = ExtractField(input, "Education");
-    //        Console.WriteLine("re "+ response.Education);
-    //    //    response.Languages = ExtractField(input, "Programming Languages");
-    //    Console.WriteLine("lang "+response.Languages);
-    //    //    response.EnglishLevel = ExtractField(input, "English Level");
-    //        Console.WriteLine("englidh "+response.EnglishLevel);
-    //    Console.WriteLine("in function end");
-    //    return response;
-    //}
     static AIResponse ParseAIResponse(string input)
     {
-        Console.WriteLine("in function begin");
-
-        // מסיר את כל ה-JSON המיותר (אם יש תוויים מיותרים לפני/אחר התשובה)
         input = CleanInput(input);
 
         try
         {
-            // אם כל התוויים המיותרים הוסרו, אפשר לנסות לפרסר את JSON
             var jObj = JObject.Parse(input);
 
             var response = new AIResponse
@@ -155,14 +90,6 @@ public class AIService : IAIService
                     : null,
                 EnglishLevel = jObj["English Level"]?.ToString()
             };
-
-            // הוספת הדפסות כדי לבדוק את כל השדות
-            Console.WriteLine("Experience: " + response.Experience);
-            Console.WriteLine("Education: " + response.Education);
-            Console.WriteLine("Languages: " + response.Languages);
-            Console.WriteLine("English Level: " + response.EnglishLevel);
-
-            Console.WriteLine("in function end");
             return response;
         }
         catch (JsonException ex)
@@ -177,15 +104,14 @@ public class AIService : IAIService
     {
         input = input.Trim();
 
-        // מוצא את המיקום של התו הראשון שהוא '{'
         int jsonStart = input.IndexOf('{');
         if (jsonStart >= 0)
         {
-            input = input.Substring(jsonStart); // שומר רק מהנקודה הזאת והלאה
+            input = input.Substring(jsonStart); 
         }
 
-        input = input.Replace("```", ""); // אם יש גבולות קוד מהעתקה
-        input = input.Trim('"'); // מסיר גרשיים חיצוניים מיותרים אם קיימים
+        input = input.Replace("```", ""); 
+        input = input.Trim('"'); 
 
         return input;
     }

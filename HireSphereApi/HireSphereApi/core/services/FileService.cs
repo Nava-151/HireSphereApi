@@ -1,69 +1,8 @@
-﻿//using HireSphereApi.Data;
-//using HireSphereApi.entities;
-//using HireSphereApi.Service.Iservice;
-//using AutoMapper;
-//using Microsoft.EntityFrameworkCore;
-//using System.Collections.Generic;
-//using System.Threading.Tasks;
-//using HireSphereApi.core.DTO;
-//using Amazon.S3.Model;
-//using Amazon.S3;
-//using HireSphereApi.core.entities;
-
-//public class FileService : IFileService
-//{
-//    private readonly DataContext _context;
-//    private readonly IMapper _mapper;
-//    private readonly IAmazonS3 _s3Client;
-
-
-//    public FileService(DataContext context, IMapper mapper,IAmazonS3 s3Client)
-//    {
-//        _s3Client = s3Client;
-//        _context = context;
-//        _mapper = mapper;
-//    }
-
-
-
-//    public async Task<FileDto> UploadFile(FileEntity file)
-//    {
-
-//        file.CreatedAt = DateTime.UtcNow;
-//        file.UpdatedAt = DateTime.UtcNow;
-
-//        _context.Files.Add(file);
-//        await _context.SaveChangesAsync();
-
-//        return _mapper.Map<FileDto>(file);
-//    }
-
-
-
-
-
-
-//    public async Task<string> GetPresignedUrl(string fileKey)
-//    {
-//        if (string.IsNullOrEmpty(fileKey)) throw new ArgumentException("FileKey is required");
-
-//        var request = new GetPreSignedUrlRequest
-//        {
-//            BucketName = "hiresphere",
-//            Key = fileKey,
-//            Expires = DateTime.UtcNow.AddMinutes(60) // לינק תקף ל-15 דקות
-//        };
-
-//        return _s3Client.GetPreSignedURL(request);
-//    }
-//}
-
+﻿
 using HireSphereApi.core.entities;
 using Microsoft.EntityFrameworkCore;
 using Amazon.S3;
 using Amazon.S3.Model;
-using Amazon.S3.Transfer;
-using System.Net.Http.Json;
 using HireSphereApi.Data;
 using HireSphereApi.core.DTO;
 using AutoMapper;
@@ -172,10 +111,6 @@ public class FileService : IFileService
         }
     }
 
-
-
-    //no use of it- maby rhe logicak isnt goof
-
     public async Task<Stream> DownloadFileAsync(string s3Key)
     {
         try
@@ -199,7 +134,6 @@ public class FileService : IFileService
         }
     }
 
-    //also in it 
     public async Task<bool> DeleteFile( int ownerId)
     {
         var file = await _context.Files

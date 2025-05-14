@@ -16,6 +16,7 @@ using HireSphereApi.Service.Iservice;
 using OpenAI;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 Env.Load("keys.env");
@@ -24,9 +25,18 @@ Env.Load("keys.env");
 string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID") ?? throw new InvalidOperationException("AWS_ACCESS_KEY_ID is missing."); ;
 string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
 string region = Environment.GetEnvironmentVariable("AWS_REGION");
+builder.Services.AddSignalR();
 
-Console.WriteLine("accessKey " + accessKey + " secretKey " + secretKey + " region " + region);
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", builder =>
+    {
+        builder.WithOrigins("http://localhost:5173", "http://localhost:4200","https://hiresphereangular.onrender.com")
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials();
+    });
+});
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IS3Service, S3Service>();
@@ -94,6 +104,14 @@ builder.Services.AddDbContext<DataContext>(options =>
     mySqlOptions => mySqlOptions.EnableRetryOnFailure());
 
 });
+if (string.IsNullOrEmpty(connectionString))
+{
+    Console.WriteLine("Connection string is not found or empty.");
+}
+else
+{
+    Console.WriteLine($"Connection string loaded: {connectionString}");
+}
 
 
 builder.Services.Configure<JsonOptions>(options =>
@@ -111,12 +129,8 @@ builder.Services.AddAuthentication(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuer = true,
-            ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JWT:Issuer"],
-            ValidAudience = builder.Configuration["JWT:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
         };
     });
@@ -128,13 +142,14 @@ app.UseStaticFiles(new StaticFileOptions
     ServeUnknownFileTypes = true
 });
 
+app.UseCors("AllowFrontend");
 
-app.UseCors(builder =>
-{
-    builder.AllowAnyOrigin()
-           .AllowAnyMethod()
-           .AllowAnyHeader();
-});
+//app.UseCors(builder =>
+//{
+//    builder.WithOrigins("http://localhost:5173")
+//           .AllowAnyMethod()
+//           .AllowAnyHeader();
+//});
 
 app.UseSwagger();
 
@@ -148,10 +163,10 @@ app.UseSwaggerUI(c =>
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseDefaultFiles(); // Enables serving default files (index.html)
-app.UseStaticFiles();  // Enables serving static files (CSS, JS, etc.)
+app.UseDefaultFiles(); 
+app.UseStaticFiles();  
 
-
+app.MapHub<VideoCallHub>("/videoCallHub");
 app.MapGet("/", () => "Hello World!");
 
 FileEndpoints.MapFileEndpoints(app);

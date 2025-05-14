@@ -38,9 +38,7 @@ public class UserService : IUserService
     public async Task<UserDto> CreateUser(UserPostModel userModel)
     {
         var userEntity = _mapper.Map<UserEntity>(userModel);
-        Console.WriteLine("role "+userEntity.Role);
         _context.Users.Add(userEntity);
-        Console.WriteLine($"Received JSON: {JsonSerializer.Serialize(userModel)}");
         await _context.SaveChangesAsync();
         return _mapper.Map<UserDto>(userEntity);
     }
