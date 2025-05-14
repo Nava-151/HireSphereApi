@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\videocallhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\videocallhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\core\\services\\videocallhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|solutionrelative:hiresphereapi\\core\\services\\videocallhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{31506D85-6816-4824-A23B-E3894189814E}|HireSphereApi\\HireSphereApi.csproj|c:\\users\\user1\\desktop\\practicum\\api\\hiresphereapi\\hiresphereapi\\endpoints\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -183,11 +183,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
@@ -203,35 +207,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "VideoCallHub.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\VideoCallHub.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\VideoCallHub.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\VideoCallHub.cs",
               "RelativeToolTip": "HireSphereApi\\core\\services\\VideoCallHub.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAswIUAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T12:07:41.975Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{ca8cc5c7-0231-406a-95cd-aa5ed6ac0190}"
+              "WhenOpened": "2025-05-07T12:07:41.975Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Program.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\Program.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Program.cs",
               "RelativeToolTip": "HireSphereApi\\Program.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAvwKgAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAACbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:16:20.243Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "WhenOpened": "2025-03-19T13:16:20.243Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -257,14 +255,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-11T14:12:49.149Z",
               "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",

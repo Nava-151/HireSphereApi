@@ -11885,7 +11885,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-            "version": "[9.0.203, 9.0.203]"
+            "version": "[9.0.204, 9.0.204]"
           }
         ],
         "frameworkReferences": {
@@ -11896,7 +11896,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

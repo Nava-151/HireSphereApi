@@ -207,12 +207,11 @@
               "Title": "VideoCallHub.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\VideoCallHub.cs",
               "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\VideoCallHub.cs",
-              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\VideoCallHub.cs*",
-              "RelativeToolTip": "HireSphereApi\\core\\services\\VideoCallHub.cs*",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\VideoCallHub.cs",
+              "RelativeToolTip": "HireSphereApi\\core\\services\\VideoCallHub.cs",
               "ViewState": "AgIAAFwAAAAAAAAAAAAswIUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T12:07:41.975Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T12:07:41.975Z"
             },
             {
               "$type": "Bookmark",
@@ -228,8 +227,7 @@
               "RelativeToolTip": "HireSphereApi\\Program.cs",
               "ViewState": "AgIAAIcAAAAAAAAAAAAvwKgAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:16:20.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T13:16:20.243Z"
             },
             {
               "$type": "Bookmark",
@@ -245,8 +243,7 @@
               "RelativeToolTip": "HireSphereApi\\EndPoints\\UserEndpoints.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAD4vykAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T15:25:09.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-20T15:25:09.184Z"
             },
             {
               "$type": "Document",

@@ -31,7 +31,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", builder =>
     {
-        builder.WithOrigins("http://localhost:5173", "http://localhost:4200","https://hiresphereangular.onrender.com")
+        builder.WithOrigins("http://localhost:5173", "http://localhost:4200","https://hiresphereangular.onrender.com","https://hirespherereact.onrender.com")
                .AllowAnyHeader()
                .AllowAnyMethod()
                .AllowCredentials();
