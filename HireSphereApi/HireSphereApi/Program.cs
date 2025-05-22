@@ -138,7 +138,8 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
-
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+builder.WebHost.UseUrls($"http://*:{port}");
 var app = builder.Build();
 app.UseStaticFiles(new StaticFileOptions
 {
