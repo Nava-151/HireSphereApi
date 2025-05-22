@@ -183,8 +183,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 6,
@@ -195,8 +203,7 @@
               "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IS3Service.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T11:15:26.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T11:15:26.078Z"
             },
             {
               "$type": "Document",
@@ -208,8 +215,7 @@
               "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T15:43:44.824Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-20T15:43:44.824Z"
             },
             {
               "$type": "Document",
@@ -219,7 +225,7 @@
               "RelativeDocumentMoniker": "HireSphereApi\\Program.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\Program.cs",
               "RelativeToolTip": "HireSphereApi\\Program.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAUwI4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAUwCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T13:16:20.243Z",
               "EditorCaption": ""
@@ -234,8 +240,7 @@
               "RelativeToolTip": "HireSphereApi\\HireSphereApi.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-03-23T10:47:48.065Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T10:47:48.065Z"
             },
             {
               "$type": "Document",
@@ -247,8 +252,7 @@
               "RelativeToolTip": "HireSphereApi\\api\\LoginUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T16:00:23.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-20T16:00:23.231Z"
             },
             {
               "$type": "Document",
@@ -260,8 +264,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\services\\VideoCallHub.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAADwv20AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T12:07:41.975Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T12:07:41.975Z"
             },
             {
               "$type": "Document",
@@ -273,8 +276,7 @@
               "RelativeToolTip": "HireSphereApi\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-19T14:41:55.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T14:41:55.173Z"
             },
             {
               "$type": "Document",
@@ -286,8 +288,7 @@
               "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IFileService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:32:31.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T17:32:31.888Z"
             },
             {
               "$type": "Document",
@@ -299,8 +300,7 @@
               "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IExtractedDataService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T11:13:17.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T11:13:17.939Z"
             },
             {
               "$type": "Document",
@@ -312,8 +312,7 @@
               "RelativeToolTip": "HireSphereApi\\Service\\Iservice\\IAIService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T16:31:05.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-20T16:31:05.861Z"
             },
             {
               "$type": "Document",
@@ -325,8 +324,7 @@
               "RelativeToolTip": "HireSphereApi\\Data\\DataContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T14:38:47.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T14:38:47.543Z"
             },
             {
               "$type": "Document",
@@ -338,8 +336,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\MappingProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T22:11:50.395Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:11:50.395Z"
             },
             {
               "$type": "Document",
@@ -351,8 +348,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\services\\UserService.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAowDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T14:08:01.759Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-20T14:08:01.759Z"
             },
             {
               "$type": "Document",
@@ -364,8 +360,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\services\\TextExtractionService.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwAUAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:25:04.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T17:25:04.001Z"
             },
             {
               "$type": "Document",
@@ -377,8 +372,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\services\\S3Service.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAgwDEAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:24:19.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T17:24:19.33Z"
             },
             {
               "$type": "Document",
@@ -390,12 +384,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\services\\FileService.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAYwC8AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T20:59:35.168Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+              "WhenOpened": "2025-03-18T20:59:35.168Z"
             },
             {
               "$type": "Document",
@@ -444,14 +433,6 @@
               "ViewState": "AgIAAD0AAAAAAAAAAAAQwEwAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T17:27:16.181Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",

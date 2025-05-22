@@ -14,6 +14,7 @@ using HireSphereApi.core.services;
 using DotNetEnv;
 using HireSphereApi.Service.Iservice;
 using OpenAI;
+using Microsoft.AspNetCore.HttpOverrides;
 
 
 
@@ -36,6 +37,11 @@ builder.Services.AddCors(options =>
     });
 });
 builder.Services.AddSignalR();
+
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+});
 
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IUserService, UserService>();
