@@ -21,22 +21,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 Env.Load("keys.env");
 
-// מקבל את הערכים
 string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID") ?? throw new InvalidOperationException("AWS_ACCESS_KEY_ID is missing."); ;
-string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
-string region = Environment.GetEnvironmentVariable("AWS_REGION");
-builder.Services.AddSignalR();
+string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY") ?? throw new InvalidOperationException("AWS_SECRET_ACCESS_KEY is missing."); 
+string region = Environment.GetEnvironmentVariable("AWS_REGION") ?? throw new InvalidOperationException("AWS_REGION is missing."); 
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", builder =>
     {
-        builder.WithOrigins("http://localhost:5173", "http://localhost:4200","https://hiresphereangular.onrender.com","https://hirespherereact.onrender.com")
+        builder.WithOrigins("http://localhost:5173", "http://localhost:4200","https://hiresphereangular.onrender.com","https://hirespherereact.onrender.com","https://hiresphereapi.onrender.com")
                .AllowAnyHeader()
                .AllowAnyMethod()
                .AllowCredentials();
     });
 });
+builder.Services.AddSignalR();
+
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IS3Service, S3Service>();
@@ -56,11 +56,10 @@ builder.Services.AddSingleton<OpenAIClient>(sp =>
     {
         throw new InvalidOperationException("OPENAI_API_KEY environment variable is not set.");
     }
-
     return new OpenAIClient(apiKey);
 });
 
-builder.Services.AddScoped<AIService>(); // Register your AIService
+builder.Services.AddScoped<AIService>(); 
 
 
 
@@ -129,9 +128,13 @@ builder.Services.AddAuthentication(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
+            ValidateIssuer = true,
+            ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
         };
     });
 
@@ -143,32 +146,19 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseCors("AllowFrontend");
-
-//app.UseCors(builder =>
-//{
-//    builder.WithOrigins("http://localhost:5173")
-//           .AllowAnyMethod()
-//           .AllowAnyHeader();
-//});
-
 app.UseSwagger();
-
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "HireSphere API v1");
     c.RoutePrefix = string.Empty;
 
 });
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.UseDefaultFiles(); 
 app.UseStaticFiles();  
-
 app.MapHub<VideoCallHub>("/videoCallHub");
 app.MapGet("/", () => "Hello World!");
-
 FileEndpoints.MapFileEndpoints(app);
 AiResponseEndPoint.MapAiEndPoints(app);
 UserEndpoints.MapUserEndPoints(app);

@@ -33,7 +33,7 @@ namespace HireSphereApi.EndPoints
                     return Results.NotFound("User not found");
                 }
 
-                var tokenString = GenerateJwtToken(configuration,user);
+                var tokenString = GenerateJwtToken(configuration, user);
 
                 return Results.Ok(new { token = tokenString, id = user.Id });
             });
@@ -48,13 +48,10 @@ namespace HireSphereApi.EndPoints
                     return Results.BadRequest("user already exist");
                 user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
 
-                // יצירת המשתמש
                 var createdUser = await userService.CreateUser(user);
 
-                // יצירת ה-Token
-                var token = GenerateJwtToken(configuration,createdUser);
+                var token = GenerateJwtToken(configuration, createdUser);
 
-                // החזרת המשתמש + ה-Token
                 return Results.Created($"/api/users/{createdUser.Id}", new
                 {
                     id = createdUser.Id,
@@ -68,21 +65,22 @@ namespace HireSphereApi.EndPoints
         {
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-            var expirationTime = DateTime.UtcNow.AddMinutes(60);
+            var expirationTime = DateTime.UtcNow.AddDays(7);
 
-            // הכנס Claims עם פרטי המשתמש
             var claims = new[]
-                {
+            {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.Role, user.Role.ToString()),
-            new Claim("FullName", user.FullName ?? "") // אם קיים
-        };
-
-            var tokenOptions = new JwtSecurityToken(
-                claims: claims,
-                expires: expirationTime,
-                signingCredentials: signinCredentials
+            new Claim("FullName", user.FullName ?? "")
+            };
+          
+           var tokenOptions = new JwtSecurityToken(
+               issuer: configuration["Jwt:Issuer"],             
+               audience: configuration["Jwt:Audience"],         
+               claims: claims,
+               expires: expirationTime,
+               signingCredentials: signinCredentials
             );
 
             return new JwtSecurityTokenHandler().WriteToken(tokenOptions);

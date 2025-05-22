@@ -23,14 +23,14 @@ namespace HireSphereApi.EndPoints
             }).RequireAuthorization();
 
 
-            fileRoute.MapGet("/{id}", async (int OwnerId, IFileService fileService) =>
+            fileRoute.MapGet("/{OwnerId}", async (int OwnerId, IFileService fileService) =>
             {
                 var file = await fileService.GetFileByOwnnerId(OwnerId);
                 if (file == null)
                     return Results.NotFound("File not found");
 
                 return Results.Ok(file);
-            }).RequireAuthorization();
+            });
 
 
             fileRoute.MapDelete("/{ownerId}", async (int ownerId, DataContext context, IFileService fileService) =>
@@ -61,7 +61,7 @@ namespace HireSphereApi.EndPoints
 
                 return Results.Ok(url);
 
-            });
+            }).RequireAuthorization();
 
 
             fileRoute.MapGet("/download", async ([FromQuery] string fileName, IS3Service fileService) =>
@@ -90,8 +90,7 @@ namespace HireSphereApi.EndPoints
 
 
                 return Results.File(fileBytes, contentType, fileName);
-            });
-    //.RequireAuthorization();
+            }).RequireAuthorization();
 
 
 
@@ -100,7 +99,7 @@ namespace HireSphereApi.EndPoints
                 var url = await fileService.GeneratePresignedUrlToUpload(fileName);
                 return url;
 
-            }).RequireAuthorization(new AuthorizeAttribute { Roles = "Candidate" });
+            }).RequireAuthorization();
 
             fileRoute.MapPost("", async ([FromBody] FilesPostModel request, IFileService fileService) =>
             {

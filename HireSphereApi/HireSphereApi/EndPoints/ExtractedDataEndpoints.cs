@@ -15,9 +15,7 @@ namespace HireSphereApi.EndPoints
             {
                 var data = await extractedDataService.GetAllData();
                 return Results.Ok(data);
-            });
-
-
+            }).RequireAuthorization();
 
 
             extractedDataRoute.MapGet("/{id}", async (int id, IExtractedDataService extractedDataService) =>
@@ -31,25 +29,14 @@ namespace HireSphereApi.EndPoints
             }).RequireAuthorization();
 
 
-            extractedDataRoute.MapPost("/mark", async ([FromQuery] decimal mark,[FromQuery] int id, IExtractedDataService extractedDataService) =>
+            extractedDataRoute.MapPost("/mark", async ([FromQuery] decimal mark, [FromQuery] int id, IExtractedDataService extractedDataService) =>
             {
-                var createdData = await extractedDataService.AddMark(mark,id);
+                var createdData = await extractedDataService.AddMark(mark, id);
                 return Results.Ok(createdData);
             }).RequireAuthorization();
 
-            //no need but i make it
-            extractedDataRoute.MapDelete("/{id}", async (int id, IExtractedDataService extractedDataService) =>
-            {
-                var isDeleted = await extractedDataService.DeleteData(id);
-                if (!isDeleted)
-                {
-                    return Results.NotFound("Data not found");
-                }
-                return Results.Ok("Data deleted successfully");
-            }).RequireAuthorization();
-
-            extractedDataRoute.MapPost("/filter", async ([FromBody] AiResponseDto filterParams,
-    IExtractedDataService extractedDataService) =>
+           
+            extractedDataRoute.MapPost("/filter", async ([FromBody] AiResponseDto filterParams,IExtractedDataService extractedDataService) =>
             {
                 var filteredReports = await extractedDataService.GetFilteredReports(filterParams);
                 return Results.Ok(filteredReports);

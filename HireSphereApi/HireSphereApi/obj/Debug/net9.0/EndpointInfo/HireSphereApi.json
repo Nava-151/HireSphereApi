@@ -63,7 +63,7 @@
         }
       }
     },
-    "/files/{id}": {
+    "/files/{OwnerId}": {
       "get": {
         "tags": [
           "HireSphereApi"
@@ -71,7 +71,7 @@
         "parameters": [
           {
             "name": "OwnerId",
-            "in": "query",
+            "in": "path",
             "required": true,
             "schema": {
               "type": "integer",
@@ -329,27 +329,6 @@
     },
     "/data/{id}": {
       "get": {
-        "tags": [
-          "HireSphereApi"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
         "tags": [
           "HireSphereApi"
         ],

@@ -66,7 +66,7 @@ namespace HireSphereApi.core.services
                 Console.WriteLine(callerUserId + " caller use id");
                 Console.WriteLine($"📤 Offer sent from {callerUserId} to {targetUserId}");
 
-                // שליחה כ-JSON
+                
                 await Clients.Client(connectionId).SendAsync("ReceiveOffer", callerUserId, offerJson);
             }
             else

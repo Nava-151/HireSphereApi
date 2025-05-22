@@ -15,7 +15,7 @@ namespace HireSphereApi.EndPoints
             {
                 var users = await userService.GetAllUsers();
                 return Results.Ok(users);
-            });
+            }).RequireAuthorization();
 
             usersRoute.MapGet("/{id}", async (int id, IUserService userService) =>
             {
@@ -25,7 +25,7 @@ namespace HireSphereApi.EndPoints
                     return Results.NotFound(new { message = "User not found", userId = id });
                 }
                 return Results.Ok(user);
-            });
+            }).RequireAuthorization();
 
 
             usersRoute.MapDelete("/{id}", async (int id, IUserService userService) =>

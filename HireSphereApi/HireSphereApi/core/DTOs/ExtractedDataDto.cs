@@ -10,8 +10,7 @@ namespace HireSphereApi.core.DTO{
         public int Id { get; set; }
         public int CandidateId { get; set; }
         public UserEntity? Candidate { get; set; }
-        public string FileKey { get; set; } // מפתח הקובץ ב-S3
-
+        public string FileKey { get; set; }
         public int IdResponse { get; set; }
         public AIResponse? Response { get; set; }
 

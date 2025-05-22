@@ -39,9 +39,9 @@ public class AIService : IAIService
             new { role = "system", content = "You are an AI that extracts resume data." },
             new { role = "user", content = $"Extract the following information: Experience calculate from the text and return me a" +
             $" number of years - an intger don't give me word only a number of years" +
-            $" Education return me one of the following option College , University, or Another ," +
+            $" Education return me one of the following option College , University who learned in univarsty or acadmay, or Another it it  not one of the other options ," +
             $" Programming Languages return an array of languages he or she has ever been experienced , " +
-            $"English Level- return the english level in one of the words as it sounds from the file Beginner, Intermediate, Advanced, Fluent.\n\n{resumeText}" }
+            $"English Level- return the english level in one of the words as it sounds from the file:  Beginner, Intermediate, Advanced, Fluent.\n\n{resumeText}" }
         },
             temperature = 0.5
         };

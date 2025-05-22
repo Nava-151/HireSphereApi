@@ -16,7 +16,7 @@ using HireSphereApi.core.DTOs;
 
 public class FileService : IFileService
 {
-    private readonly DataContext _context;  // Change to your actual DbContext name
+    private readonly DataContext _context;  
     private readonly IAmazonS3 _s3Client;
     private readonly IConfiguration _configuration;
     private readonly HttpClient _httpClient;
@@ -139,7 +139,7 @@ public class FileService : IFileService
         var file = await _context.Files
         .FirstOrDefaultAsync(f => f.OwnerId == ownerId&& f.IsDeleted==true );
 
-        if (file == null) return false; // קובץ לא נמצא או שייך למשתמש אחר
+        if (file == null) return false; 
 
         file.IsDeleted = true;
         file.UpdatedAt = DateTime.UtcNow;
@@ -156,7 +156,8 @@ public class FileService : IFileService
 
     public async Task<FileDto?> GetFileByOwnnerId(int ownerId)
     {
-        var file = await _context.Files.FirstOrDefaultAsync(u => u.OwnerId == ownerId); 
+        Console.WriteLine(ownerId);
+        var file = await _context.Files.FirstOrDefaultAsync(u => u.OwnerId == ownerId);
             return file != null ? _mapper.Map<FileDto>(file) : null;
     }
 
