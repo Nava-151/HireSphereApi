@@ -8,7 +8,9 @@ namespace HireSphereApi.Service.Iservice
     {
          Task<string> GeneratePresignedUrlToUpload([FromQuery] string fileName);
          Task<string> GeneratePresignedUrlToDownload([FromQuery] string fileName);
-        Task<Stream> DownloadFileAsync(string s3Key);
+        Task<string> GeneratePresignedUrlToView(string fileName);
+
+        //Task<Stream> DownloadFileAsync(string s3Key);
 
     }
 }

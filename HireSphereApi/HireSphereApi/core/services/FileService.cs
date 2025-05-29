@@ -111,28 +111,7 @@ public class FileService : IFileService
         }
     }
 
-    public async Task<Stream> DownloadFileAsync(string s3Key)
-    {
-        try
-        {
-            var request = new GetObjectRequest
-            {
-                BucketName = "hiresphere",
-                Key = s3Key
-            };
-
-            using var response = await _s3Client.GetObjectAsync(request);
-            Console.WriteLine(response);
-            var memoryStream = new MemoryStream();
-            await response.ResponseStream.CopyToAsync(memoryStream);
-            memoryStream.Position = 0;
-            return memoryStream;
-        }
-        catch
-        {
-            return null;
-        }
-    }
+  
 
     public async Task<bool> DeleteFile( int ownerId)
     {

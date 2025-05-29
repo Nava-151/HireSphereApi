@@ -49,10 +49,10 @@ public class UserService : IUserService
         var existingUser = await _context.Users.FindAsync(id);
 
         if (existingUser == null) return false;
-        _mapper.Map(userModel, existingUser);
-        if (!string.IsNullOrWhiteSpace(userModel.PasswordHash))
-            existingUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(userModel.PasswordHash);
-
+        existingUser.Email = userModel.Email;
+        existingUser.FullName = userModel.FullName;
+        existingUser.Phone = userModel.Phone;
+        
         existingUser.UpdatedAt = DateTime.UtcNow;
 
         await _context.SaveChangesAsync();

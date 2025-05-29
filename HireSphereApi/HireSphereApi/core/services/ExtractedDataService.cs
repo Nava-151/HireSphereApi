@@ -108,7 +108,7 @@ public class ExtractedDataService : IExtractedDataService
 
         if (filterParams.Experience.HasValue)
         {
-            Console.WriteLine("experience is not empty");
+            Console.WriteLine("experience is not empty"+filterParams.Experience.Value);
             query = query.Where(r => r.Response.Experience >= filterParams.Experience.Value);
         }
 
@@ -130,10 +130,9 @@ public class ExtractedDataService : IExtractedDataService
         }
         if (filterParams.Mark.HasValue)
         {
-            Console.WriteLine("mark is not empty");
+            Console.WriteLine("mark is not empty" + filterParams.Mark.Value);
             query = query.Where(r => r.Mark >= filterParams.Mark.Value);
         }
-
         return _mapper.Map<IEnumerable<ExtractedDataDto>>(query).ToList();
     }
 

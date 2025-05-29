@@ -57,7 +57,7 @@ namespace HireSphereApi.EndPoints
                 var file = await fileService.GetFileByOwnnerId(ownerId);
                 if (file == null)
                     return Results.BadRequest("no file uploaded");
-                var url = await s3Service.GeneratePresignedUrlToDownload(file.FileName);
+                var url = await s3Service.GeneratePresignedUrlToView(file.FileName);
 
                 return Results.Ok(url);
 

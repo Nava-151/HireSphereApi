@@ -211,3 +211,6 @@ C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\DocumentFormat.OpenXml.dll
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\DocumentFormat.OpenXml.Framework.dll
 C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\MailKit.dll
+C:\Users\user1\Desktop\practicum\Api\HireSphereApi\HireSphereApi\bin\Debug\net9.0\MimeKit.dll
