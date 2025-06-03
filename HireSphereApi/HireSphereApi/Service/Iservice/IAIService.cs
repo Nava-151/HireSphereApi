@@ -8,5 +8,7 @@ namespace HireSphereApi.Service.Iservice
 
         Task<AIResponse> GetAIResponse(int aiId);
 
+        Task<string> ChatWithAiAsync(string message);
+
     }
 }

@@ -205,7 +205,7 @@
         }
       }
     },
-    "/aiResponse/{id}": {
+    "/ai/{id}": {
       "get": {
         "tags": [
           "HireSphereApi"
@@ -221,6 +221,28 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ai/chat": {
+      "post": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatMessageDto"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -474,6 +496,16 @@
           "mark": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChatMessageDto": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
             "nullable": true
           }
         },

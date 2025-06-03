@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HireSphereApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c470a877f885ee9634d7f816eb08039c690d7d85")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a64cf0e35543a22702560593732a757117373bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("HireSphereApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HireSphereApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

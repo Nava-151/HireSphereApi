@@ -20,7 +20,7 @@
   {
     "ContainingType": "HireSphereApi.EndPoints.AiResponseEndPoint\u002B\u003C\u003Ec",
     "Method": "\u003CMapAiEndPoints\u003Eb__0_0",
-    "RelativePath": "aiResponse/{id}",
+    "RelativePath": "ai/{id}",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
@@ -28,6 +28,28 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HireSphereApi.EndPoints.AiResponseEndPoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAiEndPoints\u003Eb__0_1",
+    "RelativePath": "ai/chat",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "HireSphereApi.EndPoints.ChatMessageDto",
         "IsRequired": true
       }
     ],
