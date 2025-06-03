@@ -187,8 +187,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -199,8 +203,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\services\\ExtractedDataService.cs",
               "ViewState": "AgIAAF4AAAAAAAAAAAAwwIwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T16:29:50.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-28T16:29:50.124Z"
             },
             {
               "$type": "Document",
@@ -224,8 +227,7 @@
               "RelativeToolTip": "HireSphereApi\\core\\entities\\AIResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T21:08:59.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T21:08:59.459Z"
             },
             {
               "$type": "Document",
@@ -249,8 +251,7 @@
               "RelativeToolTip": "HireSphereApi\\Program.cs",
               "ViewState": "AgIAAIQAAAAAAAAAAAAAAKMAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:16:20.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T13:16:20.243Z"
             },
             {
               "$type": "Document",
@@ -260,7 +261,7 @@
               "RelativeDocumentMoniker": "HireSphereApi\\core\\services\\AIService.cs",
               "ToolTip": "C:\\Users\\user1\\Desktop\\practicum\\Api\\HireSphereApi\\HireSphereApi\\core\\services\\AIService.cs",
               "RelativeToolTip": "HireSphereApi\\core\\services\\AIService.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAuwEgAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAwJ4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T21:52:04.684Z",
               "EditorCaption": ""
@@ -292,10 +293,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T17:24:19.33Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
