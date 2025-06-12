@@ -75,16 +75,22 @@ namespace HireSphereApi.core.services
             }
 
         }    
-        // שלב 4 – תשובה להצעה
+      
         public async Task SendAnswer(string targetUserId, string answer)
         {
             Console.WriteLine("in send answer function");
 
             if (_userConnections.TryGetValue(targetUserId, out var connectionId))
             {
-                await Clients.Client(connectionId).SendAsync("ReceiveAnswer", Context.ConnectionId, answer);
+                await Clients.Client(connectionId).SendAsync("ReceiveAnswer", answer);
+                Console.WriteLine($"Answer sent to {targetUserId}");
+            }
+            else
+            {
+                Console.WriteLine($" Target user {targetUserId} not connected.");
             }
         }
+
 
         public async Task SendIceCandidate(string targetUserId, JsonElement candidate)
         {
