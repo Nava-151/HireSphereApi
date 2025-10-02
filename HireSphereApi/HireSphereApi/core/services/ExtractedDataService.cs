@@ -19,7 +19,12 @@ public class ExtractedDataService : IExtractedDataService
 
     public async Task<IEnumerable<ExtractedDataDto>> GetAllData()
     {
+<<<<<<< HEAD
         var dataList = await _context.ExtractedData.AsNoTracking().ToListAsync();
+=======
+
+        var dataList = await _context.ExtractedData.Include(e => e.Response).Include(e => e.candidate).ToListAsync();
+>>>>>>> 5557d759eaca22b53a51c9fa8cfd4cf793350b5c
         return _mapper.Map<IEnumerable<ExtractedDataDto>>(dataList);
     }
 
@@ -28,38 +33,55 @@ public class ExtractedDataService : IExtractedDataService
         var data = await _context.ExtractedData.FindAsync(id);
         return data != null ? _mapper.Map<ExtractedDataDto>(data) : null;
     }
-    public async Task<ExtractedDataDto> AddMark(decimal mark,int userId)
+    public async Task<ExtractedDataDto> AddMark(decimal mark, int userId)
     {
-        var extractedData=await _context.ExtractedData.FindAsync(userId);
+        var extractedData = await _context.ExtractedData.FindAsync(userId);
         Console.WriteLine(extractedData);
-        if(extractedData == null)
+        if (extractedData == null)
         {
             throw new Exception($"ExtractedData with id {userId} not found.");
         }
         extractedData.Mark = mark;
         await _context.SaveChangesAsync();
         return _mapper.Map<ExtractedDataDto>(extractedData);
-        
+
     }
     public async Task<ExtractedDataDto> CreateData(ExtractedDataPostModel dataModel)
     {
         var dataEntity = _mapper.Map<ExtractedDataEntity>(dataModel);
         _context.ExtractedData.Add(dataEntity);
         await _context.SaveChangesAsync();
-        return _mapper.Map<ExtractedDataDto>(dataEntity);
+
+        var loadedEntity = await _context.ExtractedData
+       .Include(e => e.Response)
+       .Include(e => e.candidate)
+       .FirstOrDefaultAsync(e => e.Id == dataEntity.Id);
+
+        return _mapper.Map<ExtractedDataDto>(loadedEntity);
     }
+<<<<<<< HEAD
 
     public async Task<bool> UpdateData(int id, ExtractedDataPostModel updatedData)
+=======
+   
+
+    public async Task<ExtractedDataDto?> UpdateData(int id, ExtractedDataPostModel updatedData)
+>>>>>>> 5557d759eaca22b53a51c9fa8cfd4cf793350b5c
     {
-        var existingData = await _context.ExtractedData.FindAsync(id);
-        if (existingData == null) return false;
+        var existingData = await _context.ExtractedData
+            .Include(e => e.Response)
+            .Include(e => e.candidate)
+            .FirstOrDefaultAsync(e => e.Id == id);
+
+        if (existingData == null) return null;
 
         _mapper.Map(updatedData, existingData);
         existingData.UpdatedAt = DateTime.UtcNow;
 
         await _context.SaveChangesAsync();
-        return true;
+        return _mapper.Map<ExtractedDataDto>(existingData);
     }
+
 
     public async Task<bool> DeleteData(int id)
     {
@@ -75,7 +97,6 @@ public class ExtractedDataService : IExtractedDataService
     {
         var query = _context.ExtractedData.AsQueryable();
 
-        // ✅ Return all reports if no filter is provided
         if (
             !filterParams.Experience.HasValue &&
             string.IsNullOrWhiteSpace(filterParams.Languages) &&
@@ -85,28 +106,23 @@ public class ExtractedDataService : IExtractedDataService
 
         }
 
-        // Filtering logic
-
         if (!string.IsNullOrWhiteSpace(filterParams.Education))
         {
             Console.WriteLine("education is not empty");
             query = query.Where(r => r.Response.Education.Contains(filterParams.Education));
         }
 
-
         if (filterParams.Experience.HasValue)
         {
-            Console.WriteLine("experience is not empty");
+            Console.WriteLine("experience is not empty"+filterParams.Experience.Value);
             query = query.Where(r => r.Response.Experience >= filterParams.Experience.Value);
         }
-
 
         if (!string.IsNullOrWhiteSpace(filterParams.EnglishLevel))
         {
             Console.WriteLine("englishLevel is not empty");
             query = query.Where(r => r.Response.EnglishLevel == filterParams.EnglishLevel);
         }
-
 
         if (!string.IsNullOrWhiteSpace(filterParams.Languages))
         {
@@ -118,6 +134,7 @@ public class ExtractedDataService : IExtractedDataService
                 .ToList();
             query = query.Where(r => languagesArray.Any(lang => r.Response.Languages.Contains(lang)));
         }
+<<<<<<< HEAD
         if(filterParams.Mark.HasValue)
         {
             Console.WriteLine("mark is not empty");
@@ -125,9 +142,16 @@ public class ExtractedDataService : IExtractedDataService
         }
 
 
+=======
+        if (filterParams.Mark.HasValue)
+        {
+            Console.WriteLine("mark is not empty" + filterParams.Mark.Value);
+            query = query.Where(r => r.Mark >= filterParams.Mark.Value);
+        }
+>>>>>>> 5557d759eaca22b53a51c9fa8cfd4cf793350b5c
         return _mapper.Map<IEnumerable<ExtractedDataDto>>(query).ToList();
     }
 
- 
+    
 }
 

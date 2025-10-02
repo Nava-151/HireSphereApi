@@ -2,6 +2,7 @@
 using HireSphereApi.Data;
 using HireSphereApi.entities;
 using HireSphereApi.Service.Iservice;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,14 +23,14 @@ namespace HireSphereApi.EndPoints
             }).RequireAuthorization();
 
 
-            fileRoute.MapGet("/{id}", async (int OwnerId, IFileService fileService) =>
+            fileRoute.MapGet("/{OwnerId}", async (int OwnerId, IFileService fileService) =>
             {
                 var file = await fileService.GetFileByOwnnerId(OwnerId);
                 if (file == null)
                     return Results.NotFound("File not found");
 
                 return Results.Ok(file);
-            }).RequireAuthorization();
+            });
 
 
             fileRoute.MapDelete("/{ownerId}", async (int ownerId, DataContext context, IFileService fileService) =>
@@ -56,11 +57,11 @@ namespace HireSphereApi.EndPoints
                 var file = await fileService.GetFileByOwnnerId(ownerId);
                 if (file == null)
                     return Results.BadRequest("no file uploaded");
-                var url = await s3Service.GeneratePresignedUrlToDownload(file.FileName);
+                var url = await s3Service.GeneratePresignedUrlToView(file.FileName);
 
                 return Results.Ok(url);
 
-            });
+            }).RequireAuthorization();
 
 
             fileRoute.MapGet("/download", async ([FromQuery] string fileName, IS3Service fileService) =>
@@ -89,8 +90,7 @@ namespace HireSphereApi.EndPoints
 
 
                 return Results.File(fileBytes, contentType, fileName);
-            });
-    //.RequireAuthorization();
+            }).RequireAuthorization();
 
 
 
@@ -110,7 +110,7 @@ namespace HireSphereApi.EndPoints
             fileRoute.MapPost("/resume/analyze", async ([FromBody] ResumeAnalyzeRequest request, IFileService fileService) =>
             {
                 return await fileService.AnalyzeResumeAsync(request);
-            }).RequireAuthorization();
+            }).RequireAuthorization(new AuthorizeAttribute { Roles = "Candidate" });
 
 
         }

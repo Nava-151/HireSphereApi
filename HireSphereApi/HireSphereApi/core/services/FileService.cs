@@ -1,6 +1,4 @@
-﻿
-
-using HireSphereApi.core.entities;
+﻿using HireSphereApi.core.entities;
 using Microsoft.EntityFrameworkCore;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -15,7 +13,7 @@ using HireSphereApi.core.DTOs;
 
 public class FileService : IFileService
 {
-    private readonly DataContext _context;  // Change to your actual DbContext name
+    private readonly DataContext _context;  
     private readonly IAmazonS3 _s3Client;
     private readonly IConfiguration _configuration;
     private readonly HttpClient _httpClient;
@@ -110,8 +108,9 @@ public class FileService : IFileService
         }
     }
 
+  
 
-    public async Task<Stream> DownloadFileAsync(string s3Key)
+    public async Task<Stream?> DownloadFileAsync(string s3Key)
     {
         try
         {
@@ -139,7 +138,7 @@ public class FileService : IFileService
         var file = await _context.Files
         .FirstOrDefaultAsync(f => f.OwnerId == ownerId&& f.IsDeleted==true );
 
-        if (file == null) return false; // קובץ לא נמצא או שייך למשתמש אחר
+        if (file == null) return false; 
 
         file.IsDeleted = true;
         file.UpdatedAt = DateTime.UtcNow;
@@ -158,8 +157,10 @@ public class FileService : IFileService
 
     public async Task<FileDto?> GetFileByOwnnerId(int ownerId)
     {
+
+        Console.WriteLine(ownerId);
         var file = await _context.Files.FirstOrDefaultAsync(u => u.OwnerId == ownerId);
-        return file != null ? _mapper.Map<FileDto>(file) : null;
+            return file != null ? _mapper.Map<FileDto>(file) : null;
     }
 
 

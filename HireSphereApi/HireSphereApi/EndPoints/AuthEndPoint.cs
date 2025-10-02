@@ -2,12 +2,17 @@
 
 
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
+using DocumentFormat.OpenXml.Spreadsheet;
 using HireSphereApi.api;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using HireSphereApi.core.DTO;
+
 
 namespace HireSphereApi.EndPoints
 {
@@ -17,64 +22,69 @@ namespace HireSphereApi.EndPoints
         {
             var authRoute = app.MapGroup("/auth");
 
-            authRoute.MapPost("/login", async ([FromBody]LoginUser loginUser, IUserService userService, IConfiguration configuration) =>
+            authRoute.MapPost("/login", async ([FromBody] LoginUser loginUser, IUserService userService, IConfiguration configuration) =>
             {
 
-                var user = await userService.GetUserByEmail(loginUser.Email,loginUser.PasswordHash);
-                
+                var user = await userService.GetUserByEmail(loginUser.Email, loginUser.PasswordHash);
+
                 if (user == null)
                 //|| user.Role!=loginUser.Role)
                 {
                     return Results.NotFound("User not found");
                 }
 
-                var tokenString = GenerateJwtToken(configuration);
+                var tokenString = GenerateJwtToken(configuration, user);
 
-                return Results.Ok(new { token = tokenString ,id=user.Id});
+                return Results.Ok(new { token = tokenString, id = user.Id });
             });
 
 
-           
-            authRoute.MapPost("/register",  async ([FromBody] UserPostModel user, IUserService userService,IConfiguration configuration) =>
+
+            authRoute.MapPost("/register", async ([FromBody] UserPostModel user, IUserService userService, IConfiguration configuration) =>
             {
-                Console.WriteLine($"Received JSON: {JsonSerializer.Serialize(user)}");
 
                 var u = await userService.GetUserByEmail(user.Email, user.PasswordHash);
-                if(u!=null&&u.Role==user.Role)
+                if (u != null && u.Role == user.Role)
                     return Results.BadRequest("user already exist");
-                    user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
+                user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
 
-                // יצירת המשתמש
                 var createdUser = await userService.CreateUser(user);
 
-                // יצירת ה-Token
-                var token = GenerateJwtToken(configuration);
+                var token = GenerateJwtToken(configuration, createdUser);
 
-                // החזרת המשתמש + ה-Token
                 return Results.Created($"/api/users/{createdUser.Id}", new
                 {
-                    id= createdUser.Id,
+                    id = createdUser.Id,
                     user = createdUser,
                     token = token
                 });
             });
-
         }
 
-        private static string GenerateJwtToken(IConfiguration configuration)
+        private static string GenerateJwtToken(IConfiguration configuration, UserDto user)
         {
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-            var expirationTime = DateTime.UtcNow.AddMinutes(60);
+            var expirationTime = DateTime.UtcNow.AddDays(7);
 
-            var tokenOptions = new JwtSecurityToken(
-                issuer: configuration["JWT:Issuer"],
-                audience: configuration["JWT:Audience"],
-                expires: expirationTime,
-                signingCredentials: signinCredentials
+            var claims = new[]
+            {
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Role, user.Role.ToString()),
+            new Claim("FullName", user.FullName ?? "")
+            };
+          
+           var tokenOptions = new JwtSecurityToken(
+               issuer: configuration["Jwt:Issuer"],             
+               audience: configuration["Jwt:Audience"],         
+               claims: claims,
+               expires: expirationTime,
+               signingCredentials: signinCredentials
             );
 
             return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
         }
+
     }
 }

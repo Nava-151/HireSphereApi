@@ -14,6 +14,8 @@ using HireSphereApi.core.services;
 using DotNetEnv;
 using HireSphereApi.Service.Iservice;
 using OpenAI;
+using Microsoft.AspNetCore.HttpOverrides;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +27,23 @@ string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY") ?
 string region = Environment.GetEnvironmentVariable("AWS_REGION") ?? throw new InvalidOperationException("AWS_REGION is missing.");
 
 builder.Services.AddCors();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", builder =>
+    {
+        builder.WithOrigins("http://localhost:5173", "http://localhost:4200","https://hiresphereangular.onrender.com","https://hirespherereact.onrender.com","https://hiresphereapi.onrender.com")
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials();
+    });
+});
+builder.Services.AddSignalR();
+
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+});
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IS3Service, S3Service>();
@@ -44,11 +63,11 @@ builder.Services.AddSingleton<OpenAIClient>(sp =>
     {
         throw new InvalidOperationException("OPENAI_API_KEY environment variable is not set.");
     }
-
     return new OpenAIClient(apiKey);
 });
 
 builder.Services.AddScoped<AIService>(); 
+
 builder.Services.AddScoped<TextExtractionService>();
 
 builder.Services.AddSwaggerGen(options =>
@@ -89,6 +108,14 @@ builder.Services.AddDbContext<DataContext>(options =>
     mySqlOptions => mySqlOptions.EnableRetryOnFailure());
 
 });
+if (string.IsNullOrEmpty(connectionString))
+{
+    Console.WriteLine("Connection string is not found or empty.");
+}
+else
+{
+    Console.WriteLine($"Connection string loaded: {connectionString}");
+}
 
 
 builder.Services.Configure<JsonOptions>(options =>
@@ -110,12 +137,11 @@ builder.Services.AddAuthentication(options =>
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JWT:Issuer"],
-            ValidAudience = builder.Configuration["JWT:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
         };
     });
-
 
 var app = builder.Build();
 app.UseStaticFiles(new StaticFileOptions
@@ -123,32 +149,20 @@ app.UseStaticFiles(new StaticFileOptions
     ServeUnknownFileTypes = true
 });
 
-
-app.UseCors(builder =>
-{
-    builder.AllowAnyOrigin()
-           .AllowAnyMethod()
-           .AllowAnyHeader();
-});
-
+app.UseCors("AllowFrontend");
 app.UseSwagger();
-
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "HireSphere API v1");
     c.RoutePrefix = string.Empty;
 
 });
-
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseDefaultFiles(); // Enables serving default files (index.html)
-app.UseStaticFiles();  // Enables serving static files (CSS, JS, etc.)
-
-
+app.UseDefaultFiles(); 
+app.UseStaticFiles();  
+app.MapHub<VideoCallHub>("/videoCallHub");
 app.MapGet("/", () => "Hello World!");
-
 FileEndpoints.MapFileEndpoints(app);
 AiResponseEndPoint.MapAiEndPoints(app);
 UserEndpoints.MapUserEndPoints(app);

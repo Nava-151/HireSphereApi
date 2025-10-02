@@ -13,14 +13,10 @@ namespace HireSphereApi.core.entities
         public int CandidateId { get; set; }
         [ForeignKey(nameof(CandidateId))]
         public UserEntity? candidate { get; set; }
-
-        
-        public DateTime CreatedAt { get; set; } // תאריך העלאה
-        public DateTime UpdatedAt { get; set; } // תאריך ע
-
-        public string FileKey { get; set; } // מפתח הקובץ ב-S3
+        public DateTime CreatedAt { get; set; } 
+        public DateTime UpdatedAt { get; set; } 
+        public string FileKey { get; set; } 
         public decimal ? Mark { get; set; }
-
         public int IdResponse { get; set; }
         [ForeignKey(nameof(IdResponse))]
         public AIResponse? Response { get; set; }

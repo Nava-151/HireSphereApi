@@ -63,7 +63,7 @@
         }
       }
     },
-    "/files/{id}": {
+    "/files/{OwnerId}": {
       "get": {
         "tags": [
           "HireSphereApi"
@@ -71,7 +71,7 @@
         "parameters": [
           {
             "name": "OwnerId",
-            "in": "query",
+            "in": "path",
             "required": true,
             "schema": {
               "type": "integer",
@@ -205,7 +205,7 @@
         }
       }
     },
-    "/aiResponse/{id}": {
+    "/ai/{id}": {
       "get": {
         "tags": [
           "HireSphereApi"
@@ -221,6 +221,28 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ai/chat": {
+      "post": {
+        "tags": [
+          "HireSphereApi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatMessageDto"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -329,27 +351,6 @@
     },
     "/data/{id}": {
       "get": {
-        "tags": [
-          "HireSphereApi"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
         "tags": [
           "HireSphereApi"
         ],
@@ -489,6 +490,21 @@
             "nullable": true
           },
           "englishLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "mark": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChatMessageDto": {
+        "type": "object",
+        "properties": {
+          "message": {
             "type": "string",
             "nullable": true
           }

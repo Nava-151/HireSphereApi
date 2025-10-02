@@ -1,4 +1,6 @@
 ﻿using HireSphereApi.api;
+using HireSphereApi.core.entities;
+using HireSphereApi.core.services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -15,17 +17,21 @@ namespace HireSphereApi.EndPoints
             {
                 var users = await userService.GetAllUsers();
                 return Results.Ok(users);
-            });
+            }).RequireAuthorization();
 
             usersRoute.MapGet("/{id}", async (int id, IUserService userService) =>
             {
                 var user = await userService.GetUserById(id);
+                user.PasswordHash = "";
+                
                 if (user == null)
                 {
                     return Results.NotFound(new { message = "User not found", userId = id });
                 }
                 return Results.Ok(user);
-            });
+            }).RequireAuthorization();
+
+
 
 
             usersRoute.MapDelete("/{id}", async (int id, IUserService userService) =>

@@ -10,6 +10,7 @@ using HireSphereApi.api;
 using HireSphereApi.core.DTO;
 using HireSphereApi.core.entities;
 using System.Text.Json;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 public class UserService : IUserService
 {
@@ -31,16 +32,14 @@ public class UserService : IUserService
     public async Task<UserDto?> GetUserById(int id)
     {
         var user = await _context.Users.FindAsync(id);
-        Console.WriteLine("user found: "+user);
+        Console.WriteLine("user found: " + user);
         return user != null ? _mapper.Map<UserDto>(user) : null;
     }
 
     public async Task<UserDto> CreateUser(UserPostModel userModel)
     {
         var userEntity = _mapper.Map<UserEntity>(userModel);
-        Console.WriteLine("role "+userEntity.Role);
         _context.Users.Add(userEntity);
-        Console.WriteLine($"Received JSON: {JsonSerializer.Serialize(userModel)}");
         await _context.SaveChangesAsync();
         return _mapper.Map<UserDto>(userEntity);
     }
@@ -50,10 +49,10 @@ public class UserService : IUserService
         var existingUser = await _context.Users.FindAsync(id);
 
         if (existingUser == null) return false;
-        existingUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(userModel.PasswordHash);
-
-
-        _mapper.Map(userModel, existingUser);
+        existingUser.Email = userModel.Email;
+        existingUser.FullName = userModel.FullName;
+        existingUser.Phone = userModel.Phone;
+        
         existingUser.UpdatedAt = DateTime.UtcNow;
 
         await _context.SaveChangesAsync();
@@ -62,18 +61,18 @@ public class UserService : IUserService
 
     public async Task<bool> DeleteUser(int id)
     {
-        
+
         var user = await _context.Users.FindAsync(id);
         if (user == null) return false;
         _context.Users.Remove(user);
         await _context.SaveChangesAsync();
         return true;
     }
-   
-    public async Task<UserDto?> GetUserByEmail(string email,string password)
+
+    public async Task<UserDto?> GetUserByEmail(string email, string password)
     {
-        var user=await _context.Users.FirstOrDefaultAsync(u=>u.Email==email);
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash)) return null;
-       return _mapper.Map<UserDto>(user);
+        return _mapper.Map<UserDto>(user);
     }
 }

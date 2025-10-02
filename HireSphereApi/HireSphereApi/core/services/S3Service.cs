@@ -19,39 +19,34 @@
             _bucketName = "hiresphere";
            
         }
-        public async Task<Stream> DownloadFileAsync(string s3Key)
-        {
-            try
-            {
-                var request = new GetObjectRequest
-                {
-                    BucketName = _bucketName,
-                    Key = s3Key 
-                };
-
-                using var response = await _s3Client.GetObjectAsync(request);
-                var memoryStream = new MemoryStream();
-                await response.ResponseStream.CopyToAsync(memoryStream);
-                memoryStream.Position = 0; 
-                return memoryStream;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error downloading file: {ex.Message}");
-                return null;
-            }
-        }
+      
         public async Task<string> GeneratePresignedUrlToDownload(string fileName)
         {
             var request = new GetPreSignedUrlRequest
             {
                 BucketName = _bucketName,
                 Key = fileName,
-                Expires = DateTime.UtcNow.AddMinutes(5), // תוקף הלינק ל-5 דקות
+                Expires = DateTime.UtcNow.AddMinutes(5), 
                 Verb = HttpVerb.GET
             };
 
-            return _s3Client.GetPreSignedURL(request);
+            return await Task.Run(() => _s3Client.GetPreSignedURL(request));
+        }
+        public async Task<string> GeneratePresignedUrlToView(string fileName)
+        {
+            var request = new GetPreSignedUrlRequest
+            {
+            BucketName = _bucketName,
+            Key = fileName,
+            Expires = DateTime.UtcNow.AddMinutes(5),
+            Verb = HttpVerb.GET,
+            ResponseHeaderOverrides = new ResponseHeaderOverrides
+            {
+                ContentDisposition = "inline",
+            }
+            };
+
+            return await Task.Run(() => _s3Client.GetPreSignedURL(request));
         }
 
         public async Task<string> GeneratePresignedUrlToUpload(string fileName)
@@ -63,8 +58,8 @@
                 Verb = HttpVerb.PUT,
                 Expires = DateTime.UtcNow.AddMinutes(5),
             };
-            string url = _s3Client.GetPreSignedURL(request);
-            Console.WriteLine("url "+url);
+            string url = await Task.Run(() => _s3Client.GetPreSignedURL(request));
+
             return url;
         }
 

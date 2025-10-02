@@ -16,8 +16,10 @@
     <PackageReference Include="DocumentFormat.OpenXml" Version="3.3.0" />
     <PackageReference Include="DotNetEnv" Version="3.1.1" />
     <PackageReference Include="itext7" Version="9.1.0" />
+    <PackageReference Include="MailKit" Version="4.12.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -40,6 +42,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.3.1" />
     <PackageReference Include="Tesseract" Version="5.2.0" />
     <PackageReference Include="Xceed.Words.NET" Version="4.0.25103.5784" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\user1\.nuget\packages\tesseract\5.2.0\build\\..\x86\leptonica-1.82.0.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\user1\.nuget\packages\tesseract\5.2.0\build\\..\x86\tesseract50.dll" />
   </ItemGroup>
 
 </Project>
