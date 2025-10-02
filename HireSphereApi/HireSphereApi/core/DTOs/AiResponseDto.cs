@@ -11,7 +11,6 @@ namespace HireSphereApi.core.DTOs
         public string? EnglishLevel { get; set; }
         public decimal? Mark { get; set; }
 
-        public decimal? Mark { get; set; }
 
     }
 }
