@@ -1,16 +1,10 @@
-﻿using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using HireSphereApi.core.entities;
 using HireSphereApi.Data;
 using HireSphereApi.Service.Iservice;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenAI;
-using Sprache;
 using JsonException = System.Text.Json.JsonException;
 
 public class AIService : IAIService
@@ -22,13 +16,16 @@ public class AIService : IAIService
     public AIService(IConfiguration config, OpenAIClient openAI, DataContext context)
     {
         _httpClient = new HttpClient();
-        _openAiApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+        _openAiApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY") ?? throw new ArgumentNullException("OPENAI_API_KEY environment variable is not set.");
         _context = context;
     }
     public async Task<AIResponse> GetAIResponse(int aiId)
     {
         var response = await _context.AIResponses.FindAsync(aiId);
-        return response != null ? response : null;
+        if (response == null)
+            throw new Exception($"AIResponse with id {aiId} not found.");
+
+        return response;
     }
     public async Task<AIResponse> AnalyzeResumeAsync(string resumeText)
     {
@@ -70,70 +67,15 @@ public class AIService : IAIService
         if (string.IsNullOrEmpty(messageContent))
             throw new Exception("AI response is empty.");
 
-        Console.WriteLine("************** json");
-        Console.WriteLine(messageContent);
-        Console.WriteLine("***************");
         AIResponse devForFields = ParseAIResponse(messageContent);
 
-        Console.WriteLine($"Experience: {devForFields.Experience}");
-        Console.WriteLine();
-        Console.WriteLine($"Education: {devForFields.Education}");
-        Console.WriteLine();
-        Console.WriteLine($"Languages: {devForFields.Languages}");
-        Console.WriteLine();
-        Console.WriteLine($"English Level: {devForFields.EnglishLevel}");
+        Console.WriteLine($"Experience: {devForFields.Experience}\n");
+        Console.WriteLine($"Education: {devForFields.Education}\n");
+        Console.WriteLine($"Languages: {devForFields.Languages}\n");
+        Console.WriteLine($"English Level: {devForFields.EnglishLevel}\n");
 
         return devForFields;
     }
-
-
-    //static AIResponse ParseAIResponse(string input)
-    //{
-    //    AIResponse response = new AIResponse();
-    //    Console.WriteLine("in function begin");
-
-    //    //cjeck if there is need of it or return it to the old one
-    //    response.Experience = int.Parse(ExtractField(input, "Experience"));
-    //    Console.WriteLine("exp "+response.Experience);
-    //    response.Education = ExtractField(input, "Education");
-    //    Console.WriteLine("re "+ response.Education);
-    //    response.Languages = ExtractField(input, "Programming Languages");
-    //    Console.WriteLine("lang "+response.Languages);
-    //    response.EnglishLevel = ExtractField(input, "English Level");
-    //    Console.WriteLine("englidh "+response.EnglishLevel);
-    //    Console.WriteLine("in function end");
-    //    return response;
-    //}
-
-    //static string ExtractField(string input, string fieldName)
-    //{
-    //    input = input.Trim().Trim('\'');
-
-    //    // Adjust the regex pattern for extracting the field
-    //    string pattern = Regex.Escape(fieldName) + @"\s*[:\-]?\s*(.*?)(?=\n|\Z)"; // Matching until end of line or string end
-    //    Match match = Regex.Match(input, pattern, RegexOptions.Singleline);
-    //    return match.Success ? match.Groups[1].Value.Trim() : null;
-    //{
-    //}
-    //static AIResponse ParseAIResponse(string input)
-    //{
-    //    Console.WriteLine("in function begin");
-
-    //    // אם יש גרשיים בודדים או סימני ``` JSON מיותרים – ננקה אותם
-    //    input = input.Trim().Trim('`');
-
-    //    // Deserialize ישיר ל-AIResponse
-    //    var response = JsonConvert.DeserializeObject<AIResponse>(input);
-    //    Console.WriteLine("exp " + response.Experience);
-    //    //    response.Education = ExtractField(input, "Education");
-    //        Console.WriteLine("re "+ response.Education);
-    //    //    response.Languages = ExtractField(input, "Programming Languages");
-    //    Console.WriteLine("lang "+response.Languages);
-    //    //    response.EnglishLevel = ExtractField(input, "English Level");
-    //        Console.WriteLine("englidh "+response.EnglishLevel);
-    //    Console.WriteLine("in function end");
-    //    return response;
-    //}
     static AIResponse ParseAIResponse(string input)
     {
         Console.WriteLine("in function begin");
@@ -162,7 +104,6 @@ public class AIService : IAIService
             Console.WriteLine("Languages: " + response.Languages);
             Console.WriteLine("English Level: " + response.EnglishLevel);
 
-            Console.WriteLine("in function end");
             return response;
         }
         catch (JsonException ex)
@@ -185,7 +126,7 @@ public class AIService : IAIService
         }
 
         input = input.Replace("```", ""); // אם יש גבולות קוד מהעתקה
-        input = input.Trim('"'); // מסיר גרשיים חיצוניים מיותרים אם קיימים
+        input = input.Trim('"');
 
         return input;
     }

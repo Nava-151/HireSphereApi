@@ -1,10 +1,7 @@
 ﻿using HireSphereApi.Data;
 using HireSphereApi.core.entities;
-using HireSphereApi.Service.Iservice;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using HireSphereApi.api.Models;
 using HireSphereApi.core.DTO;
 using HireSphereApi.core.DTOs;
@@ -37,9 +34,10 @@ public class ExtractedDataService : IExtractedDataService
         Console.WriteLine(extractedData);
         if(extractedData == null)
         {
-            return null;
+            throw new Exception($"ExtractedData with id {userId} not found.");
         }
-        //extractedData.Mark = mark;
+        extractedData.Mark = mark;
+        await _context.SaveChangesAsync();
         return _mapper.Map<ExtractedDataDto>(extractedData);
         
     }
@@ -50,7 +48,7 @@ public class ExtractedDataService : IExtractedDataService
         await _context.SaveChangesAsync();
         return _mapper.Map<ExtractedDataDto>(dataEntity);
     }
-    //לא צריך כי אין לקליינט אפשרות לעדבן 
+
     public async Task<bool> UpdateData(int id, ExtractedDataPostModel updatedData)
     {
         var existingData = await _context.ExtractedData.FindAsync(id);

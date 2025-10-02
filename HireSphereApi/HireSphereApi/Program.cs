@@ -20,12 +20,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 Env.Load("keys.env");
 
-// מקבל את הערכים
 string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID") ?? throw new InvalidOperationException("AWS_ACCESS_KEY_ID is missing."); ;
-string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
-string region = Environment.GetEnvironmentVariable("AWS_REGION");
+string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY") ?? throw new InvalidOperationException("AWS_SECRET_ACCESS_KEY is missing.");
+string region = Environment.GetEnvironmentVariable("AWS_REGION") ?? throw new InvalidOperationException("AWS_REGION is missing.");
 
-Console.WriteLine("accessKey " + accessKey + " secretKey " + secretKey + " region " + region);
 builder.Services.AddCors();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -50,10 +48,7 @@ builder.Services.AddSingleton<OpenAIClient>(sp =>
     return new OpenAIClient(apiKey);
 });
 
-builder.Services.AddScoped<AIService>(); // Register your AIService
-
-
-
+builder.Services.AddScoped<AIService>(); 
 builder.Services.AddScoped<TextExtractionService>();
 
 builder.Services.AddSwaggerGen(options =>
