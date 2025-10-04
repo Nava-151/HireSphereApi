@@ -36,11 +36,7 @@ public class AIService : IAIService
             model = "gpt-4o-mini",
             messages = new[] {
                 new { role = "system", content = "You are an AI that extracts resume data." },
-                new { role = "user", content = $"Extract the following information: Experience calculate from the text and return me a" +
-                    $" number of years - an intger don't give me word only a number of years" +
-                    $" Education return me one of the following option College , University, or Another ," +
-                    $" Programming Languages return an array of languages he or she has ever been experienced , " +
-                    $"English Level- return the english level in one of the words as it sounds from the file Beginner, Intermediate, Advanced, Fluent.\n\n{resumeText}" }
+                new { role = "user", content = BuildResumePrompt(resumeText) }
             },
             temperature = 0.5
         };
@@ -53,7 +49,6 @@ public class AIService : IAIService
 
         var response = await _httpClient.PostAsync("https://api.openai.com/v1/chat/completions", content);
         var responseBody = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(response.StatusCode + " *** content:*** " + responseBody);
 
         if (!response.IsSuccessStatusCode)
             throw new Exception("AI request failed.");
@@ -73,7 +68,6 @@ public class AIService : IAIService
         static AIResponse ParseAIResponse(string input)
         {
             input = CleanInput(input);
-
             try
             {
                 var jObj = JObject.Parse(input);
